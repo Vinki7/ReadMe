@@ -105,6 +105,9 @@ This project is for ***educational purposes only.***
 
 **TODO:** Next steps & detailed approach TBD
 
+## Database structure
+![Entity Relation Diagram](./.doc/ReadMe_project%20-%20DB%20relations.png)
+
 # Dev rules / practices
 This section should describe practices and conventions to be used during the development process
 
