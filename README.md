@@ -6,7 +6,7 @@ The platform allows users to browse books by category, search for specific title
 Admins can manage books, categories, and orders through a dedicated admin panel. 
 
 ### Features
-All known features are described bellow...
+All known features are described below...
 
 #### 🛍️ Client Side  
 - Browse books by categories  
@@ -30,7 +30,52 @@ All known features are described bellow...
 - **Database:** PostgreSQL  
 - **Version Control:** GitHub  
 
-### Installation  
+## License
+This project is for ***educational purposes only.***
+
+# Project Wiki
+**TODO:** define project here
+
+## Work environment setup
+1. Download XAMPP from the following link:
+- project will use PHP v. 8.2.12
+- https://www.apachefriends.org/download.html
+- you can go through the installation wizard and let the preset settings remain (might be beneficial in further work)
+- then open CMD and type in:
+   ```sh
+   php -v
+ - if you get something like this continue to step 2:
+   ```sh
+   PHP 8.2.12 (cli) (built: Oct 24 2023 21:15:15) (ZTS Visual C++ 2019 x64)
+   Copyright (c) The PHP Group
+   Zend Engine v4.2.12, Copyright (c) Zend Technologies
+- if the above statement was not displayed and you get statement like> php is not recognized, you need to set up your env PATH:
+  - through environment settings
+  - manually in cmd: 
+   ```sh
+   set PATH=%PATH%;C:\path\to\php\installed\with\xampp
+- then test it again by asking for a version of PHP:
+   ```sh
+   php -v
+- you should now have displayed the version
+  
+2. Download PHP package manager - composer:
+- please, don't make the same mistake as the author did. Download the installer and follow the instructions on this page:
+  [composer installer](https://getcomposer.org/Composer-Setup.exe)
+  [composer guide](https://www.tpointtech.com/how-to-install-composer-on-windows)
+
+3. Download Node.js if it is absent on your system and follow the instructions on the link below, it will be needed for usage of npm:
+   [Node.js](https://nodejs.org/en/download)
+
+4. Setup VS code:
+- get PHP extension by Devsense
+- get Laravel extensions: Laravel Extension Pack
+- get Prettier - code formater
+- get Tailwind CSS IntelliSense
+
+**TODO:** continue with the wiki here
+
+## Project Installation  
 1. Clone this repository:  
    ```sh
    git clone https://github.com/Vinki7/ReadMe.git
@@ -59,12 +104,6 @@ All known features are described bellow...
     http://localhost:8000
 
 **TODO:** Next steps & detailed approach TBD
-
-## License
-This project is for ***educational purposes only.***
-
-# Project Wiki
-**TODO:** Start writing the wiki here
 
 # Dev rules / practices
 This section should describe practices and conventions to be used during the development process
