@@ -199,6 +199,99 @@ ReadMe/
 # Dev rules / practices
 This section should describe practices and conventions to be used during the development process
 
+## Code style
+
+### General Guidelines
+- Follow the PSR-12 coding standard for PHP code:
+    - **Files**: All PHP files must use the `<?php` or `<?=` tags. Files must use only `UTF-8` without BOM for PHP code.
+    - **Indentation**: Code must use 4 spaces for indentation, not tabs.
+    - **Lines**: Lines should not be longer than 80 characters; lines longer than that should be split into multiple lines.
+    - **Keywords and Constants**: PHP keywords must be in lower case. The PHP constants `true`, `false`, and `null` must be in lower case.
+    - **Namespaces and Use Declarations**: Namespaces and use declarations must be declared at the top of the file.
+    - **Classes and Methods**: Class names must be declared in `StudlyCaps`. Method names must be declared in `camelCase`.
+    - **Properties**: Property names should not be prefixed with a single underscore to indicate protected or private visibility.
+    - **Control Structures**: Control structure keywords must have one space after them; method and function calls must not.
+    - **Closures**: Closures must be declared with a space after the `function` keyword, and a space before and after the `use` keyword.
+- Use 4 spaces for indentation, no tabs.
+- Keep lines under 80 characters.
+- Use meaningful variable and function names.
+- Write comments to explain complex logic and decisions.
+
+### PHP
+- Use `<?php` tags.
+- Class names should be in `PascalCase`.
+- Method names should be in `camelCase`.
+- Constants should be in `UPPER_SNAKE_CASE`.
+- Use type hints for functions and methods.
+- Use strict types where possible.
+
+### JavaScript
+- Use `const` and `let` instead of `var`.
+- Use `camelCase` for variable and function names.
+- Use `PascalCase` for class names.
+- Use `===` and `!==` for comparisons.
+- Prefer arrow functions for anonymous functions.
+
+### CSS / SaSS
+- Use `kebab-case` for class names.
+- Use `rem` units for font sizes and spacing.
+- Group related CSS properties together.
+- Use BEM (Block Element Modifier) methodology for naming classes.
+
+### HTML
+- Use semantic HTML5 elements.
+- Use double quotes for attribute values.
+- Self-close void elements (e.g., `<img />`).
+
+
+## Clean code principles
+
+### Readability
+- Write code that is easy to read and understand.
+- Use meaningful and descriptive names for variables, functions, classes, and other identifiers.
+- Break down complex logic into smaller, manageable functions or methods.
+- Use comments to explain the purpose of the code, especially for complex or non-obvious logic.
+- However, the code should be self-explaining so try to achieve this level of readability => comments can be avoided.
+
+### Consistency
+- Follow the established coding standards and conventions throughout the codebase.
+- Maintain a consistent style for indentation, spacing, and line breaks.
+- Use consistent naming conventions for variables, functions, classes, and other identifiers.
+
+### Simplicity
+- Keep the code as simple as possible while still solving the problem.
+- Avoid unnecessary complexity and over-engineering.
+- Use straightforward and clear logic.
+
+### Modularity
+- Write modular code by breaking down functionality into smaller, reusable components.
+- Use functions, methods, and classes to encapsulate related logic.
+- Follow the Single Responsibility Principle (SRP) to ensure that each module has a single responsibility.
+
+### Maintainability
+- Write code that is easy to maintain and modify.
+- Use version control to track changes and collaborate with others.
+- Refactor code regularly to improve its structure and readability.
+- Write unit tests to ensure that the code works as expected and to prevent regressions.
+
+### Performance
+- Write efficient code that performs well.
+- Optimize critical sections of the code for performance.
+- Avoid premature optimization; focus on readability and maintainability first.
+
+### Error Handling
+- Handle errors and exceptions gracefully.
+- Use try-catch blocks to manage exceptions and provide meaningful error messages.
+- Validate input data to prevent errors and ensure data integrity.
+
+### Documentation
+- Document the code to provide context and explanations.
+- Use docstrings and comments to describe the purpose and usage of functions, methods, and classes.
+- Maintain up-to-date documentation for the project, including README files and wikis.
+
+By following these clean code principles, we can ensure that our codebase remains high-quality, maintainable, and efficient.
+
+
 ## Contribution Guidelines
 
 - **The first Pull Request (PR) should serve as an outline/template** for future contributions.  
