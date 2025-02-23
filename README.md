@@ -53,40 +53,40 @@ would have following benefits:
     - **Benefit:** Improves data validation & ensures only necessary data is passed.
 
 ## Project Structure
-ReadMe/
-├── app/
-│   ├── Console/           # Artisan commands
-│   ├── Exceptions/        # Custom error handling
-│   ├── Http/
-│   │   ├── Controllers/   # Handles HTTP requests
-│   │   ├── Middleware/    # Custom middleware
-│   │   ├── Requests/      # Request validation
-│   ├── Models/            # Eloquent models
-│   ├── Services/          # Business logic layer
-│   ├── Repositories/
-│   │   ├── Interfaces/    # Repository interfaces
-│   │   ├── Eloquent/      # Eloquent-based implementations
-│   ├── Providers/         # Service providers
-├── bootstrap/             # Laravel bootstrap files
-├── config/                # Configuration files
-├── database/
-│   ├── factories/         # Model factories
-│   ├── migrations/        # Database migrations
-│   ├── seeders/           # Database seeders
-├── public/                # Entry point (index.php) and assets
-├── resources/
-│   ├── views/             # Blade templates
-│   ├── lang/              # Language files
-├── routes/
-│   ├── api.php            # API routes
-│   ├── web.php            # Web routes
-├── storage/               # File storage (logs, cache, etc.)
-├── tests/                 # Unit and feature tests
-├── vendor/                # Composer dependencies
-├── .env                   # Environment variables
-├── artisan                # Artisan CLI
-├── composer.json          # Composer dependencies
-├── package.json           # Node.js dependencies
+ReadMe/<br>
+├── app/<br>
+│   ├── Console/           # Artisan commands<br>
+│   ├── Exceptions/        # Custom error handling<br>
+│   ├── Http/<br>
+│   │   ├── Controllers/   # Handles HTTP requests<br>
+│   │   ├── Middleware/    # Custom middleware<br>
+│   │   ├── Requests/      # Request validation<br>
+│   ├── Models/            # Eloquent models<br>
+│   ├── Services/          # Business logic layer<br>
+│   ├── Repositories/<br>
+│   │   ├── Interfaces/    # Repository interfaces<br>
+│   │   ├── Eloquent/      # Eloquent-based implementations<br>
+│   ├── Providers/         # Service providers<br>
+├── bootstrap/             # Laravel bootstrap files<br>
+├── config/                # Configuration files<br>
+├── database/<br>
+│   ├── factories/         # Model factories<br>
+│   ├── migrations/        # Database migrations<br>
+│   ├── seeders/           # Database seeders<br>
+├── public/                # Entry point (index.php) and assets<br>
+├── resources/<br>
+│   ├── views/             # Blade templates<br>
+│   ├── lang/              # Language files<br>
+├── routes/<br>
+│   ├── api.php            # API routes<br>
+│   ├── web.php            # Web routes<br>
+├── storage/               # File storage (logs, cache, etc.)<br>
+├── tests/                 # Unit and feature tests<br>
+├── vendor/                # Composer dependencies<br>
+├── .env                   # Environment variables<br>
+├── artisan                # Artisan CLI<br>
+├── composer.json          # Composer dependencies<br>
+├── package.json           # Node.js dependencies<br>
 └── README.md              # Project documentation
 
 ### 🏗️ Project Layers Explanation
