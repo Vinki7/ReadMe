@@ -34,7 +34,95 @@ All known features are described below...
 This project is for ***educational purposes only.***
 
 # Project Wiki
-**TODO:** define project here
+
+This project will use Laravel as a core framework. Usage of MVC (Model-View-Controller) design pattern would suffice 
+for the scope of the project. However, to follow slightly more modular approach, integrating light Clean Architecture 
+would have following benefits:
+
+1. Decouples Business Logic from Controllers:
+    - Instead of putting logic in controllers, Services handle the actual business logic.
+    - Controllers only call Services & return responses.
+    - **Benefit:** Easier to maintain, test, and modify business logic.
+
+2. Separates Database Queries Using Repositories:
+    - Instead of directly retreiving data from database, **Repositories** will handle the logic.
+    - **Benefit:** Allows easier refactoring when changing the database, ORM or core logic.
+
+3. Uses DTOs for Cleaner Data Management:
+    - Instead of passing raw request data, DTOs structure the input/output.
+    - **Benefit:** Improves data validation & ensures only necessary data is passed.
+
+## Project Structure
+ReadMe/
+├── app/
+│   ├── Console/           # Artisan commands
+│   ├── Exceptions/        # Custom error handling
+│   ├── Http/
+│   │   ├── Controllers/   # Handles HTTP requests
+│   │   ├── Middleware/    # Custom middleware
+│   │   ├── Requests/      # Request validation
+│   ├── Models/            # Eloquent models
+│   ├── Services/          # Business logic layer
+│   ├── Repositories/
+│   │   ├── Interfaces/    # Repository interfaces
+│   │   ├── Eloquent/      # Eloquent-based implementations
+│   ├── Providers/         # Service providers
+├── bootstrap/             # Laravel bootstrap files
+├── config/                # Configuration files
+├── database/
+│   ├── factories/         # Model factories
+│   ├── migrations/        # Database migrations
+│   ├── seeders/           # Database seeders
+├── public/                # Entry point (index.php) and assets
+├── resources/
+│   ├── views/             # Blade templates
+│   ├── lang/              # Language files
+├── routes/
+│   ├── api.php            # API routes
+│   ├── web.php            # Web routes
+├── storage/               # File storage (logs, cache, etc.)
+├── tests/                 # Unit and feature tests
+├── vendor/                # Composer dependencies
+├── .env                   # Environment variables
+├── artisan                # Artisan CLI
+├── composer.json          # Composer dependencies
+├── package.json           # Node.js dependencies
+└── README.md              # Project documentation
+
+### 🏗️ Project Layers Explanation
+
+1. Models (app/Models/)
+    - Represents database tables using Eloquent ORM.
+    - Defines relationships, accessors, and mutators.
+
+2. Repositories (app/Repositories/)
+    - Encapsulates database queries using Eloquent ORM.
+    - Allows switching ORM or database implementation easily.
+    - Example:
+        - app/Repositories/Interfaces/ProductRepositoryInterface.php
+        - app/Repositories/Eloquent/ProductRepository.php
+
+3. Services (app/Services/)
+    - Contains business logic and interacts with repositories.
+    - Helps keep controllers clean.
+    - Example:
+        - app/Services/ProductService.php
+
+4. Controllers (app/Http/Controllers/)
+    - Handles HTTP requests and responses.
+    - Calls services for business logic.
+
+5. Requests (app/Http/Requests/)
+    - Validates incoming requests before reaching the controller.
+
+6. Views (resources/views/)
+    - Contains Blade templates for UI rendering.
+
+7. Routes (routes/)
+    - web.php - Handles web requests (e.g., /books, /cart).
+    - api.php - Defines API routes for a RESTful service.
+
+**TODO:** continue with project specification here project here
 
 ## Work environment setup
 1. Download XAMPP from the following link:
