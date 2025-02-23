@@ -63,10 +63,10 @@ ReadMe/<br>
 │   │   ├── Requests/      # Request validation<br>
 │   ├── Models/            # Eloquent models<br>
 │   ├── Services/          # Business logic layer<br>
-│   ├── Repositories/<br>
 │   │   ├── Interfaces/    # Repository interfaces<br>
 │   │   ├── Eloquent/      # Eloquent-based implementations<br>
 │   ├── Providers/         # Service providers<br>
+│   ├── Repositories/<br>
 ├── bootstrap/             # Laravel bootstrap files<br>
 ├── config/                # Configuration files<br>
 ├── database/<br>
