@@ -231,7 +231,19 @@ ReadMe/<br>
 ## Database structure
 ![Entity Relation Diagram](./.doc/ReadMe_project%20-%20DB%20relations.png)
 
+# Creating Components
+
+Components can be created using CLI.
+- To create Controller:
+    ```sh
+    php artisan make:controller ControllerName
+
+- To create View:
+    ```sh
+    php artisan make:view blockName.pageName
+
 # Dev rules / practices
+
 This section should describe practices and conventions to be used during the development process
 
 ## Code style

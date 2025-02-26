@@ -44,3 +44,5 @@ npm-debug.log
 /.nova
 /.vscode
 /.zed
+
+bootstrap/cache/
