@@ -192,7 +192,7 @@ ReadMe/<br>
 
 4. Set up the docker DB image
     ```sh
-    docker run --name ReadMeDB -e POSTGRES_PASSWORD=ReadMe@5678 -p 5432:5678 -d postgres
+    docker run --name ReadMeDB -e POSTGRES_PASSWORD=ReadMe@5678 -p 5678:5432 -d postgres
 
 5. Migrate the database:
     ```sh
