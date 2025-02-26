@@ -170,7 +170,7 @@ ReadMe/<br>
 - get PHP extension by Devsense
 - get Laravel extensions: Laravel Extension Pack
 - get Prettier - code formater
-- get Tailwind CSS IntelliSense
+- get Bootstrap 5 Quick Snippets
 
 **TODO:** continue with the wiki here
 
