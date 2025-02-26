@@ -63,10 +63,10 @@ ReadMe/<br>
 │   │   ├── Requests/      # Request validation<br>
 │   ├── Models/            # Eloquent models<br>
 │   ├── Services/          # Business logic layer<br>
-│   ├── Repositories/<br>
 │   │   ├── Interfaces/    # Repository interfaces<br>
 │   │   ├── Eloquent/      # Eloquent-based implementations<br>
 │   ├── Providers/         # Service providers<br>
+│   ├── Repositories/<br>
 ├── bootstrap/             # Laravel bootstrap files<br>
 ├── config/                # Configuration files<br>
 ├── database/<br>
@@ -155,7 +155,18 @@ ReadMe/<br>
 3. Download Node.js if it is absent on your system and follow the instructions on the link below, it will be needed for usage of npm:
    [Node.js](https://nodejs.org/en/download)
 
-4. Setup VS code:
+4. Download Laravel
+- laravel --version
+    - if the outcome is something like laravel is not recognized, you need to:
+    - download laravel:
+        ```sh
+        composer global require laravel/installer
+    - If your OS is windows, just restart the terminal.
+    - If you are on Mac or Linux, run:
+        ```sh
+        export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+5. Setup VS code:
 - get PHP extension by Devsense
 - get Laravel extensions: Laravel Extension Pack
 - get Prettier - code formater
@@ -176,22 +187,46 @@ ReadMe/<br>
 
 3. Set up the environment:
     ```sh
-    cp .env.example .env
+    cp .env.example .env -: Maybe not necessary **TODO:** figure out
     php artisan key:generate
 
-4. Migrate the database:
+4. Set up the docker DB image
+    ```sh
+    docker run --name ReadMeDB -e POSTGRES_PASSWORD=ReadMe@5678 -p 5432:5678 -d postgres
+
+5. Migrate the database:
     ```sh
     php artisan migrate --seed
 
-5. Start the development server:
+6. Run the app locally:
+    ```sh
+    php artisan serve --port=8080
+
+7. Set up database if needed:
+- open .env file from the project folder
+- find the database section:
+    ```text 
+    DB_CONNECTION=pgsql
+    DB_HOST=127.0.0.1
+    DB_PORT=5432
+    DB_DATABASE=your_database
+    DB_USERNAME=your_username
+    DB_PASSWORD=your_password
+- Ensure the credentials match your PostgreSQL setup:
+    ```text
+    DB_HOST=127.0.0.1 (Try using localhost if needed.)
+    DB_PORT=5678 (Verify this is correct.)
+    DB_DATABASE must match the database name you created.
+    DB_USERNAME and DB_PASSWORD must be correct.
+
+7. Start the development server:
     ```sh
     php artisan serve
     npm run dev
 
-6. Open your browser and visit:
-    http://localhost:8000
+8. Open your browser and visit:
+    http://localhost:8080
 
-**TODO:** Next steps & detailed approach TBD
 
 ## Database structure
 ![Entity Relation Diagram](./.doc/ReadMe_project%20-%20DB%20relations.png)
