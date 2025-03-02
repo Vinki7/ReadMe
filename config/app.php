@@ -123,4 +123,8 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+
+    'constants' => [
+        'minimal_desktop_screen_resolution' => 1024,
+    ],
 ];
