@@ -212,3 +212,7 @@ small .note {
 
 // Now, import Bootstrap's SCSS
 @import "bootstrap/scss/bootstrap";
+
+header {
+    border-bottom: 0.2rem solid $primary-200;
+}

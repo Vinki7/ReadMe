@@ -4,13 +4,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="csfr-token" content="{{ csrf_token() }}">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>@yield('title') | {{ config('app.name', 'Laravel')}}</title>
 
         @vite(['resources/css/app.scss', 'resources/js/app.js'])
     </head>
     <body>
-        <x-header></x-header>
+        <x-header-component></x-header-component>
         <main>
             <div *ngIf="isSidebarVisible && !isDesktopView" [ngClass]="{'visible':isSidebarVisible}" class="overlay" (click)="toggleSidebar()"></div>
             <nav [ngClass]="{'hidden': !isSidebarVisible}" class="sidebar col-3">
@@ -32,5 +32,6 @@
             </article>
         </main>
         <footer>Page footer Here!!!</footer>
+
     </body>
 </html>
