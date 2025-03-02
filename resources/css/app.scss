@@ -1,7 +1,19 @@
-// Import Bootstrap SCSS
+// Import the Montserrat font face
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../../public/fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype'),
+         url('../../public/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// Set Montserrat for the whole app
+body {
+    font-family: 'Montserrat', sans-serif; // Ensures Montserrat is applied globally
+}
+
+// Optionally, you can ensure Bootstrap uses Montserrat too by overriding its variable
+$font-family-sans-serif: 'Montserrat', sans-serif;
+
+// Now, import Bootstrap's SCSS
 @import "bootstrap/scss/bootstrap";
-
-// Custom Bootstrap variables (before Bootstrap import)
-
-// Add your custom styles below
-
