@@ -95,5 +95,120 @@ $info: $primary-300;
 $success: $secondary-300;
 $warning: $secondary-100;
 
+// Typography
+
+// SCSS for Heading 1
+$heading-1-font-size: 3rem;
+$heading-1-font-family: 'Montserrat', sans-serif;
+$heading-1-font-weight: bold;
+$heading-1-line-height: 120%;
+
+h1 {
+  font-size: $heading-1-font-size;
+  font-family: $heading-1-font-family;
+  font-weight: $heading-1-font-weight;
+  line-height: $heading-1-line-height;
+}
+
+// SCSS for Heading 2
+$heading-2-font-size: 2.5rem;
+$heading-2-font-family: 'Montserrat', sans-serif;
+$heading-2-font-weight: 600;
+$heading-2-line-height: 120%;
+
+h2 {
+  font-size: $heading-2-font-size;
+  font-family: $heading-2-font-family;
+  font-weight: $heading-2-font-weight;
+  line-height: $heading-2-line-height;
+}
+
+// SCSS for Heading 3
+$heading-3-font-size: 2.062rem;
+$heading-3-font-family: 'Montserrat', sans-serif;
+$heading-3-font-weight: 500;
+$heading-3-line-height: 120%;
+h3 {
+  font-size: $heading-3-font-size;
+  font-family: $heading-3-font-family;
+  font-weight: $heading-3-font-weight;
+  line-height: $heading-3-line-height;
+}
+
+// SCSS for Heading 4
+$heading-4-font-size: 1.75rem;
+$heading-4-font-family: 'Montserrat', sans-serif;
+$heading-4-font-weight: 400;
+$heading-4-line-height: 120%;
+h4 {
+  font-size: $heading-4-font-size;
+  font-family: $heading-4-font-family;
+  font-weight: $heading-4-font-weight;
+  line-height: $heading-4-line-height;
+}
+
+// SCSS for Title
+$title-font-size: 1.438rem;
+$title-font-family: 'Montserrat', sans-serif;
+$title-font-weight: bold;
+$title-line-height: 120%;
+h5 {
+  font-size: $title-font-size;
+  font-family: $title-font-family;
+  font-weight: $title-font-weight;
+  line-height: $title-line-height;
+}
+
+// SCSS for Subtitle
+$subtitle-font-size: 1.18rem;
+$subtitle-font-family: 'Montserrat', sans-serif;
+$subtitle-font-weight: 500;
+$subtitle-line-height: 120%;
+h6 {
+  font-size: $subtitle-font-size;
+  font-family: $subtitle-font-family;
+  font-weight: $subtitle-font-weight;
+  line-height: $subtitle-line-height;
+}
+
+// SCSS for Body
+$body-font-size: 1rem;
+$body-font-family: 'Montserrat', sans-serif;
+$body-font-weight: 400;
+$body-line-height: 120%;
+p {
+  font-size: $body-font-size;
+  font-family: $body-font-family;
+  font-weight: $body-font-weight;
+  line-height: $body-line-height;
+}
+
+// SCSS for Description
+$description-font-size: 0.812rem;
+$description-font-family: 'Montserrat', sans-serif;
+$description-font-weight: 300;
+$description-line-height: 120%;
+small .description {
+  font-size: $description-font-size;
+  font-family: $description-font-family;
+  font-weight: $description-font-weight;
+  line-height: $description-line-height;
+}
+
+// SCSS for note
+$note-font-size: 0.688rem;
+$note-font-family: 'Montserrat', sans-serif;
+$note-font-weight: 200;
+$note-line-height: 120%;
+
+small .note {
+  font-size: $note-font-size;
+  font-family: $note-font-family;
+  font-weight: $note-font-weight;
+  line-height: $note-line-height;
+}
+
+
+
 // Now, import Bootstrap's SCSS
 @import "bootstrap/scss/bootstrap";
