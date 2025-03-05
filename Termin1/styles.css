@@ -182,7 +182,6 @@ footer {
     color: white; /* Ensure text contrast */
 }
 
-/* Add an overlay for the dark effect */
 .title-section::before {
     content: "";
     position: absolute;
@@ -196,6 +195,13 @@ footer {
 .title-section div {
     position: relative;
     z-index: 1;
+}
+
+/* cathegories */
+.category-header {
+    padding: 1rem;
+    border-bottom: 0.2rem solid var(--secondary-400, #8F5A06);
+    margin-right: 7rem;
 }
 
 /* Overriden nav */
@@ -253,14 +259,20 @@ footer {
     align-content: center;
     gap: 0.625rem;
     flex-wrap: wrap;
+    color: var(--white-base, #FFF);
 
     border-radius: 6.25rem;
     background: var(--primary-500, #46607A);
     box-shadow: 0rem 0rem var(--Blur, 0.75rem) 0rem var(--DropShadow, rgba(0, 0, 0, 0.25));
 }
 
+.btn:active {
+    background: var(--primary-600, #2C3E50);
+}
+
 .btn:hover {
     background: var(--primary-700, #141F29);
+    color: var(--white-base, #FFF);
 }
 
 .btn .btn-sm {
@@ -269,6 +281,15 @@ footer {
 
 .btn .btn-lg {
     padding: 0.625rem 1.5625rem;
+}
+
+.btn-primary {
+    background: var(--primary-200, #BCD0E7);
+    color: var(--primary-base, #2C3E50);
+}
+
+.btn-primary:hover {
+    background: var(--primary-300, #81AAD4);
 }
 
 .btn-icon {
@@ -288,4 +309,12 @@ footer {
 
 .btn-icon:hover {
     background: var(--charcoal-300, #ADA5A7);
+}
+
+.btn-charcoal {
+    background: var(--charcoal-500, #655B5E);
+}
+
+.btn-charcoal:hover {
+    background: var(--charcoal-700, #211D1E);
 }
