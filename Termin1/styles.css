@@ -144,7 +144,7 @@ header {
     border-bottom: 0.2rem solid #bcd0e7;
 }
 
-#logo {
+.logo {
     text-align: center;
     font-size: 2rem;
     font-weight: 400;
@@ -152,7 +152,7 @@ header {
     padding: 1.5rem 2rem;
 }
 
-#logo span {
+.logo span {
     color: var(--secondary-base, #F39C12);
 }
 
@@ -198,6 +198,21 @@ header {
     background: var(--charcoal-200, #D1CDCE);
 }
 
+/* New footer helpers */
+footer {
+    gap: 0.625rem;
+    border-top: 0.2rem solid var(--primary-200, #BCD0E7);
+    background: #FFF;
+}
+
+.bottom-content {
+    border-top: 0.05rem solid var(--secondary-200, #F39C12);
+}
+
+.top-content {
+    max-width: fit-content;
+}
+
 /* Overriden buttons */
 .btn {
     display: inline-flex;
@@ -236,7 +251,7 @@ header {
 
     border-radius: 6.25rem;
     background: var(--charcoal-200, #D1CDCE);
-    box-shadow: 0px 0px var(--Blur, 0.75rem) 0px var(--DropShadow, rgba(0, 0, 0, 0.25));
+    box-shadow: 0rem 0rem var(--Blur, 0.75rem) 0rem var(--DropShadow, rgba(0, 0, 0, 0.25));
     color: var(--black-base);
 }
 
