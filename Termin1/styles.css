@@ -167,43 +167,6 @@ footer {
     max-width: fit-content;
 }
 
-/* main content */
-.title-section {
-    background-image: url("../public/images/backgrounds/close-up-open-book.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    height: 250px; /* Adjust to match design */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white; /* Ensure text contrast */
-}
-
-.title-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Adjust darkness level */
-}
-
-.title-section div {
-    position: relative;
-    z-index: 1;
-}
-
-/* cathegories */
-.category-header {
-    padding: 1rem;
-    border-bottom: 0.2rem solid var(--secondary-400, #8F5A06);
-    margin-right: 7rem;
-}
-
 /* Overriden nav */
 .navbar {
     border-bottom: 0.2rem solid var(--primary-200, #BCD0E7);
