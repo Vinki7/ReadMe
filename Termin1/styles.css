@@ -213,18 +213,6 @@ footer {
     background: var(--charcoal-200, #D1CDCE);
 }
 
-/*Make Home button orange when on home-page*/
-.home-page .nav-item.home {
-    background: var(--secondary-200, #F39C12);
-    color: var(--white-base, #FFFFFF);
-}
-
-/*Make Products button orange when products-page*/
-.products-page .nav-item.products {
-    background: var(--secondary-200, #F39C12);
-    color: var(--white-base, #FFFFFF);
-}
-
 /* Overriden buttons */
 .btn {
     display: inline-flex;
