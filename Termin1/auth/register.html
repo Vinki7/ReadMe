@@ -42,8 +42,11 @@
                     <h2>Register</h2>
                     <hr>
                 </header>
-                <!-- TODO: change the input fields and the appearance of the form -->
-                <form action="POST" class="d-flex flex-column gap-5 p-2 p-lg-5">
+                <form action="" method="post" class="d-flex flex-column gap-5 p-2 p-lg-5">
+                    <section class="d-flex flex-column gap-2">
+                        <label for="email">Username</label>
+                        <input type="email" name="email" id="email" placeholder="user@readme.com">
+                    </section>
                     <section class="d-flex flex-column gap-2">
                         <label for="username">Username</label>
                         <input type="text" name="username" id="username" placeholder="Enter your username">
@@ -52,12 +55,13 @@
                         <label for="password">Password</label>
                         <input type="password" name="password" id="password" placeholder="Enter your password">
                     </section>
-                    <section class="form-group">
-                        <a href="reset-password.html" class="btn">Reset password</a>
+                    <section class="d-flex flex-column gap-2">
+                        <label for="re-password">Password</label>
+                        <input type="password" name="re-password" id="re-password" placeholder="Repeat your password">
                     </section>
                     <section class="d-flex justify-content-center flex-column flex-sm-row gap-2 gap-lg-5">
-                        <a class="btn btn-charcoal" href="register.html">Register</a>
-                        <input type="submit" class="btn btn-secondary" value="Sign-in">
+                        <input type="submit" class="btn btn-secondary" value="Register">
+                        <a class="btn btn-charcoal" href="register.html">Sign-in</a>
                     </section>
                 </form>
             </section>
