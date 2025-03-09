@@ -67,6 +67,12 @@
     --blur: 12px;
 }
 
+/* Background colors */
+.bg-secondary {
+    background-color: var(--secondary-base);
+}
+
+/* Typography */
 @font-face {
     font-family: "Montserrat";
     src: url("../public/fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("truetype"), url("../public/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf") format("truetype");
@@ -270,8 +276,23 @@ footer {
     color: var(--black-base);
 }
 
-.btn-icon:hover {
+.btn-icon:hover, .btn-user:hover {
     background: var(--charcoal-300, #ADA5A7);
+}
+
+.link-profile {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    background: var(--charcoal-200, #D1CDCE);
+}
+
+.btn-user {
+    display: flex;
+    align-items: center;
+    border-radius: 6.25rem;
+    background: var(--charcoal-200, #D1CDCE);
+    box-shadow: 0rem 0rem var(--Blur, 0.75rem) 0rem var(--DropShadow, rgba(0, 0, 0, 0.25));
 }
 
 .btn-charcoal {
