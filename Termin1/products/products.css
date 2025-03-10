@@ -56,7 +56,7 @@ aside .p-3 select {
     width: 100%;
     max-width: 1000px;
     align-items: center;
-    gap: 40 px;
+    justify-content: space-between;
 }
 
 .search-container input {
