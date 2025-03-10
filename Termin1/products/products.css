@@ -48,6 +48,51 @@ aside .p-3 select {
     padding-right: 30px;
 }
 
+/* Range slider */
+aside .price-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+aside .range-slider {
+    position: relative;
+}
+
+aside .range-fill {
+    height: 6px;
+    background-color: var(--secondary-300, #c07a0c);
+    position: absolute;
+    z-index: 1;
+}
+
+aside input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    background: transparent;
+    position: absolute;
+    left: 0;
+}
+
+aside input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: var(--secondary-400, #8f5a06);
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    margin-top: -5px;
+}
+
+aside input[type="range"]::-webkit-slider-runnable-track {
+    height: 5px;
+    width: 100%;
+    background: var(--white-base, #ffffff);
+    border-radius: 3px;
+    border: none;
+}
+
 /* MAIN AREA STYLES */
 /* Search bar */
 .search-container {

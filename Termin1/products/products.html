@@ -44,9 +44,48 @@
                 <aside class="col-md-3">
                     <div class="p-3">
                         <h5>Filter</h5>
-                        <label class="form-label">Price range(double slider in future)</label>
-                        <input type="range" class="form-range" min="0" max="100" step="1">
-                        
+                        <!-- <label class="form-label">Price range(double slider in future)</label>
+                        <input type="range" class="form-range" min="0" max="100" step="1"> -->
+                        <div class="price-card">
+                            <label>
+                                Price Range
+                            </label>
+                            <div class="price-content">
+                                <div>
+                                    <label>Min</label>
+                                    <p id="min-value">0€</p>
+                                </div>
+                                <div>
+                                    <label>Max</label>
+                                    <p id="max-value">9999€</p>
+                                </div>
+                            </div>
+
+                            <div class="range-slider">
+                                <div class="range-fill"></div>
+
+                                <input
+                                    type="range"
+                                    class="min-price"
+                                    value="0"
+                                    min="0"
+                                    max="9999"
+                                    step="10"
+                                />
+
+                                <input
+                                    type="range"
+                                    class="max-price"
+                                    value="9999"
+                                    min="0"
+                                    max="9999"
+                                    step="10"
+                                />
+                            </div>
+                        </div>
+
+
+
                         <label class="form-label mt-3">Genre</label>
                         <select class="form-select">
                             <option>All</option>
@@ -81,29 +120,29 @@
                         <input type="text" class="form-control w-50" placeholder="Search">
 
                             <!-- Ordering buttons -->
-                            <div class="order-group" role="group">
-                                <!-- Name sort buttons -->
-                                <input type="radio" id="name-asc" name="sort" class="order-radio">
-                                <label for="name-asc" class="order-button">
-                                    Name <img src="../../public/images/icons/chevron_up_icon.png" class="order-icon">
-                                </label>
+                        <div class="order-group" role="group">
+                            <!-- Name sort buttons -->
+                            <input type="radio" id="name-asc" name="sort" class="order-radio">
+                            <label for="name-asc" class="order-button">
+                                Name <img src="../../public/images/icons/chevron_up_icon.png" class="order-icon">
+                            </label>
 
-                                <input type="radio" id="name-desc" name="sort" class="order-radio">
-                                <label for="name-desc" class="order-button">
-                                    Name <img src="../../public/images/icons/chevron_down_icon.png" class="order-icon">
-                                </label>
+                            <input type="radio" id="name-desc" name="sort" class="order-radio">
+                            <label for="name-desc" class="order-button">
+                                Name <img src="../../public/images/icons/chevron_down_icon.png" class="order-icon">
+                            </label>
 
-                                <!-- Price Sort Buttons -->
-                                <input type="radio" id="price-asc" name="sort" class="order-radio">
-                                <label for="price-asc" class="order-button">
-                                    Price <img src="../../public/images/icons/chevron_up_icon.png" class="order-icon">
-                                </label>
+                            <!-- Price Sort Buttons -->
+                            <input type="radio" id="price-asc" name="sort" class="order-radio">
+                            <label for="price-asc" class="order-button">
+                                Price <img src="../../public/images/icons/chevron_up_icon.png" class="order-icon">
+                            </label>
 
-                                <input type="radio" id="price-desc" name="sort" class="order-radio">
-                                <label for="price-desc" class="order-button">
-                                    Price <img src="../../public/images/icons/chevron_down_icon.png" class="order-icon">
-                                </label>
-                            </div>
+                            <input type="radio" id="price-desc" name="sort" class="order-radio">
+                            <label for="price-desc" class="order-button">
+                                Price <img src="../../public/images/icons/chevron_down_icon.png" class="order-icon">
+                            </label>
+                        </div>
                     </div>
                 </section>
 
