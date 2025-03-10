@@ -55,12 +55,14 @@ aside .price-content {
 }
 
 aside .range-slider {
+    width: 100%;
     position: relative;
+    margin: 15px 0 30px 0;
 }
 
 aside .range-fill {
     height: 6px;
-    background-color: var(--secondary-300, #c07a0c);
+    background-color: var(--secondary-400, #8f5a06);
     position: absolute;
     z-index: 1;
 }
@@ -75,8 +77,8 @@ aside input[type="range"] {
 
 aside input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: 15px;
-    width: 15px;
+    height: 16px;
+    width: 16px;
     border-radius: 50%;
     background: var(--secondary-400, #8f5a06);
     cursor: pointer;
