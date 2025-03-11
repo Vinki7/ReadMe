@@ -1,73 +1,37 @@
 @import url("../styles.css");
 
 /* ASIDE STYLES */
-aside.col-md-3 {
-    padding-top: 45px;
-    padding-left: 60px;
-    padding-right: 110px;
-}
-
-aside .p-3 {
+.filter-box {
     border-radius: 15px;
     border: 1px solid var(--black-base, #1e1e1e);
     background: var(--charcoal-100, #f1f0f1);
     box-shadow: 0px 0px var(--Blur, 12px) 0px var(--DropShadow, rgba(0, 0, 0, 0.25));
+    padding: 20px;
 }
 
-aside h5 {
-    color: var(--primary-600, #2C3E50);
-
-    font-family: Montserrat;
-    font-size: 33px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 120%;
+.offcanvas .filter-box {
+    padding: 20px;
 }
 
-aside .p-3 label {
-    color: var(--secondary-600, #361F01);
-
-    font-family: Montserrat;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
-}
-
-aside .p-3 select {
-    border-radius: 10px;
-    border: 1px solid var(--black-300, #a7a7a7);
-    background: var(--white-base, #ffffff);
-    box-shadow: 0px 0px var(--Blur, 12px) 0px var(--DropShadow, rgba(0, 0, 0, 0.251));
-
-    /* custom down arrow*/
-    background-image: url('../../public/images/icons/chevron_down_icon.png');
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 14px;
-    padding-right: 30px;
-}
-
-/* Range slider */
-aside .price-content {
+.price-content {
     display: flex;
     justify-content: space-between;
 }
 
-aside .range-slider {
+.range-slider {
     width: 100%;
     position: relative;
     margin: 15px 0 30px 0;
 }
 
-aside .range-fill {
+.range-fill {
     height: 6px;
     background-color: var(--secondary-400, #8f5a06);
     position: absolute;
     z-index: 1;
 }
 
-aside input[type="range"] {
+input[type="range"] {
     -webkit-appearance: none;
     width: 100%;
     background: transparent;
@@ -75,7 +39,7 @@ aside input[type="range"] {
     left: 0;
 }
 
-aside input[type="range"]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     height: 16px;
     width: 16px;
@@ -87,12 +51,40 @@ aside input[type="range"]::-webkit-slider-thumb {
     margin-top: -5px;
 }
 
-aside input[type="range"]::-webkit-slider-runnable-track {
+input[type="range"]::-webkit-slider-runnable-track {
     height: 5px;
     width: 100%;
     background: var(--white-base, #ffffff);
     border-radius: 3px;
     border: none;
+}
+
+aside.col-md-3 {
+    padding: 2rem;
+}
+
+@media (max-width: 768px) {
+    aside {
+        display: none;
+    }
+
+    .offcanvas {
+        width: 80%;
+    }
+
+    .offcanvas .offcanvas-body {
+        padding: 1.5rem;
+    }
+}
+
+/* FILTER BUTTON (MOBILE) */
+.filter-button {
+    margin-top: 20px; /* Add space below the header */
+    width: fit-content; /* Prevent full width */
+    padding: 10px 20px; /* Keep button size balanced */
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Center it */
 }
 
 /* MAIN AREA STYLES */

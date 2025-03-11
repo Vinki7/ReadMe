@@ -41,8 +41,8 @@
             <div class="row">
 
                 <!-- Side filter panel -->
-                <aside class="col-md-3">
-                    <div class="p-3">
+                <aside class="col-md-3 d-none d-md-block">
+                    <div class="filter-box">
                         <h5>Filter</h5>
                         <div class="price-card">
                             <label>
@@ -109,7 +109,83 @@
                         </select>
                     </div>
                 </aside>
-                
+
+                <!-- Small screen filter button -->
+                <div class="d-md-none text-center">
+                    <button class="filter-button btn btn-charcoal d-md-none mb-3" data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas">
+                        Filter
+                    </button>
+                </div>
+
+                <!-- Small screenfilter panel -->
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="filterOffcanvas">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title">Filter</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div class="filter-box">
+                            <label>Price Range</label>
+                            <div class="price-content">
+                                <div>
+                                    <label>Min</label>
+                                    <p id="min-value">€0</p>
+                                </div>
+                                <div>
+                                    <label>Max</label>
+                                    <p id="max-value">€9999</p>
+                                </div>
+                            </div>
+        
+                            <div class="range-slider">
+                                <div class="range-fill"></div>
+                                <input
+                                    type="range"
+                                    class="min-price"
+                                    value="0"
+                                    min="0"
+                                    max="9990"
+                                    step="10"
+                                />
+
+                                <input
+                                    type="range"
+                                    class="max-price"
+                                    value="9990"
+                                    min="0"
+                                    max="9990"
+                                    step="10"
+                                />
+                            </div>
+                        </div>
+
+                        <label class="form-label mt-3">Genre</label>
+                        <select class="form-select">
+                            <option>All</option>
+                            <option>Option data1</option>
+                            <option>Option data2</option>
+                            <option>Option data3</option>
+                        </select>
+    
+                        <label class="form-label mt-3">Author</label>
+                        <select class="form-select">
+                            <option>All</option>
+                            <option>Option data1</option>
+                            <option>Option data2</option>
+                            <option>Option data3</option>
+                        </select>
+    
+                        <label class="form-label mt-3">Language</label>
+                        <select class="form-select">
+                            <option>All</option>
+                            <option>Option data1</option>
+                            <option>Option data2</option>
+                            <option>Option data3</option>
+                        </select>
+                    </div>
+                </div>
+
+
                 <!-- Main area-->
                 <section class="col-md-9">
                     <!-- Search/order area -->

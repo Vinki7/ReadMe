@@ -1,37 +1,53 @@
-let minValue = document.getElementById("min-value");
-let maxValue = document.getElementById("max-value");
+document.addEventListener("DOMContentLoaded", function () {
+    function validateRange(container) {
+        const minValue = container.querySelector("#min-value");
+        const maxValue = container.querySelector("#max-value");
+        const rangeFill = container.querySelector(".range-fill");
+        const inputElements = container.querySelectorAll(".range-slider input");
 
-const rangeFill = document.querySelector(".range-fill");
+        if (!minValue || !maxValue || !rangeFill || inputElements.length < 2) return;
 
-// function to validate range and update fill
-function validateRange(){
-    let minPrice = parseInt(inputElements[0].value);
-    let maxPrice = parseInt(inputElements[1].value);
+        let minPrice = parseInt(inputElements[0].value);
+        let maxPrice = parseInt(inputElements[1].value);
 
-    // swap values
-    if(minPrice > maxPrice) {
-        let tmpValue = maxPrice;
-        maxPrice = minPrice;
-        minPrice = tmpValue;
+        // Ensure min value does not exceed max value
+        if (minPrice > maxPrice) {
+            let tmpValue = maxPrice;
+            maxPrice = minPrice;
+            minPrice = tmpValue;
+        }
+
+        // Calculate percentage position
+        const minPercent = ((minPrice - 10) / 9990) * 100;
+        const maxPercent = ((maxPrice - 10) / 9990) * 100;
+
+        // Update fill position
+        rangeFill.style.left = minPercent + "%";
+        rangeFill.style.width = (maxPercent - minPercent) + "%";
+
+        // Update displayed values
+        minValue.innerHTML = "€" + minPrice;
+        maxValue.innerHTML = "€" + maxPrice;
     }
 
-    // prercentage position 
-    const minPercent = ((minPrice - 10) / 9990) * 100;
-    const maxPercent = ((maxPrice - 10) / 9990) * 100;
+    function initSlider(container) {
+        const inputElements = container.querySelectorAll(".range-slider input");
+        if (inputElements.length < 2) return;
 
-    // set position and width of fill
-    rangeFill.style.left = minPercent + "%";
-    rangeFill.style.width = maxPercent - minPercent + "%";
+        inputElements.forEach((element) => {
+            element.addEventListener("input", function () {
+                validateRange(container);
+            });
+        });
 
-    // update displayed values
-    minValue.innerHTML = "€" + minPrice;
-    maxValue.innerHTML = "€" + maxPrice;
-}
+        validateRange(container); // Initialize values on page load
+    }
 
-// references to the input elements
-const inputElements = document.querySelectorAll(".range-slider input");
+    // Initialize sliders for both the main sidebar and offcanvas
+    initSlider(document);
 
-// event listener to input elements
-inputElements.forEach((element) => {
-    element.addEventListener("input", validateRange);
+    // When the Offcanvas opens, initialize sliders inside it
+    document.getElementById("filterOffcanvas").addEventListener("shown.bs.offcanvas", function () {
+        initSlider(this);
+    });
 });
