@@ -1,0 +1,72 @@
+@import url("../styles.css");
+
+main {
+    background-image: url("../../public/images/backgrounds/close-up-open-book.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white-base, #FFFFFF);
+}
+
+main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.auth-panel {
+    position: relative;
+    z-index: 1;
+
+    padding: 2.5625rem 0.9375rem;
+
+    border-radius: 1.25rem;
+    border: 0.125rem solid var(--charcoal-300, #ADA5A7);
+    background: var(--charcoal-200, #D1CDCE);
+    box-shadow: 0px 0px var(--Blur, 0.75rem) 0px var(--DropShadow, rgba(0, 0, 0, 0.25));
+}
+
+.auth-panel h2 {
+    color: var(--secondary-400, #8F5A06);
+    text-align: left;
+    margin-left: 2rem;
+}
+
+.auth-panel hr {
+    width: 100%;
+    height: 0.2rem;
+    background: var(--secondary-400, #8F5A06);
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    align-self: stretch;
+    color: var(--secondary-500, #613B03);
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+input {
+    display: flex;
+    align-self: stretch;
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid var(--white-300, #AFAFAF);
+    background: var(--White, #FFF);
+    box-shadow: 0px 0px var(--Blur, 12px) 0px var(--DropShadow, rgba(0, 0, 0, 0.25));
+}
