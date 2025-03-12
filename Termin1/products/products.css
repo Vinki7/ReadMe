@@ -63,7 +63,7 @@ aside.col-md-3 {
     padding: 2rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     aside {
         display: none;
     }
@@ -77,14 +77,25 @@ aside.col-md-3 {
     }
 }
 
+.offcanvas {
+    max-width: 400px;
+    width: 80%;
+}
+
+@media (min-width: 1025px) {
+    #filterOffcanvas {
+        display: none !important;
+    }
+}
+
 /* FILTER BUTTON (MOBILE) */
 .filter-button {
-    margin-top: 20px; /* Add space below the header */
-    width: fit-content; /* Prevent full width */
-    padding: 10px 20px; /* Keep button size balanced */
+    margin-top: 20px;
+    width: fit-content;
+    padding: 10px 20px;
     display: block;
     margin-left: auto;
-    margin-right: auto; /* Center it */
+    margin-right: auto;
 }
 
 /* MAIN AREA STYLES */
@@ -123,7 +134,7 @@ aside.col-md-3 {
 .order-button {
     width: auto;
     min-width: 6rem;
-    max-width: 25%;
+    max-width: 100%;
 
     display: flex;
     align-items: center;
