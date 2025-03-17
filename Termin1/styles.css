@@ -132,14 +132,14 @@ p, .option-value {
     line-height: 120%;
 }
 
-small .description {
+small .description, .description {
     font-size: 0.812rem;
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
     line-height: 120%;
 }
 
-small .note {
+small .note, .note {
     font-size: 0.688rem;
     font-family: "Montserrat", sans-serif;
     font-weight: 200;

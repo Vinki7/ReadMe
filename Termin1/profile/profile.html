@@ -72,7 +72,7 @@
                 </div>
                 <div class="d-flex d-md-block flex-column gap-1">
                     <h4 class="mb-3">Request Account Deactivation</h4>
-                    <button class="btn btn-charcoal">Request Deactivation</button>
+                    <button class="btn btn-charcoal" data-bs-toggle="modal" data-bs-target="#requestDeactivation">Request Deactivation</button>
                 </div>
                 <div class="d-flex d-md-block flex-column gap-1">
                     <h4 class="mb-3">Show Order History</h4>
@@ -129,6 +129,30 @@
                         <div class="d-flex flex-column gap-3 flex-md-row flex-wrap">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss Changes</button>
                             <button type="button" class="btn btn-charcoal" data-bs-dismiss="modal">Submit Changes</button>
+                        </div>
+                    </footer>
+                </form>
+            </div>
+        </section>
+        <section class="modal fade" id="requestDeactivation" tabindex="-1" aria-labelledby="requestDeactivationModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <form class="modal-content">
+                    <header class="modal-header">
+                        <h1 class="modal-title" id="requestDeactivationModalLabel">Account Informations</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </header>
+                    <div class="modal-body d-flex flex-column gap-3">
+                        <section class="d-flex flex-column gap-2">
+                            <p class="fw-medium">Account re-activation is long process. Are you sure you wish to deactivate your custommer account?</p>
+                        </section>
+                    </div>
+                    <footer class="modal-footer">
+                        <p class="text-center note">
+                            By submitting changes, I agree with taking full responsibilities for the changes I made and I am aware of possible consequences.
+                        </p>
+                        <div class="d-flex flex-column gap-3 flex-md-row flex-wrap">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-charcoal" data-bs-dismiss="modal">Deactivate Account</button>
                         </div>
                     </footer>
                 </form>
