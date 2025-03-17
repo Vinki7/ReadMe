@@ -138,7 +138,31 @@
             <div class="modal-dialog modal-dialog-centered">
                 <form class="modal-content">
                     <header class="modal-header">
-                        <h1 class="modal-title" id="requestDeactivationModalLabel">Account Informations</h1>
+                        <h1 class="modal-title" id="requestDeactivationModalLabel">Deactivate Account</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </header>
+                    <div class="modal-body d-flex flex-column gap-3">
+                        <section class="d-flex flex-column gap-2">
+                            <p class="fw-medium">Account re-activation is long process. Are you sure you wish to deactivate your custommer account?</p>
+                        </section>
+                    </div>
+                    <footer class="modal-footer">
+                        <p class="text-center note">
+                            By submitting changes, I agree with taking full responsibilities for the changes I made and I am aware of possible consequences.
+                        </p>
+                        <div class="d-flex flex-column gap-3 flex-md-row flex-wrap">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-charcoal" data-bs-dismiss="modal">Deactivate Account</button>
+                        </div>
+                    </footer>
+                </form>
+            </div>
+        </section>
+        <section class="modal fade" id="orderHistory" tabindex="-1" aria-labelledby="orderHistoryModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <form class="modal-content">
+                    <header class="modal-header">
+                        <h1 class="modal-title" id="orderHistoryModalLabel">Account Informations</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </header>
                     <div class="modal-body d-flex flex-column gap-3">
