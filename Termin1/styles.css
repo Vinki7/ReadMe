@@ -111,14 +111,14 @@ h4, .modal-subtitle {
     line-height: 120%;
 }
 
-h5 {
+h5, .title {
     font-size: 1.438rem;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
     line-height: 120%;
 }
 
-h6 {
+h6, .subtitle {
     font-size: 1.18rem;
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
@@ -144,6 +144,11 @@ small .note, .note {
     font-family: "Montserrat", sans-serif;
     font-weight: 200;
     line-height: 120%;
+}
+
+.divider {
+    background: var(--secondary-300, #C07A0C);
+    height: 0.175rem;
 }
 
 /* Header and footer */
@@ -247,6 +252,11 @@ input {
 .modal-content {
     border-radius: 1.6rem;
     padding: 2rem;
+}
+
+.modal-dialog {
+    max-width: 90%;
+    width: auto;
 }
 
 .modal-footer {

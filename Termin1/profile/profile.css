@@ -9,3 +9,25 @@
 .profile-card h3 {
     font-weight: 600;
 }
+
+.order-history-image {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 10 / 14.375;
+}
+
+.order-card {
+    border-radius: 0.625rem;
+    background: var(--charcoal-200, #D1CDCE);
+}
+
+@media screen and (min-width: 768px) {
+    .order-history-image {
+        width: 4.375rem;
+        height: 6.25rem;
+        object-fit: cover;
+    }
+
+}
+
