@@ -22,7 +22,7 @@
     background: var(--charcoal-200, #D1CDCE);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 577px) {
     .order-history-image {
         width: 4.375rem;
         height: 6.25rem;

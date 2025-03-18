@@ -251,7 +251,7 @@ footer {
 /* Modals */
 .modal-content {
     border-radius: 1.6rem;
-    padding: 2rem;
+    padding: 0.5rem;
 }
 
 .modal-dialog {
@@ -358,4 +358,17 @@ footer {
 
 .btn-charcoal:hover {
     background: var(--charcoal-700, #211D1E);
+}
+
+/* Media queries */
+@media screen and (min-width: 577px) {
+    .modal-dialog {
+        max-width: 40%;
+        width: auto;
+    }
+
+    .modal-dialog.wide-modal {
+        max-width: 90%;
+        width: auto;
+    }
 }
