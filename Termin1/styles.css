@@ -225,7 +225,7 @@ footer {
 }
 
 /* Forms */
-.form-label {
+.label {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -238,7 +238,7 @@ footer {
     line-height: 120%;
 }
 
-.form-input {
+.input {
     display: flex;
     align-self: stretch;
     padding: 0.5rem;
