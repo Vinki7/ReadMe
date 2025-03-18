@@ -44,19 +44,19 @@
                 </header>
                 <form action="" method="POST" class="d-flex flex-column gap-5 p-2 p-lg-5">
                     <section class="d-flex flex-column gap-2">
-                        <label for="username">Username</label>
-                        <input type="text" name="username" id="username" placeholder="Enter your username">
+                        <label class="form-label" for="username">Username</label>
+                        <input class="form-input" type="text" name="username" id="username" placeholder="Enter your username">
                     </section>
                     <section class="d-flex flex-column gap-2">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Enter your password">
+                        <label class="form-label" for="password">Password</label>
+                        <input class="form-input" type="password" name="password" id="password" placeholder="Enter your password">
                     </section>
                     <section class="form-group">
                         <a href="reset-password.html" class="btn">Reset password</a>
                     </section>
                     <section class="d-flex justify-content-center flex-column flex-sm-row gap-2 gap-lg-5">
                         <a class="btn btn-charcoal" href="register.html">Register</a>
-                        <input type="submit" class="btn btn-secondary" value="Sign-in">
+                        <input type="submit" class="btn btn-secondary" value="Sign-in" onclick="window.location.href='../home/index.html'; return false;">
                     </section>
                 </form>
             </section>
