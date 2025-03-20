@@ -151,6 +151,20 @@ small .note, .note {
     height: 0.175rem;
 }
 
+.card-body .card-title {
+    color: var(--secondary-400);
+    text-decoration: underline;
+    width: max-content;
+}
+
+.card-body .card-title:hover {
+    cursor: pointer;
+    background-color: var(--black-100);
+    border-radius: 0.5rem;
+    color: var(--secondary-300);
+}
+
+
 /* Header and footer */
 .logo {
     text-align: center;
