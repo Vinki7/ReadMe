@@ -8,7 +8,7 @@
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
         <!-- Link the built CSS file -->
-        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="product-details.css">
     </head>
     <body class="d-flex flex-column min-vh-100">
         <header class="navbar navbar-expand-lg bg-white shadow-sm">
@@ -36,7 +36,57 @@
                 </span>
             </div>
         </header>
-        <main class="container-fluid flex-grow-1 flex-column px-5">
+        <main class="container-fluid d-flex flex-grow-1 gap-4 flex-column px-5">
+            <section class="d-flex row flex-column flex-sm-row flex-wrap gap-4 my-3">
+                <div class="d-flex flex-row gap-3 justify-content-center col-12 col-sm-5 col-md-3">
+                    <div class="d-flex flex-column col-8">
+                        <img class="product-image product-image-main" src="../../public/images/backgrounds/close-up-open-book.jpg" alt="Product image">
+                    </div>
+                    <!-- Thumbnail images -->
+                    <div class="d-flex col-2 flex-column gap-2 justify-content-center">
+                        <div>
+                            <img class="product-image" src="../../public/images/backgrounds/close-up-open-book.jpg" alt="Small product image">
+                        </div>
+                        <div>
+                            <img class="product-image" src="../../public/images/backgrounds/close-up-open-book.jpg" alt="Small product image">
+                        </div>
+                        <div>
+                            <img class="product-image" src="../../public/images/backgrounds/close-up-open-book.jpg" alt="Small product image">
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Second column: Product details -->
+                <div class="d-flex flex-column col-12 col-sm-5 flex-grow-1  justify-content-center">
+                    <h1 class="product-detail-title">Fake story about fake event</h1>
+                    <h2 class="subtitle">Fake Author</h2>
+                    <p class="product-description">Publisher: FKP, 2025</p>
+                    <p class="product-description">Language: EN</p>
+                    <p class="product-description">ISBN: 999-666-333</p>
+                </div>
+                <div class="d-flex flex-column flex-sm-row flex-md-column gap-3 col-12 col-md-3 justify-content-center align-items-center">
+                    <h5>999&nbsp;999€</h5>
+                    <button class="btn btn-secondary">Add to Cart</button>
+                </div>
+            </section>
+
+            <section class="d-flex flex-column">
+                <h3>Description</h3>
+                <hr class="divider">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis ratione minus
+                    quae deleniti consequatur. Asperiores eum corporis ducimus dicta iste laborum accusamus,
+                     reprehenderit quia et exercitationem nulla praesentium accusantium incidunt. Lorem ipsum
+                     dolor sit amet consectetur adipisicing elit.
+                     Tenetur, modi blanditiis eius id odit harum doloremque dolor corrupti sunt nobis illum
+                suscipit adipisci quasi beatae dolore quidem dicta minus accusamus?</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis ratione minus
+                quae deleniti consequatur. Asperiores eum corporis ducimus dicta iste laborum accusamus,
+                    reprehenderit quia et exercitationem nulla praesentium accusantium incidunt. Lorem ipsum
+                    dolor sit amet consectetur adipisicing elit.
+                    Tenetur, modi blanditiis eius id odit harum doloremque dolor corrupti sunt nobis illum
+                    suscipit adipisci quasi beatae dolore quidem dicta minus accusamus?</p>
+            </section>
         </main>
         <footer class="container-fluid d-flex pt-4 pb-3 mt-auto align-items-center justify-content-center flex-column">
             <section class="top-content d-flex gap-3 flex-column">
