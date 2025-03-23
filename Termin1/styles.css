@@ -266,6 +266,14 @@ footer {
     flex-direction: column;
 }
 
+/* Cards */
+.card-img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 10 / 14;
+}
+
 /* Overriden buttons */
 .btn {
     display: inline-flex;
