@@ -67,6 +67,12 @@
     --blur: 12px;
 }
 
+/* Background colors */
+.bg-secondary {
+    background-color: var(--secondary-base);
+}
+
+/* Typography */
 @font-face {
     font-family: "Montserrat";
     src: url("../public/fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("truetype"), url("../public/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf") format("truetype");
@@ -91,61 +97,58 @@ h2 {
     line-height: 120%;
 }
 
-h3 {
+h3, .modal-title {
     font-size: 2.062rem;
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     line-height: 120%;
 }
 
-h4 {
+h4, .modal-subtitle {
     font-size: 1.75rem;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     line-height: 120%;
 }
 
-h5 {
+h5, .title {
     font-size: 1.438rem;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
     line-height: 120%;
 }
 
-h6 {
+h6, .subtitle {
     font-size: 1.18rem;
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     line-height: 120%;
 }
 
-p {
+p, .option-value {
     font-size: 1rem;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     line-height: 120%;
 }
 
-small .description {
+small .description, .description {
     font-size: 0.812rem;
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
     line-height: 120%;
 }
 
-small .note {
+small .note, .note {
     font-size: 0.688rem;
     font-family: "Montserrat", sans-serif;
     font-weight: 200;
     line-height: 120%;
 }
 
-/* Typography */
-.option-value {
-    font-size: 1rem;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    line-height: 120%;
+.divider {
+    background: var(--secondary-300, #C07A0C);
+    height: 0.175rem;
 }
 
 /* Header and footer */
@@ -221,6 +224,48 @@ footer {
     background: var(--charcoal-200, #D1CDCE);
 }
 
+/* Forms */
+.label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    align-self: stretch;
+    color: var(--secondary-500, #613B03);
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.input {
+    display: flex;
+    align-self: stretch;
+    padding: 0.5rem;
+    border-radius: 0.625rem;
+    border: 0.125rem solid var(--white-300, #AFAFAF);
+    background: var(--White, #FFF);
+    box-shadow: 0rem 0rem var(--Blur, 0.75rem) 0rem var(--DropShadow, rgba(0, 0, 0, 0.25));
+}
+
+/* Modals */
+.modal-content {
+    border-radius: 1.6rem;
+    padding: 0.5rem;
+}
+
+.modal-dialog {
+    max-width: 90%;
+    width: auto;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: column;
+}
+
 /* Overriden buttons */
 .btn {
     display: inline-flex;
@@ -288,8 +333,23 @@ footer {
     color: var(--black-base);
 }
 
-.btn-icon:hover {
+.btn-icon:hover, .btn-user:hover {
     background: var(--charcoal-300, #ADA5A7);
+}
+
+.link-profile {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    background: var(--charcoal-200, #D1CDCE);
+}
+
+.btn-user {
+    display: flex;
+    align-items: center;
+    border-radius: 6.25rem;
+    background: var(--charcoal-200, #D1CDCE);
+    box-shadow: 0rem 0rem var(--Blur, 0.75rem) 0rem var(--DropShadow, rgba(0, 0, 0, 0.25));
 }
 
 .btn-charcoal {
@@ -298,4 +358,17 @@ footer {
 
 .btn-charcoal:hover {
     background: var(--charcoal-700, #211D1E);
+}
+
+/* Media queries */
+@media screen and (min-width: 577px) {
+    .modal-dialog {
+        max-width: 40%;
+        width: auto;
+    }
+
+    .modal-dialog.wide-modal {
+        max-width: 90%;
+        width: auto;
+    }
 }
