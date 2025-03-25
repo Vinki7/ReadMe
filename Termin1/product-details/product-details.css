@@ -19,5 +19,14 @@
     object-fit: cover;
     width: 100%;
     height: auto;
-    aspect-ratio: 10 / 14;
+}
+
+.small-galery:hover {
+    background-color: var(--primary-100, #1A1A1A);
+    border-radius: 0.625rem;
+}
+
+.label {
+    align-items: center;
+    justify-content: center;
 }
