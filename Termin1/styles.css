@@ -263,13 +263,8 @@ footer {
 
 /* Modals */
 .modal-content {
-    border-radius: 1.6rem;
-    padding: 0.5rem;
-}
-
-.modal-dialog {
     max-width: 90%;
-    width: auto;
+    max-height: 75vh;
 }
 
 .modal-footer {
