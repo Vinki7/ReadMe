@@ -21,3 +21,44 @@
     height: auto;
     aspect-ratio: 10 / 14;
 }
+
+.small-galery:hover {
+    background-color: var(--primary-100, #1A1A1A);
+    border-radius: 0.625rem;
+}
+
+.count {
+    max-width: max-content;
+}
+
+.label {
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-dialog {
+    max-width: fit-content;
+}
+
+.modal-content {
+    width: fit-content;
+}
+
+.carousel {
+    width: fit-content;
+}
+
+.carousel-inner {
+    height: 75vh; /* Set fixed height as needed */
+}
+
+.carousel-item {
+    height: 100%; /* Ensure it takes full height */
+}
+
+.carousel-item img {
+    height: 100%; /* Fit to container height */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensures the whole image fits */
+    max-width: 100%; /* Prevents overflow */
+}
