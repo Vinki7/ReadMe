@@ -22,14 +22,17 @@
     background: var(--charcoal-200, #D1CDCE);
 }
 
+.modal-dialog {
+    max-width: 100%;
+    width: auto;
+    justify-content: center;
+}
+
 .modal-content {
     border-radius: 1.6rem;
     padding: 0.5rem;
-}
-
-.modal-dialog {
     max-width: 90%;
-    width: auto;
+    max-height: fit-content;
 }
 
 @media screen and (min-width: 577px) {
@@ -39,5 +42,14 @@
         object-fit: cover;
     }
 
+    .modal-dialog {
+        max-width: 40%;
+        width: auto;
+    }
+
+    .modal-dialog.wide-modal {
+        max-width: 90%;
+        width: auto;
+    }
 }
 
