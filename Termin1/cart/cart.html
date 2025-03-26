@@ -154,8 +154,55 @@
                             <label class="label">Country</label>
                             <input class="input" type="text" name="country" id="country" placeholder="Enter country" required>
                         </section>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">Proceed to Payment</button>
                     </div>
+                    <footer class="modal-footer">
+                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">Proceed to Payment</button>
+                    </footer>
+                </form>
+            </div>
+        </section>
+
+        <section class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <form class="modal-content">
+                    <header class="modal-header">
+                        <h1 class="modal-title" id="paymentModalLabel">Enter Payment Information</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </header>
+                    <div class="modal-body d-flex flex-column gap-3">
+                        <section class="d-flex flex-column gap-2">
+                            <label class="label" for="cardName">Cardholder Name</label>
+                            <input class="input" type="text" name="cardName" id="cardName" placeholder="Enter name" required>
+                        </section>
+                        <section class="d-flex flex-column gap-2">
+                            <label class="label" for="cardNumber">Card Number</label>
+                            <input class="input" type="text" name="cardNumber" id="cardNumber" placeholder="Enter card number" required>
+                        </section>
+                        <section class="d-flex flex-column gap-2">
+                            <label class="label" for="expiryDate">Expiry Date</label>
+                            <input class="input" type="text" name="expiryDate" id="expiryDate" placeholder="Enter expiration date" required>
+                        </section>
+                        <section class="d-flex flex-column gap-2">
+                            <label class="label" for="cvv">CVV</label>
+                            <input class="input" type="text" name="cvv" id="cvv" placeholder="Enter CVV" required>
+                        </section>
+                        <section class="d-flex flex-column gap-2">
+                            <label class="label" for="deliveryMethod">Delivery Method</label>
+                            <select class="input" name="deliveryMethod" id="deliveryMethod" required>
+                                <option value="post">Post</option>
+                                <option value="courier">Courier</option>
+                            </select>
+                        </section>
+                    </div>
+                    <footer class="modal-footer">
+                        <p class="text-center">
+                            By submitting payment details, I confirm that the information is correct and authorize this transaction.
+                        </p>
+                        <div class="d-flex flex-column gap-3 flex-md-row flex-wrap justify-content-center">
+                            <button type="button" class="btn btn-charcoal" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-secondary">Submit Payment</button>
+                        </div>
+                    </footer>
                 </form>
             </div>
         </section>
