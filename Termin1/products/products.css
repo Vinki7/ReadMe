@@ -63,7 +63,7 @@ aside.col-md-3 {
     padding: 2rem;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 992px) {
     aside {
         display: none;
     }
@@ -81,7 +81,7 @@ aside.col-md-3 {
     width: 80%;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 992px) {
     #filterOffcanvas {
         display: none !important;
     }
