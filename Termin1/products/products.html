@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="products.css">
     </head>
 
-    <body class="d-flex flex-column min-vh-100">
+    <body class="d-flex flex-column">
         <header class="navbar navbar-expand-lg bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand fw-bold logo" href="../home/index.html" title="Bring me home">Read<span>Me</span></a>
@@ -36,305 +36,298 @@
             </div>
         </header>
 
-        <main class="container-fluid flex-grow-10 flex-column px-10">
-                <!-- Side filter panel -->
-                <aside class="col-md-3 d-none d-lg-block">
-                    <div class="filter-box">
-                        <h5>Filter</h5>
-                        <div class="price-card">
-                            <label>
-                                Price Range
-                            </label>
-                            <div class="price-content">
-                                <div>
-                                    <label>Min</label>
-                                    <p id="min-value">€0</p>
-                                </div>
-                                <div>
-                                    <label>Max</label>
-                                    <p id="max-value">€9999</p>
-                                </div>
+        <main class="container-fluid flex-grow-1 flex-column">
+            <!-- Side filter panel -->
+            <aside class="col-md-3 d-none d-lg-block">
+                <div class="filter-box">
+                    <h5>Filter</h5>
+                    <div class="price-card">
+                        <label>
+                            Price Range
+                        </label>
+                        <div class="price-content">
+                            <div>
+                                <label>Min</label>
+                                <p id="min-value">€0</p>
                             </div>
-
-                            <div class="range-slider">
-                                <div class="range-fill"></div>
-
-                                <input
-                                    type="range"
-                                    class="min-price"
-                                    value="0"
-                                    min="0"
-                                    max="9990"
-                                    step="10"
-                                />
-
-                                <input
-                                    type="range"
-                                    class="max-price"
-                                    value="9990"
-                                    min="0"
-                                    max="9990"
-                                    step="10"
-                                />
+                            <div>
+                                <label>Max</label>
+                                <p id="max-value">€9999</p>
                             </div>
                         </div>
 
+                        <div class="range-slider">
+                            <div class="range-fill"></div>
 
+                            <input
+                                type="range"
+                                class="min-price"
+                                value="0"
+                                min="0"
+                                max="9990"
+                                step="10"
+                            />
 
-                        <label class="form-label mt-3">Genre</label>
-                        <select class="form-select">
-                            <option class="option-value">All</option>
-                            <option class="option-value">Option data1</option>
-                            <option class="option-value">Option data2</option>
-                            <option class="option-value">Option data3</option>
-                        </select>
-
-                        <label class="form-label mt-3">Author</label>
-                        <select class="form-select">
-                            <option class="option-value">All</option>
-                            <option class="option-value">Option data1</option>
-                            <option class="option-value">Option data2</option>
-                            <option class="option-value">Option data3</option>
-                        </select>
-
-                        <label class="form-label mt-3">Language</label>
-                        <select class="form-select">
-                            <option class="option-value">All</option>
-                            <option class="option-value">Option data1</option>
-                            <option class="option-value">Option data2</option>
-                            <option class="option-value">Option data3</option>
-                        </select>
+                            <input
+                                type="range"
+                                class="max-price"
+                                value="9990"
+                                min="0"
+                                max="9990"
+                                step="10"
+                            />
+                        </div>
                     </div>
-                </aside>
 
-                <!-- Small screen filter button -->
-                <div class="d-lg-none text-center">
-                    <button class="filter-button btn btn-charcoal d-lg-none mb-3" data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas">
-                        Filter
-                    </button>
+
+
+                    <label class="form-label mt-3">Genre</label>
+                    <select class="form-select">
+                        <option class="option-value">All</option>
+                        <option class="option-value">Option data1</option>
+                        <option class="option-value">Option data2</option>
+                        <option class="option-value">Option data3</option>
+                    </select>
+
+                    <label class="form-label mt-3">Author</label>
+                    <select class="form-select">
+                        <option class="option-value">All</option>
+                        <option class="option-value">Option data1</option>
+                        <option class="option-value">Option data2</option>
+                        <option class="option-value">Option data3</option>
+                    </select>
+
+                    <label class="form-label mt-3">Language</label>
+                    <select class="form-select">
+                        <option class="option-value">All</option>
+                        <option class="option-value">Option data1</option>
+                        <option class="option-value">Option data2</option>
+                        <option class="option-value">Option data3</option>
+                    </select>
                 </div>
+            </aside>
 
-                <!-- Small screenfilter panel -->
-                <div class="offcanvas offcanvas-start" tabindex="-1" id="filterOffcanvas">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title">Filter</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <div class="filter-box">
-                            <label>Price Range</label>
-                            <div class="price-content">
-                                <div>
-                                    <label>Min</label>
-                                    <p id="min-value">€0</p>
-                                </div>
-                                <div>
-                                    <label>Max</label>
-                                    <p id="max-value">€9999</p>
-                                </div>
-                            </div>
-
-                            <div class="range-slider">
-                                <div class="range-fill"></div>
-                                <input
-                                    type="range"
-                                    class="min-price"
-                                    value="0"
-                                    min="0"
-                                    max="9990"
-                                    step="10"
-                                />
-
-                                <input
-                                    type="range"
-                                    class="max-price"
-                                    value="9990"
-                                    min="0"
-                                    max="9990"
-                                    step="10"
-                                />
-                            </div>
-                        </div>
-
-                        <label class="form-label mt-3">Genre</label>
-                        <select class="form-select">
-                            <option class="option-value">All</option>
-                            <option class="option-value">Option data1</option>
-                            <option class="option-value">Option data2</option>
-                            <option class="option-value">Option data3</option>
-                        </select>
-
-                        <label class="form-label mt-3">Author</label>
-                        <select class="form-select">
-                            <option class="option-value">All</option>
-                            <option class="option-value">Option data1</option>
-                            <option class="option-value">Option data2</option>
-                            <option class="option-value">Option data3</option>
-                        </select>
-
-                        <label class="form-label mt-3">Language</label>
-                        <select class="form-select">
-                            <option class="option-value">All</option>
-                            <option class="option-value">Option data1</option>
-                            <option class="option-value">Option data2</option>
-                            <option class="option-value">Option data3</option>
-                        </select>
-                    </div>
-                </div>
-
-
-                <!-- Main area-->
-                <section class="container">
-                    <!-- Search/order area -->
-                    <div class="search-container row row-cols-md-2 align-items-center justify-content-center mb-4">
-                        <!-- Search bar -->
-                        <div class="row-cols-1 g-4">
-                            <input type="text" class="form-control col-12" placeholder="Search">
-                        </div>
-
-                        <!-- Ordering buttons -->
-                        <div class="col-7 col-sm-12 row row-cols-sm-3 row-cols-xxl-4 g-4 align-items-center justify-content-sm-end mt-md-0" role="group">
-                            <!-- Name sort buttons -->
-                            <div>
-                                <input type="radio" id="name-asc" name="sort" class="order-radio">
-                                <label for="name-asc" id="active-order" class="order-button btn btn-secondary">
-                                    Name <img src="../../public/images/icons/chevron_up_icon.png" class="order-icon">
-                                </label>
-                            </div>
-
-                            <div>
-                                <input type="radio" id="name-desc" name="sort" class="order-radio">
-                                <label for="name-desc" class="order-button btn btn-secondary">
-                                    Name <img src="../../public/images/icons/chevron_down_icon.png" class="order-icon">
-                                </label>
-                            </div>
-
-                            <!-- Price Sort Buttons -->
-                            <div>
-                                <input type="radio" id="price-asc" name="sort" class="order-radio">
-                                <label for="price-asc" class="order-button btn btn-secondary">
-                                    Price <img src="../../public/images/icons/chevron_up_icon.png" class="order-icon">
-                                </label>
-                            </div>
-
-                            <div>
-                                <input type="radio" id="price-desc" name="sort" class="order-radio">
-                                <label for="price-desc" class="order-button btn btn-secondary">
-                                    Price <img src="../../public/images/icons/chevron_down_icon.png" class="order-icon">
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product Grid -->
-					<div class="row justify-content-center flex-column flex-md-row flex-wrap gap-5 my-5">
-                        <article class="card col-12 col-md-5 col-lg-3 flex-column">
-                            <div class="d-flex flex-column flex-sm-row">
-                                <div class="col-12 col-sm-5">
-                                    <img src="../../public/images/products/harry-potter-1/front-cover.PNG" class="card-img img-fluid" alt="Harry Potter a Kameň mudrcov" title="Harry Potter a Kameň mudrcov">
-                                </div>
-                                <div class="card-body flex-grow-1 flex-column">
-                                    <a class="title card-title" href="../product-details/product-details.html"title" href="../product-details/product-details.html">Harry Potter a Kameň mudrcov</a>
-                                    <div class="card-text">
-                                        <p>Author:<br>J. K. Rowling</p>
-                                        <p><strong>999 999 €</strong></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <footer class="card-footer mt-auto d-flex justify-content-center flex-row flex-wrap">
-                                <button class="btn btn-charcoal">Add to Cart</button>
-                            </footer>
-                        </article>
-
-                        <article class="card col-12 col-md-5 col-lg-3 flex-column">
-                            <div class="d-flex flex-column flex-sm-row">
-                                <div class="col-12 col-sm-5">
-                                    <img src="../../public/images/products/harry-potter-2/front-cover.PNG" class="card-img img-fluid" alt="Harry Potter a Tajomná komnata" title="Harry Potter a Tajomná komnata">
-                                </div>
-                                <div class="card-body flex-grow-1 flex-column">
-                                    <a class="title card-title" href="../product-details/product-details.html">Harry Potter a Tajomná komnata</a>
-                                    <div class="card-text">
-                                        <p>Author:<br>J. K. Rowling</p>
-                                        <p><strong>999 999 €</strong></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <footer class="card-footer mt-auto d-flex justify-content-center flex-row flex-wrap">
-                                <button class="btn btn-charcoal">Add to Cart</button>
-                            </footer>
-                        </article>
-
-                        <article class="card col-12 col-md-5 col-lg-3 flex-column">
-                            <div class="d-flex flex-column flex-sm-row">
-                                <div class="col-12 col-sm-5">
-                                    <img src="../../public/images/products/harry-potter-5/front-cover.PNG" class="card-img img-fluid" alt="Harry Potter a Fénixov rád" title="Harry Potter a Fénixov rád">
-                                </div>
-                                <div class="card-body flex-grow-1 flex-column">
-                                    <a class="title card-title" href="../product-details/product-details.html">Harry Potter a Fénixov rád</a>
-                                    <div class="card-text">
-                                        <p>Author:<br>J. K. Rowling</p>
-                                        <p><strong>999 999 €</strong></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <footer class="card-footer mt-auto d-flex justify-content-center flex-row flex-wrap">
-                                <button class="btn btn-charcoal">Add to Cart</button>
-                            </footer>
-                        </article>
-
-                        <article class="card col-12 col-md-5 col-lg-3">
-                            <img src="../../public/images/backgrounds/close-up-open-book.jpg" class="card-img-top img-fluid" alt="Placeholder">
-                            <div class="card-body">
-                                <h5 class="card-title">Fake story</h5>
-                                <div class="card-text">
-                                    <p>Author: Fake Author</p>
-                                    <p><small class="description">Category: Fake category, Another fake category, Last fake category</small></p>
-                                </div>
-                            </div>
-                            <footer class="card-footer d-flex justify-content-between flex-row flex-wrap">
-                                <strong>999 999 €</strong>
-                                <button class="btn btn-charcoal">Add to Cart</button>
-                            </footer>
-                        </article>
-
-                        <article class="card col-12 col-md-5 col-lg-3">
-                            <img src="../../public/images/backgrounds/close-up-open-book.jpg" class="card-img-top img-fluid" alt="Placeholder">
-                            <div class="card-body">
-                                <h5 class="card-title">Fake story</h5>
-                                <div class="card-text">
-                                    <p>Author: Fake Author</p>
-                                    <p><small class="description">Category: Fake category, Another fake category, Last fake category</small></p>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between flex-row flex-wrap">
-                                <strong>999 999 €</strong>
-                                <button class="btn btn-charcoal">Add to Cart</button>
-                            </div>
-                        </article>
-
-                        <article class="card col-12 col-md-5 col-lg-3">
-                            <img src="../../public/images/backgrounds/close-up-open-book.jpg" class="card-img-top img-fluid" alt="Placeholder">
-                            <div class="card-body">
-                                <h5 class="card-title">Fake story</h5>
-                                <div class="card-text">
-                                    <p>Author: Fake Author</p>
-                                    <p><small class="description">Category: Fake category, Another fake category, Last fake category</small></p>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between flex-row flex-wrap">
-                                <strong>999 999 €</strong>
-                                <button class="btn btn-charcoal">Add to Cart</button>
-                            </div>
-                        </article>
-
-                    </div>
-                </section>
-<<<<<<< Updated upstream
-
-
+        <!-- Small screen filter button -->
+            <div class="d-lg-none text-center">
+                <button class="filter-button btn btn-charcoal d-lg-none my-3" data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas">
+                    Filter
+                </button>
             </div>
-=======
->>>>>>> Stashed changes
+
+            <!-- Small screenfilter panel -->
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="filterOffcanvas">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title">Filter</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="filter-box">
+                        <label>Price Range</label>
+                        <div class="price-content">
+                            <div>
+                                <label>Min</label>
+                                <p id="min-value">€0</p>
+                            </div>
+                            <div>
+                                <label>Max</label>
+                                <p id="max-value">€9999</p>
+                            </div>
+                        </div>
+
+                        <div class="range-slider">
+                            <div class="range-fill"></div>
+                            <input
+                                type="range"
+                                class="min-price"
+                                value="0"
+                                min="0"
+                                max="9990"
+                                step="10"
+                            />
+
+                            <input
+                                type="range"
+                                class="max-price"
+                                value="9990"
+                                min="0"
+                                max="9990"
+                                step="10"
+                            />
+                        </div>
+                    </div>
+
+                    <label class="form-label mt-3">Genre</label>
+                    <select class="form-select">
+                        <option class="option-value">All</option>
+                        <option class="option-value">Option data1</option>
+                        <option class="option-value">Option data2</option>
+                        <option class="option-value">Option data3</option>
+                    </select>
+
+                    <label class="form-label mt-3">Author</label>
+                    <select class="form-select">
+                        <option class="option-value">All</option>
+                        <option class="option-value">Option data1</option>
+                        <option class="option-value">Option data2</option>
+                        <option class="option-value">Option data3</option>
+                    </select>
+
+                    <label class="form-label mt-3">Language</label>
+                    <select class="form-select">
+                        <option class="option-value">All</option>
+                        <option class="option-value">Option data1</option>
+                        <option class="option-value">Option data2</option>
+                        <option class="option-value">Option data3</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <!-- Main area-->
+            <section class="container">
+                <!-- Search/order area -->
+                <div class="search-container row row-cols-md-2 align-items-center justify-content-center mb-4">
+                    <!-- Search bar -->
+                    <div class="row-cols-1 g-4">
+                        <input type="text" class="form-control col-12" placeholder="Search">
+                    </div>
+
+                    <!-- Ordering buttons -->
+                    <div class="col-7 col-sm-12 row row-cols-sm-3 row-cols-xxl-4 g-4 align-items-center justify-content-sm-end mt-md-0" role="group">
+                        <!-- Name sort buttons -->
+                        <div>
+                            <input type="radio" id="name-asc" name="sort" class="order-radio">
+                            <label for="name-asc" id="active-order" class="order-button btn btn-secondary">
+                                Name <img src="../../public/images/icons/chevron_up_icon.png" class="order-icon">
+                            </label>
+                        </div>
+
+                        <div>
+                            <input type="radio" id="name-desc" name="sort" class="order-radio">
+                            <label for="name-desc" class="order-button btn btn-secondary">
+                                Name <img src="../../public/images/icons/chevron_down_icon.png" class="order-icon">
+                            </label>
+                        </div>
+
+                        <!-- Price Sort Buttons -->
+                        <div>
+                            <input type="radio" id="price-asc" name="sort" class="order-radio">
+                            <label for="price-asc" class="order-button btn btn-secondary">
+                                Price <img src="../../public/images/icons/chevron_up_icon.png" class="order-icon">
+                            </label>
+                        </div>
+
+                        <div>
+                            <input type="radio" id="price-desc" name="sort" class="order-radio">
+                            <label for="price-desc" class="order-button btn btn-secondary">
+                                Price <img src="../../public/images/icons/chevron_down_icon.png" class="order-icon">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Grid -->
+                <div class="row justify-content-center flex-column flex-md-row flex-wrap gap-5 my-5">
+                    <article class="card col-12 col-md-5 col-lg-3 flex-column">
+                        <div class="d-flex flex-column flex-sm-row">
+                            <div class="col-12 col-sm-5">
+                                <img src="../../public/images/products/harry-potter-1/front-cover.PNG" class="card-img img-fluid" alt="Harry Potter a Kameň mudrcov" title="Harry Potter a Kameň mudrcov">
+                            </div>
+                            <div class="card-body flex-grow-1 flex-column">
+                                <a class="title card-title" href="../product-details/product-details.html"title" href="../product-details/product-details.html">Harry Potter a Kameň mudrcov</a>
+                                <div class="card-text">
+                                    <p>Author:<br>J. K. Rowling</p>
+                                    <p><strong>999 999 €</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="card-footer mt-auto d-flex justify-content-center flex-row flex-wrap">
+                            <button class="btn btn-charcoal">Add to Cart</button>
+                        </footer>
+                    </article>
+
+                    <article class="card col-12 col-md-5 col-lg-3 flex-column">
+                        <div class="d-flex flex-column flex-sm-row">
+                            <div class="col-12 col-sm-5">
+                                <img src="../../public/images/products/harry-potter-2/front-cover.PNG" class="card-img img-fluid" alt="Harry Potter a Tajomná komnata" title="Harry Potter a Tajomná komnata">
+                            </div>
+                            <div class="card-body flex-grow-1 flex-column">
+                                <a class="title card-title" href="../product-details/product-details.html">Harry Potter a Tajomná komnata</a>
+                                <div class="card-text">
+                                    <p>Author:<br>J. K. Rowling</p>
+                                    <p><strong>999 999 €</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="card-footer mt-auto d-flex justify-content-center flex-row flex-wrap">
+                            <button class="btn btn-charcoal">Add to Cart</button>
+                        </footer>
+                    </article>
+
+                    <article class="card col-12 col-md-5 col-lg-3 flex-column">
+                        <div class="d-flex flex-column flex-sm-row">
+                            <div class="col-12 col-sm-5">
+                                <img src="../../public/images/products/harry-potter-5/front-cover.PNG" class="card-img img-fluid" alt="Harry Potter a Fénixov rád" title="Harry Potter a Fénixov rád">
+                            </div>
+                            <div class="card-body flex-grow-1 flex-column">
+                                <a class="title card-title" href="../product-details/product-details.html">Harry Potter a Fénixov rád</a>
+                                <div class="card-text">
+                                    <p>Author:<br>J. K. Rowling</p>
+                                    <p><strong>999 999 €</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="card-footer mt-auto d-flex justify-content-center flex-row flex-wrap">
+                            <button class="btn btn-charcoal">Add to Cart</button>
+                        </footer>
+                    </article>
+
+                    <article class="card col-12 col-md-5 col-lg-3">
+                        <img src="../../public/images/backgrounds/close-up-open-book.jpg" class="card-img-top img-fluid" alt="Placeholder">
+                        <div class="card-body">
+                            <h5 class="card-title">Fake story</h5>
+                            <div class="card-text">
+                                <p>Author: Fake Author</p>
+                                <p><small class="description">Category: Fake category, Another fake category, Last fake category</small></p>
+                            </div>
+                        </div>
+                        <footer class="card-footer d-flex justify-content-between flex-row flex-wrap">
+                            <strong>999 999 €</strong>
+                            <button class="btn btn-charcoal">Add to Cart</button>
+                        </footer>
+                    </article>
+
+                    <article class="card col-12 col-md-5 col-lg-3">
+                        <img src="../../public/images/backgrounds/close-up-open-book.jpg" class="card-img-top img-fluid" alt="Placeholder">
+                        <div class="card-body">
+                            <h5 class="card-title">Fake story</h5>
+                            <div class="card-text">
+                                <p>Author: Fake Author</p>
+                                <p><small class="description">Category: Fake category, Another fake category, Last fake category</small></p>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between flex-row flex-wrap">
+                            <strong>999 999 €</strong>
+                            <button class="btn btn-charcoal">Add to Cart</button>
+                        </div>
+                    </article>
+
+                    <article class="card col-12 col-md-5 col-lg-3">
+                        <img src="../../public/images/backgrounds/close-up-open-book.jpg" class="card-img-top img-fluid" alt="Placeholder">
+                        <div class="card-body">
+                            <h5 class="card-title">Fake story</h5>
+                            <div class="card-text">
+                                <p>Author: Fake Author</p>
+                                <p><small class="description">Category: Fake category, Another fake category, Last fake category</small></p>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between flex-row flex-wrap">
+                            <strong>999 999 €</strong>
+                            <button class="btn btn-charcoal">Add to Cart</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
         </main>
 
         <footer class="container-fluid d-flex pt-4 pb-3 mt-auto align-items-center justify-content-center flex-column">
