@@ -184,44 +184,47 @@
 
 
             <!-- Main area-->
-            <section class="container">
+            <section class="container-fluid">
                 <!-- Search/order area -->
-                <div class="search-container row row-cols-md-2 align-items-center justify-content-center mb-4">
+                <div class="search-container row row-cols-1 row-cols-md-2 g-2 align-items-center justify-content-center mb-4 px-md-5">
                     <!-- Search bar -->
-                    <div class="row-cols-1 g-4">
+                    <div class="col">
                         <input type="text" class="form-control col-12" placeholder="Search">
                     </div>
 
                     <!-- Ordering buttons -->
-                    <div class="col-7 col-sm-12 row row-cols-sm-3 row-cols-xxl-4 g-4 align-items-center justify-content-sm-end mt-md-0" role="group">
+                    <div class="col-7 col-sm-4 d-flex flex-column justify-content-end flex-md-row flex-wrap gap-2" role="group">
                         <!-- Name sort buttons -->
-                        <div>
-                            <input type="radio" id="name-asc" name="sort" class="order-radio">
-                            <label for="name-asc" id="active-order" class="order-button btn btn-secondary">
-                                Name <img src="../../public/images/icons/chevron_up_icon.png" class="order-icon">
-                            </label>
-                        </div>
+                        <div class="d-flex flex-column flex-xl-row gap-2">
+                            <div>
+                                <input type="radio" id="name-asc" name="sort" class="order-radio">
+                                <label for="name-asc" id="active-order" class="order-button btn btn-secondary">
+                                    Name <img src="../../public/images/icons/chevron_up_icon.png" class="order-icon">
+                                </label>
+                            </div>
 
-                        <div>
-                            <input type="radio" id="name-desc" name="sort" class="order-radio">
-                            <label for="name-desc" class="order-button btn btn-secondary">
-                                Name <img src="../../public/images/icons/chevron_down_icon.png" class="order-icon">
-                            </label>
+                            <div>
+                                <input type="radio" id="name-desc" name="sort" class="order-radio">
+                                <label for="name-desc" class="order-button btn btn-secondary">
+                                    Name <img src="../../public/images/icons/chevron_down_icon.png" class="order-icon">
+                                </label>
+                            </div>
                         </div>
-
                         <!-- Price Sort Buttons -->
-                        <div>
-                            <input type="radio" id="price-asc" name="sort" class="order-radio">
-                            <label for="price-asc" class="order-button btn btn-secondary">
-                                Price <img src="../../public/images/icons/chevron_up_icon.png" class="order-icon">
-                            </label>
-                        </div>
+                        <div class="d-flex flex-column flex-xl-row gap-2">
+                            <div>
+                                <input type="radio" id="price-asc" name="sort" class="order-radio">
+                                <label for="price-asc" class="order-button btn btn-secondary">
+                                    Price <img src="../../public/images/icons/chevron_up_icon.png" class="order-icon">
+                                </label>
+                            </div>
 
-                        <div>
-                            <input type="radio" id="price-desc" name="sort" class="order-radio">
-                            <label for="price-desc" class="order-button btn btn-secondary">
-                                Price <img src="../../public/images/icons/chevron_down_icon.png" class="order-icon">
-                            </label>
+                            <div>
+                                <input type="radio" id="price-desc" name="sort" class="order-radio">
+                                <label for="price-desc" class="order-button btn btn-secondary">
+                                    Price <img src="../../public/images/icons/chevron_down_icon.png" class="order-icon">
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>

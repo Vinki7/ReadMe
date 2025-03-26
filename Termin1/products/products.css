@@ -114,19 +114,20 @@ div[role="group"] div {
 }
 
 .btn-secondary {
-    background-color: var(--white-base, #FFF);
+    background-color: var(--charcoal-100, #F1F0F1);
     color: var(--charcoal-base, #211D1E);
     border: 0.1rem solid var(--secondary-400, #8F5A06);
+    min-width: fit-content;
 }
 
 .btn-secondary#active-order {
-    background-color: var(--secondary-400, #8F5A06);
+    background-color: var(--secondary-300, #C07A0C);
     color: var(--white-base, #FFF);
 }
 
 .search-container input {
     max-width: 100%;
-    
+    width: 100%;
     border-radius: 1.5rem;
     border: 1px solid var(--charcoal-base, #211D1E);
     background: var(--charcoal-100, #F1F0F1);
