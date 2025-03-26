@@ -108,6 +108,22 @@ aside.col-md-3 {
     justify-content: space-between;
 } */
 
+div[role="group"] div {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-secondary {
+    background-color: var(--white-base, #FFF);
+    color: var(--charcoal-base, #211D1E);
+    border: 0.1rem solid var(--secondary-400, #8F5A06);
+}
+
+.btn-secondary#active-order {
+    background-color: var(--secondary-400, #8F5A06);
+    color: var(--white-base, #FFF);
+}
+
 .search-container input {
     max-width: 100%;
     
@@ -128,7 +144,7 @@ aside.col-md-3 {
     display: none; /* Hide checkboxes */
 }
 
-.order-button {
+/* .order-button {
     width: auto;
     min-width: 6rem;
     max-width: 100%;
@@ -150,7 +166,7 @@ aside.col-md-3 {
     cursor: pointer;
     background: var(--secondary-400, #8F5A06);
     color: var(--white-base, #FFF);
-}
+} */
 
 .order-icon {
     width: 14px;
