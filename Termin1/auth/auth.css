@@ -47,3 +47,7 @@ main::before {
     height: 0.2rem;
     background: var(--secondary-400, #8F5A06);
 }
+
+.modal-content {
+    height: fit-content;
+}
