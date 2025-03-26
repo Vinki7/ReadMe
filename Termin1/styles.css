@@ -227,13 +227,13 @@ footer {
     border-radius: 6.25rem;
 }
 
-.nav-item.active {
+.nav-item:has(.nav-link.active) {
     border-radius: 6.25rem;
     background: var(--secondary-100, #FECDA7);
     box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.16);
 }
 
-.nav-item.active:hover {
+.nav-item:has(.nav-link.active):hover {
     background: var(--charcoal-200, #D1CDCE);
 }
 
