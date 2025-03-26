@@ -1,1 +1,27 @@
 @import url("../styles.css");
+
+.modal-dialog {
+    max-width: 100%;
+    width: auto;
+    justify-content: center;
+}
+
+.modal-content {
+    border-radius: 1.6rem;
+    padding: 0.5rem;
+    max-width: 90%;
+    max-height: fit-content;
+}
+
+@media screen and (min-width: 577px) {
+
+    .modal-dialog {
+        max-width: 40%;
+        width: auto;
+    }
+
+    .modal-dialog.wide-modal {
+        max-width: 90%;
+        width: auto;
+    }
+}
