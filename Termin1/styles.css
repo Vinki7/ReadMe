@@ -377,18 +377,6 @@ footer {
 }
 
 /* Media queries */
-@media screen and (min-width: 576px) {
-    .modal-dialog {
-        max-width: 40%;
-        width: auto;
-    }
-
-    .modal-dialog.wide-modal {
-        max-width: 90%;
-        width: auto;
-    }
-}
-
 @media screen and (max-width: 575px) {
     h1 {
         font-size: 2rem;
