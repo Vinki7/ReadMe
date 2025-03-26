@@ -22,6 +22,16 @@
     background: var(--charcoal-200, #D1CDCE);
 }
 
+.modal-content {
+    border-radius: 1.6rem;
+    padding: 0.5rem;
+}
+
+.modal-dialog {
+    max-width: 90%;
+    width: auto;
+}
+
 @media screen and (min-width: 577px) {
     .order-history-image {
         width: 4.375rem;

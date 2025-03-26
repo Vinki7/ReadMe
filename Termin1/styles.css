@@ -151,6 +151,19 @@ small .note, .note {
     height: 0.175rem;
 }
 
+.card-body .card-title {
+    color: var(--secondary-400);
+    text-decoration: underline;
+}
+
+.card-body .card-title:hover {
+    cursor: pointer;
+    background-color: var(--black-100);
+    border-radius: 0.5rem;
+    color: var(--secondary-300);
+}
+
+
 /* Header and footer */
 .logo {
     text-align: center;
@@ -250,13 +263,8 @@ footer {
 
 /* Modals */
 .modal-content {
-    border-radius: 1.6rem;
-    padding: 0.5rem;
-}
-
-.modal-dialog {
     max-width: 90%;
-    width: auto;
+    max-height: 75vh;
 }
 
 .modal-footer {
@@ -264,6 +272,14 @@ footer {
     justify-content: center;
     gap: 1rem;
     flex-direction: column;
+}
+
+/* Cards */
+.card-img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 10 / 14;
 }
 
 /* Overriden buttons */
@@ -361,7 +377,7 @@ footer {
 }
 
 /* Media queries */
-@media screen and (min-width: 577px) {
+@media screen and (min-width: 576px) {
     .modal-dialog {
         max-width: 40%;
         width: auto;
@@ -370,5 +386,81 @@ footer {
     .modal-dialog.wide-modal {
         max-width: 90%;
         width: auto;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3, .modal-title {
+        font-size: 1.5rem;
+    }
+
+    h4, .modal-subtitle {
+        font-size: 1.25rem;
+    }
+
+    h5, .title {
+        font-size: 1rem;
+    }
+
+    h6, .subtitle {
+        font-size: 0.875rem;
+    }
+
+    p, .option-value {
+        font-size: 0.75rem;
+    }
+
+    small .description, .description {
+        font-size: 0.625rem;
+    }
+
+    small .note, .note {
+        font-size: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 765px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3, .modal-title {
+        font-size: 1.75rem;
+    }
+
+    h4, .modal-subtitle {
+        font-size: 1.5rem;
+    }
+
+    h5, .title {
+        font-size: 1.25rem;
+    }
+
+    h6, .subtitle {
+        font-size: 1rem;
+    }
+
+    p, .option-value {
+        font-size: 0.875rem;
+    }
+
+    small .description, .description {
+        font-size: 0.75rem;
+    }
+
+    small .note, .note {
+        font-size: 0.625rem;
     }
 }
