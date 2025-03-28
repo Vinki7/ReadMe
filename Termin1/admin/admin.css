@@ -13,3 +13,18 @@
     font-size: clamp(0.9rem, 2vw, 1rem);
     background-size: 1.2rem;
 }
+
+.product-image {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 10 / 14.375;
+}
+
+@media screen and (min-width: 577px) {
+    .product-image {
+        width: 4.375rem;
+        height: 6.25rem;
+        object-fit: cover;
+    }
+}
