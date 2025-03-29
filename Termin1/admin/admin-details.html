@@ -39,30 +39,77 @@
             </div>
         </header>
         
-        <main class="container d-flex flex-grow-1 gap-4 flex-column px-5">
-            <section class="d-flex row flex-column flex-sm-row flex-wrap gap-4 my-3">
-                <div class="small-galery d-flex flex-column align-items-center col-12 col-sm-5 col-md-3">
-                    <div class="d-flex flex-row gap-3 justify-content-center">
-
-                        <div class="d-flex flex-column col-8">
-                            <img class="product-image-detail" src="../../public/images/products/harry-potter-1/front-cover.PNG" class="d-block w-100" alt="Harry Potter a Kameň mudrcov - front cover" title="Harry Potter a Kameň mudrcov">
-                        </div>
-        
-                        <div class="d-flex col-2 flex-column gap-2 justify-content-center">
-                            <img class="product-image-detail" src="../../public/images/products/harry-potter-1/back-cover.PNG" class="d-block w-100" alt="Back cover">
-                            <img class="product-image-detail" src="../../public/images/products/harry-potter-1/book-insights.PNG" class="d-block w-100" alt="Book insights">
-                            <img class="product-image-detail" src="../../public/images/products/harry-potter-1/full-book.PNG" class="d-block w-100" alt="Full book">
-                        </div>
-                    </div>
-        
-                    <div class="mt-3 w-100 text-center">
-                        <button class="btn btn-secondary">Edit Pictures</button>
-                    </div>
+        <main class="container d-flex flex-grow-1 gap-4 flex-column px-5 my-5">
+            <div class="row justify-content-center g-3">
+                <div class="col-12 col-md-3">
+                    <img class="product-image-detail img-fluid" src="../../public/images/products/harry-potter-1/front-cover.PNG" alt="Front Cover">
                 </div>
+                <div class="col-12 col-md-3">
+                    <img class="product-image-detail img-fluid" src="../../public/images/products/harry-potter-1/back-cover.PNG" alt="Back Cover">
+                </div>
+                <div class="col-12 col-md-3">
+                    <img class="product-image-detail img-fluid" src="../../public/images/products/harry-potter-1/book-insights.PNG" alt="Book Insights">
+                </div>
+                <div class="col-12 col-md-3">
+                    <img class="product-image-detail img-fluid" src="../../public/images/products/harry-potter-1/full-book.PNG" alt="Full Book">
+                </div>
+            </div>
+        
+            <div class="row mt-3">
+                <div class="col-12 d-flex justify-content-center">
+                    <button class="btn btn-secondary">Edit Pictures</button>
+                </div>
+            </div>
+            
+            <section class="d-flex flex-column gap-2">
+                <label class="label">Title</label>
+                <input class="input" type="text" value="Harry Potter a Kameň mudrcov">
             </section>
+
+            <section class="d-flex flex-column gap-2">
+                <label class="label">Publisher</label>
+                <input class="input" type="text" value="Ikar">
+            </section>
+
+            <section class="d-flex flex-column gap-2">
+                <label class="label">Published in year</label>
+                <input class="input" type="text" value="2015">
+            </section>
+
+            <section class="d-flex flex-column gap-2">
+                <label class="label">Language</label>
+                <input class="input" type="text" value="SK">
+            </section>
+            
+            <section class="d-flex flex-column gap-2">
+                <label class="label">ISBN</label>
+                <input class="input" type="text" value="978-80-551-4307-1">
+            </section>
+
+            <section class="d-flex flex-column gap-2">
+                <label class="label">Price in &euro;</label>
+                <input class="input" type="text" value="999 999">
+            </section>
+
+            <section class="d-flex flex-column gap-2">
+                <label class="label">Description</label>
+                <textarea class="form-control" rows="6">
+                    When a letter arrives for unhappy but ordinary Harry Potter, a decade-old secret is
+                    revealed to him that apparently he's the last to know. His parents were wizards,
+                    killed by a Dark Lord's curse when Harry was just a baby, and which he somehow survived.
+                    Leaving his unsympathetic aunt and uncle for Hogwarts, a wizarding school brimming with
+                    ghosts and enchantments, Harry stumbles upon a sinister mystery when he finds a three-headed
+                    dog guarding a room on the third floor. Then he hears of a missing stone with astonishing
+                    powers which could be valuable, dangerous - or both.
+                </textarea>
+            </section>
+
+            <div class="row mt-3">
+                <div class="col-12 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>        
         </main>
-        
-        
 
         <footer class="container-fluid d-flex pt-4 pb-3 mt-auto align-items-center justify-content-center flex-column">
             <section class="top-content d-flex gap-3 flex-column">
