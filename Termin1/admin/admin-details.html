@@ -55,36 +55,57 @@
                 </div>
             </div>
         
-            <div class="row mt-3 gap-3">
-                <div class="col-12 d-flex justify-content-center">
-                    <form class="col-12 col-lg-6 d-flex flex-column flex-sm-row justify-content-center gap-2">
-                        <input type="file" id="img" name="img" accept="image/*" class="form-control w-auto">
-                        <button type="submit" class="btn btn-secondary">Add</button>
-                    </form>
-                </div>
-                <div class="col-12 d-flex flex-column flex-sm-row justify-content-center">
-                    <button class="btn btn-secondary">Edit Pictures</button>
-                </div>
-            </div>
-            
-            
-
             <form class="d-flex flex-column gap-4">
+                <div class="row mt-3 gap-3">
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="col-12 col-lg-6 d-flex flex-column gap-3">
+                            <label>Front cover:</label>
+                            <div class="d-flex align-items-center gap-2">
+                                <input type="file" id="front-cover" name="front-cover" accept="image/*" class="form-control">
+                                <button class="btn btn-icon">
+                                    <img src="../../public/images/icons/remove.png" alt="remove">
+                                </button>
+                            </div>
+                            <label>Back cover:</label>
+                            <div class="d-flex align-items-center gap-2">
+                                <input type="file" id="back-cover" name="back-cover" accept="image/*" class="form-control">
+                                <button class="btn btn-icon">
+                                    <img src="../../public/images/icons/remove.png" alt="remove">
+                                </button>
+                            </div>
+                            <label>Book insights:</label>
+                            <div class="d-flex align-items-center gap-2">
+                                <input type="file" id="book-insights" name="book-insights" accept="image/*" class="form-control">
+                                <button class="btn btn-icon">
+                                    <img src="../../public/images/icons/remove.png" alt="remove">
+                                </button>
+                            </div>
+                            <label>Full book:</label>
+                            <div class="d-flex align-items-center gap-2">
+                                <input type="file" id="full-book" name="full-book" accept="image/*" class="form-control">
+                                <button class="btn btn-icon">
+                                    <img src="../../public/images/icons/remove.png" alt="remove">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <section class="d-flex flex-column gap-2">
                     <label class="label">Title</label>
                     <input class="input" type="text" value="Harry Potter a Kameň mudrcov">
                 </section>
-
+            
                 <section class="d-flex flex-column gap-2">
                     <label class="label">Publisher</label>
                     <input class="input" type="text" value="Ikar">
                 </section>
-
+            
                 <section class="d-flex flex-column gap-2">
                     <label class="label">Published in year</label>
                     <input class="input" type="text" value="2015">
                 </section>
-
+            
                 <section class="d-flex flex-column gap-2">
                     <label class="label">Language</label>
                     <input class="input" type="text" value="SK">
@@ -94,12 +115,12 @@
                     <label class="label">ISBN</label>
                     <input class="input" type="text" value="978-80-551-4307-1">
                 </section>
-
+            
                 <section class="d-flex flex-column gap-2">
                     <label class="label">Price in &euro;</label>
                     <input class="input" type="text" value="999 999">
                 </section>
-
+            
                 <section class="d-flex flex-column gap-2">
                     <label class="label">Description</label>
                     <textarea class="form-control p-3" rows="6">
@@ -112,13 +133,14 @@
                         powers which could be valuable, dangerous - or both.
                     </textarea>
                 </section>
-
+            
                 <div class="row mt-3">
                     <div class="col-12 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <input type="submit" class="btn btn-primary" value="Save">
                     </div>
-                 </div>        
+                </div>
             </form>
+            
         </main>
 
         <footer class="container-fluid d-flex pt-4 pb-3 mt-auto align-items-center justify-content-center flex-column">
