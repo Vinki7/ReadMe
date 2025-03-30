@@ -88,3 +88,29 @@ CREATE TABLE ProductImages (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
+
+-- Cart Products Table
+CREATE TABLE CartProducts (
+    cart_id UUID REFERENCES Carts(id) ON DELETE CASCADE,
+    product_id UUID REFERENCES Products(id) ON DELETE CASCADE,
+    quantity INT NOT NULL DEFAULT 1,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
+
+-- Authors Table
+CREATE TABLE Authors (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    name VARCHAR(50) NOT NULL,
+    surname VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Product Authors Table
+CREATE TABLE ProductAuthors {
+    product_id UUID REFERENCES Products(id) ON DELETE CASCADE,
+    author_id UUID REFERENCES Authors(id) ON DELETE CASCADE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+}
