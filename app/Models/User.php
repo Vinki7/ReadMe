@@ -2,32 +2,26 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+use App\Enums\Role;
+
+class User extends Model
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory;
 
-    protected $keyType = 'string';
-    public $incrementing = false;
+    protected $table = 'users';
+    public $incrementing = false; // UUIDs are not auto-incrementing
+    protected $keyType = 'string'; // UUIDs are strings
 
-    public function credential() {
-        return $this->hasOne(Credential::class, 'id');
-    }
+    protected $fillable = [
+        'name',
+        'surname',
+        'role',
+    ];
 
-    public function carts() {
-        return $this->hasMany(Cart::class);
-    }
-
-    public function sessions() {
-        return $this->hasMany(Session::class);
-    }
-
-    public function orders() {
-        return $this->belongsToMany(Order::class, 'user_orders');
-    }
+    protected $casts = [
+        'role' => Role::class,
+    ];
 }
