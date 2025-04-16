@@ -6,7 +6,7 @@ ENV POSTGRES_PASSWORD=ReadMe@5678
 ENV POSTGRES_DB=readme
 
 # Copy the initialization script
-COPY init.sql /docker-entrypoint-initdb.d/
+# COPY init.sql /docker-entrypoint-initdb.d/ not needed, we are using migrations
 
 # Expose the PostgreSQL port
 EXPOSE 5678
