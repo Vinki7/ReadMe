@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum DeliveryMethod
+enum DeliveryMethod: string
 {
     case Standard = 'standard';
     case Express = 'express';
