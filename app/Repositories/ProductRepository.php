@@ -2,8 +2,10 @@
 
 namespace App\Repositories;
 
-use App\IRepository;
+use App\Enums\Category;
+use App\Repositories\Interfaces\IRepository;
 use App\Models\Product;
+use Illuminate\Support\Collection;
 
 class ProductRepository implements IRepository
 {
@@ -15,6 +17,15 @@ class ProductRepository implements IRepository
     public function getById($id)
     {
         return Product::find($id);
+    }
+
+    public function getByCategory(string $category, int | null $limit)
+    {
+        return Product::with('authors')
+        ->where('category', $category)
+        ->latest()
+        ->when($limit, fn ($query) => $query->limit($limit))
+        ->get();
     }
 
     public function create(array $data)

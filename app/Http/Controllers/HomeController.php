@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Category;
 use App\Http\Controllers\Controller;
 use App\Services\ProductService;
 use Illuminate\Http\Request;
@@ -30,9 +31,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = $this->productService->getLimitedProducts(3);
+        $fantasyBooks = $this->productService->getLimitedProductsByCategory(Category::Fantasy, 3);
+        $educationBooks = $this->productService->getLimitedProductsByCategory(Category::Education, 3);
 
-        return view('home.index', compact('products'));
+        return view('home.index', compact('fantasyBooks', 'educationBooks'));
     }
 
     /**
