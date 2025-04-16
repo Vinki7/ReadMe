@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum Category
+enum Category: string
 {
     case Fantasy = 'fantasy';
     case SciFi = 'sci-fi';
