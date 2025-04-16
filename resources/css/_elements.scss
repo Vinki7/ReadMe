@@ -1,0 +1,114 @@
+/* Modals */
+.modal-content {
+    max-width: 90%;
+    max-height: 75vh;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+/* Cards */
+.card-img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 10 / 14;
+}
+
+/* Overriden buttons */
+.btn {
+    display: inline-flex;
+    padding: 0.438rem 1.25rem;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 0.625rem;
+    flex-wrap: wrap;
+    color: var(--white-base, #FFF);
+
+    border-radius: 6.25rem;
+    background: var(--primary-500, #46607A);
+    box-shadow: 0rem 0rem var(--Blur, 0.75rem) 0rem var(--DropShadow, rgba(0, 0, 0, 0.25));
+}
+
+.btn:active {
+    background: var(--primary-600, #2C3E50);
+}
+
+.btn:hover {
+    background: var(--primary-700, #141F29);
+    color: var(--white-base, #FFF);
+}
+
+.btn .btn-sm {
+    padding: 0.3125rem 0.9375rem;
+}
+
+.btn .btn-lg {
+    padding: 0.625rem 1.5625rem;
+}
+
+.btn-primary {
+    background: var(--primary-200, #BCD0E7);
+    color: var(--primary-base, #2C3E50);
+}
+
+.btn-primary:hover {
+    background: var(--primary-300, #81AAD4);
+}
+
+.btn-secondary {
+    background: var(--secondary-400, #8F5A06);
+    box-shadow: 0rem 0rem var(--Blur, 0.75rem) 0rem var(--DropShadow, rgba(0, 0, 0, 0.25));
+    color: var(--white-base, #FFF);
+}
+
+.btn-secondary:hover {
+    background: var(--secondary-500, #613B03);
+}
+
+.btn-icon {
+    display: flex;
+    width: 3.125rem;
+    height: 3.125rem;
+    padding: 0.625rem;
+    align-items: center;
+    gap: 0.625rem;
+    flex-shrink: 0;
+
+    border-radius: 6.25rem;
+    background: var(--charcoal-200, #D1CDCE);
+    box-shadow: 0rem 0rem var(--Blur, 0.75rem) 0rem var(--DropShadow, rgba(0, 0, 0, 0.25));
+    color: var(--black-base);
+}
+
+.btn-icon:hover, .btn-user:hover {
+    background: var(--charcoal-300, #ADA5A7);
+}
+
+.link-profile {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    background: var(--charcoal-200, #D1CDCE);
+}
+
+.btn-user {
+    display: flex;
+    align-items: center;
+    border-radius: 6.25rem;
+    background: var(--charcoal-200, #D1CDCE);
+    box-shadow: 0rem 0rem var(--Blur, 0.75rem) 0rem var(--DropShadow, rgba(0, 0, 0, 0.25));
+}
+
+.btn-charcoal {
+    background: var(--charcoal-500, #655B5E);
+}
+
+.btn-charcoal:hover {
+    background: var(--charcoal-700, #211D1E);
+}

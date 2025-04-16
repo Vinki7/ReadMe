@@ -1,0 +1,81 @@
+$font-family-sans-serif: 'Montserrat', sans-serif;
+
+// Definition of custom color palette
+$black-100: #f1f1f1;
+$black-200: #cecece;
+$black-300: #a7a7a7;
+$black-400: #818181;
+$black-500: #5e5e5e;
+$black-600: #3d3d3d;
+$black-700: #1e1e1e;
+$black-base: #1e1e1e;
+
+$primary-100: #ecf1f8;
+$primary-200: #bcd0e7;
+$primary-300: #81aad4;
+$primary-400: #6284a7;
+$primary-500: #46607a;
+$primary-600: #2c3e50;
+$primary-700: #141f29;
+$primary-base: #2c3e50;
+
+$gray-100: #e8eaec;
+$gray-200: #bdc3c7;
+$gray-300: #979ca0;
+$gray-400: #73777a;
+$gray-500: #515456;
+$gray-600: #313335;
+$gray-700: #151617;
+$gray-base: #bdc3c7;
+
+$white-100: #ffffff;
+$white-200: #d6d6d6;
+$white-300: #afafaf;
+$white-400: #898989;
+$white-500: #656565;
+$white-600: #434343;
+$white-700: #242424;
+$white-base: #ffffff;
+
+$secondary-100: #fecda7;
+$secondary-200: #f39c12;
+$secondary-300: #c07a0c;
+$secondary-400: #8f5a06;
+$secondary-500: #613b03;
+$secondary-600: #361f01;
+$secondary-700: #1c0e00;
+$secondary-base: #f39c12;
+
+$burnt-sienna-100: #fdedec;
+$burnt-sienna-200: #f9c3bd;
+$burnt-sienna-300: #f58b7b;
+$burnt-sienna-400: #e05631;
+$burnt-sienna-500: #a63d22;
+$burnt-sienna-600: #6f2613;
+$burnt-sienna-700: #3c1106;
+$burnt-sienna-base: #e05631;
+
+$charcoal-100: #f1f0f1;
+$charcoal-200: #d1cdce;
+$charcoal-300: #ada5a7;
+$charcoal-400: #8b7e81;
+$charcoal-500: #655b5e;
+$charcoal-600: #423b3d;
+$charcoal-700: #211d1e;
+$charcoal-base: #211d1e;
+
+$drop-shadow: #00000040;
+
+// Blur effect variable
+$blur: 12;
+
+// Overriden Bootstrap color palette
+$black: $black-base;
+$primary: $primary-base;
+$gray: $gray-base;
+$white: $white-base;
+$secondary: $secondary-base;
+$danger: $burnt-sienna-base;
+$info: $primary-300;
+$success: $secondary-300;
+$warning: $secondary-100;
