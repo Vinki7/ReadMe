@@ -30,6 +30,6 @@ class Author extends Model
      */
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'product_author', 'author_id', 'product_id');
+        return $this->belongsToMany(Product::class, 'product_authors', 'author_id', 'product_id');
     }
 }

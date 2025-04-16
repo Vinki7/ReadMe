@@ -50,7 +50,7 @@ return new class extends Migration {
         });
 
         // Reference table for many-to-many relationship between products and authors
-        Schema::create('product_author', function (Blueprint $table) {
+        Schema::create('product_authors', function (Blueprint $table) {
             $table->uuid('product_id');
             $table->uuid('author_id');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
@@ -68,7 +68,7 @@ return new class extends Migration {
         });
 
         // Refference table for many-to-many relationship between carts and products
-        Schema::create('cart_product', function (Blueprint $table) {
+        Schema::create('cart_products', function (Blueprint $table) {
             $table->uuid('cart_id');
             $table->uuid('product_id');
             $table->foreign('cart_id')->references('id')->on('carts')->onDelete('cascade');
@@ -115,17 +115,19 @@ return new class extends Migration {
 
     public function down(): void
     {
+        Schema::dropIfExists('user_orders');
+        Schema::dropIfExists('product_authors');
+        Schema::dropIfExists('cart_products');
+        Schema::dropIfExists('order_products');
+
+        Schema::dropIfExists('orders');
+        Schema::dropIfExists('authors');
+        Schema::dropIfExists('carts');
+        Schema::dropIfExists('products');
+
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn(['surname', 'role', 'id']);
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
             $table->id(); // Restore default autoincrement ID
         });
-
-        Schema::dropIfExists('products');
-        Schema::dropIfExists('authors');
-
     }
 };

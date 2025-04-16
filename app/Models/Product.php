@@ -31,13 +31,13 @@ class Product extends Model
     // Relationship with authors (many-to-many)
     public function authors()
     {
-        return $this->belongsToMany(Author::class, 'product_author', 'product_id', 'author_id');
+        return $this->belongsToMany(Author::class, 'product_authors', 'product_id', 'author_id');
     }
 
     // Relationship with carts (many-to-many)
     public function carts()
     {
-        return $this->belongsToMany(Cart::class, 'cart_product', 'product_id', 'cart_id')
+        return $this->belongsToMany(Cart::class, 'cart_products', 'product_id', 'cart_id')
                     ->withPivot('quantity')
                     ->withTimestamps();
     }
