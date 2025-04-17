@@ -26,7 +26,6 @@ class ProductSeeder extends Seeder
 
         // Fantasy books
         $author = Author::where('surname', 'Rowling')->first();
-
         Product::create([
             'id' => Str::uuid(),
             'title' => 'Harry Potter a Kameň mudrcov',
@@ -82,5 +81,32 @@ class ProductSeeder extends Seeder
             'category' => 'education',
         ])->authors()->attach(Author::where('surname', 'Kiyosaki')->first()->id);
 
+        Product::create([
+            'id' => Str::uuid(),
+            'title' => 'Inteligentní investor',
+            'description' => 'A classic book on value investing that teaches the principles of sound investment.',
+            'price' => 55.99,
+            'stock' => 5,
+            'category' => 'education',
+        ])->authors()->attach(Author::where('surname', 'Graham')->first()->id);
+
+        Product::create([
+            'id' => Str::uuid(),
+            'title' => 'Nejbohatnější muž v Babylóně',
+            'description' => 'A book that offers timeless financial advice through parables set in ancient Babylon.',
+            'price' => 12.99,
+            'stock' => 20,
+            'category' => 'education',
+        ])->authors()->attach(Author::where('surname', 'Classon')->first()->id);
+
+        // Adult books
+        Product::create([
+            'id' => Str::uuid(),
+            'title' => 'Game of Thrones - A Clash of Kings',
+            'description' => 'The second book in the A Song of Ice and Fire series, continuing the epic tale of power struggles and intrigue in the Seven Kingdoms.',
+            'price' => 29.99,
+            'stock' => 12,
+            'category' => 'adults',
+        ])->authors()->attach(Author::where('surname', 'Martin')->first()->id);
     }
 }

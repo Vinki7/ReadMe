@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Enums\Category;
 use App\Repositories\ProductRepository;
 use Illuminate\Support\Collection;
-use App\DTOs\Product\ProductWithAuthorsDto;
+use App\DTOs\Product\ProductListingDto;
 
 class ProductService
 {
@@ -31,7 +31,7 @@ class ProductService
         return $this->productRepository
             ->getByCategory($category->value, $limit)
             ->map(function ($product) {
-                return new ProductWithAuthorsDto($product);
+                return new ProductListingDto($product);
             });
     }
 }
