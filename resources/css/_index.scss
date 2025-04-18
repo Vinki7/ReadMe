@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 .title-section {
     background-image: url("../../public/images/backgrounds/close-up-open-book.jpg");
     background-size: cover;
@@ -9,7 +11,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: var(--white-base, #FFFFFF);
+    color: var($white-base, #FFFFFF);
 }
 
 .title-section::before {
@@ -30,6 +32,38 @@
 /* categories */
 .category-header {
     padding: 1rem;
-    border-bottom: 0.2rem solid var(--secondary-400, #8F5A06);
+    border-bottom: 0.2rem solid var($secondary-400, #8F5A06);
     margin-right: 25vw;
+}
+
+/* product details */
+.product-detail-title
+{
+    font-size: 1.3rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.product-description {
+    font-size: 0.9rem;
+}
+
+.product-image
+{
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+.small-galery:hover {
+    background-color: var($primary-100, #1A1A1A);
+    border-radius: 0.625rem;
+}
+
+.label {
+    align-items: center;
+    justify-content: center;
 }

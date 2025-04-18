@@ -8,6 +8,7 @@
         <title>@yield('title') | {{ config('app.name', 'Laravel')}}</title>
 
         @vite(['resources/css/app.scss', 'resources/js/app.js'])
+        @stack('styles')
     </head>
     <body>
         <x-header-component></x-header-component>
