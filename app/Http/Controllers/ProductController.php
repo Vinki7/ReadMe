@@ -5,15 +5,24 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Services\ProductService;
 
 class ProductController extends Controller
 {
+    protected ProductService $productService;
+
+    public function __construct(ProductService $productService)
+    {
+        $this->productService = $productService;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $products = Product::all();
+        $products = $this->productService->getAllProducts();
+
         return view('products.index', compact('products'));
     }
 
@@ -38,7 +47,13 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $product = $this->productService->getProductById($id);
+
+        if ($product) {
+            return view('products.show', compact('product'));
+        }
+
+        return redirect()->route('products.index')->with('error', 'Product not found');
     }
 
     /**
