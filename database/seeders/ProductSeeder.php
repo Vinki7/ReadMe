@@ -33,7 +33,13 @@ class ProductSeeder extends Seeder
         Product::create([
             'id' => Str::uuid(),
             'title' => 'Harry Potter a Kameň mudrcov',
-            'description' => 'The first book in the Harry Potter series, introducing the young wizard Harry Potter and his adventures at Hogwarts School of Witchcraft and Wizardry.',
+            'description' => "When a letter arrives for unhappy but ordinary Harry Potter, a decade-old secret is
+                revealed to him that apparently he's the last to know. His parents were wizards,
+                killed by a Dark Lord's curse when Harry was just a baby, and which he somehow survived.
+                Leaving his unsympathetic aunt and uncle for Hogwarts, a wizarding school brimming with
+                ghosts and enchantments, Harry stumbles upon a sinister mystery when he finds a three-headed
+                dog guarding a room on the third floor. Then he hears of a missing stone with astonishing
+                powers which could be valuable, dangerous - or both.",
             'price' => 12.99,
             'stock' => 20,
             'category' => 'fantasy',

@@ -30,6 +30,7 @@ class Product extends Model
         'id' => 'string',
         'price' => 'decimal:2',
         'category' => Category::class,
+        'publication_date' => 'date',
     ];
 
     // Relationship with authors (many-to-many)

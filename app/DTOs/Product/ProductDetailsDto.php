@@ -5,6 +5,8 @@ namespace App\DTOs\Product;
 use App\Enums\ImageType;
 use App\Models\Product;
 use App\Models\ProductImage;
+use Carbon\Carbon;
+use Date;
 
 class ProductDetailsDto {
     public string $id;
@@ -15,7 +17,7 @@ class ProductDetailsDto {
     public string $category;
     public string $language;
     public string $publisher;
-    public ?string $publicationDate;
+    public string $publicationDate;
     public ?string $isbn;
     public array $authors;
     public ?ProductImage $frontCover = null;
@@ -35,7 +37,7 @@ class ProductDetailsDto {
         })->toArray();
         $this->language = $product->language;
         $this->publisher = $product->publisher;
-        $this->publicationDate = $product->publication_date;
+        $this->publicationDate = $product->publication_date?->format('d F Y') ?? 'N/A';
         $this->isbn = $product->isbn;
         $productImages = $product->allImages()->all();
         $this->assignImages($productImages);
