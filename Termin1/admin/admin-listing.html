@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Admin - ReadMe</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="admin.css">
+    </head>
+
+    <body class="d-flex flex-column min-vh-100">
+        <header class="navbar navbar-expand-lg bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand fw-bold logo" href="../home/index.html" title="Bring me home">Read<span>Me</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <nav class="navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav d-flex gap-5 mx-5">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../home/index.html" title="Navigate to home page">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../products/products.html" title="Navigate to product listing">Products</a>
+                        </li>
+                    </ul>
+                </nav>
+                <span class="navbar-collapse d-flex justify-content-center mt-3 mt-lg-0 flex-wrap gap-3">
+                    <a href="../profile/profile.html" class="btn btn-user p-2 d-flex flex-row gap-2">
+                        <img src="../../public/images/icons/Avatar.png" alt="Profile picture of the user" title="Navigate to Profile page">
+                        <span class="p-2 btn btn-secondary">Fake Admin</span>
+                    </a>
+                    <a href="../cart/cart.html" class="btn btn-icon mx-2" title="Navigate to Cart page">
+                        <img src="../../public/images/icons/cart.png" alt="cart">
+                    </a>
+                </span>
+            </div>
+        </header>
+
+        <main class="container-fluid row row-cols-auto mx-0 justify-content-center gap-2 my-5">
+            <section class="col-12 col-lg-9 btn-container d-flex flex-column gap-4 py-3 px-md-4">
+                <!-- Search bar -->
+                <div class="row">
+                    <input type="text" class="form-control col-12" placeholder="Search">
+                </div>
+
+                <!-- Add button -->
+                <div class="row justify-content-center">
+                    <a class="btn btn-secondary col-12 col-sm-4 col-lg-3 col-xxl-2" href="admin-details.html">
+                        Add Product
+                    </a>
+                </div>
+            </section>
+
+            <div class="card col-12 col-md-8 p-4 shadow-sm">
+                <div class="cart-item row align-items-center p-3">
+                    <div class="col-12 col-md-8 d-flex align-items-center flex-wrap flex-md-nowrap">
+                        <img class="product-image" src="../../public/images/products/myslenim-k-bohatstvi/front-cover.PNG">
+                        <div class="card-body">
+                            <a class="title card-title" href="../product-details/product-details.html">
+                                Myšlením k bohatství
+                            </a>
+                            <p class="mb-0">Author: Napoleon Hill</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 d-flex align-items-center justify-content-center justify-content-md-end gap-3 mt-2 mt-md-0 flex-wrap">
+                        <button class="btn btn-icon" data-bs-toggle="modal" data-bs-target="#removeProduct">
+                            <img src="../../public/images/icons/remove.png" alt="remove">
+                        </button>
+                        <a class="btn btn-secondary" href="admin-details.html">
+                            Edit Product
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card col-12 col-md-8 p-4 shadow-sm">
+                <div class="cart-item row align-items-center p-3">
+                    <div class="col-12 col-md-8 d-flex align-items-center flex-wrap flex-md-nowrap">
+                        <img class="product-image" src="../../public/images/products/harry-potter-5/front-cover.PNG">
+                        <div class="card-body">
+                            <a class="title card-title" href="../product-details/product-details.html">
+                                Harry Potter a Fénixov rád
+                            </a>
+                            <p class="mb-0">Author: J. K. Rowling</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 d-flex align-items-center justify-content-center justify-content-md-end gap-3 mt-2 mt-md-0 flex-wrap">
+                        <button class="btn btn-icon" data-bs-toggle="modal" data-bs-target="#removeProduct">
+                            <img src="../../public/images/icons/remove.png" alt="remove">
+                        </button>
+                        <a class="btn btn-secondary" href="admin-details.html">
+                            Edit Product
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card col-12 col-md-8 p-4 shadow-sm">
+                <div class="cart-item row align-items-center p-3">
+                    <div class="col-12 col-md-8 d-flex align-items-center flex-wrap flex-md-nowrap">
+                        <img class="product-image" src="../../public/images/products/harry-potter-1/front-cover.PNG">
+                        <div class="card-body">
+                            <a class="title card-title" href="../product-details/product-details.html">
+                                Harry Potter a Kameň mudrcov
+                            </a>
+                            <p class="mb-0">Author: J. K. Rowling</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 d-flex align-items-center justify-content-center justify-content-md-end gap-3 mt-2 mt-md-0 flex-wrap">
+                        <button class="btn btn-icon" data-bs-toggle="modal" data-bs-target="#removeProduct">
+                            <img src="../../public/images/icons/remove.png" alt="remove">
+                        </button>
+                        <a class="btn btn-secondary" href="admin-details.html">
+                            Edit Product
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="container-fluid d-flex pt-4 pb-3 mt-auto align-items-center justify-content-center flex-column">
+            <section class="top-content d-flex gap-3 flex-column">
+                <p>Contact:</p>
+                <ul class="list-unstyled d-flex gap-2 gap-lg-5 flex-column flex-lg-row ps-4">
+                    <li>Mail: <a href="mailto:help@readme.com">help@readme.com</a></li>
+                    <li>Instagram: <a href="https://www.instagram.com/readme">www.instagram.com/readme</a></li>
+                </ul>
+            </section>
+            <section class="bottom-content container d-flex flex-column flex-lg-row gap-lg-6 justify-content-center align-items-center flex-wrap">
+                <span class="logo">Read<span>Me</span></span>
+                <p class="m-0 mx-lg-3">The place where stories live...</p>
+            </section>
+        </footer>
+
+        <section class="modal fade" id="removeProduct" tabindex="-1" aria-labelledby="removeProduct" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <form class="modal-content">
+                    <header class="modal-header">
+                        <h1 class="modal-title" id="requestDeactivationModalLabel">Remove Product</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </header>
+                    <div class="modal-body d-flex flex-column gap-3">
+                        <section class="d-flex flex-column gap-2">
+                            <p class="fw-medium">Are you really want to remove product?</p>
+                        </section>
+                    </div>
+                    <footer class="modal-footer">
+                        <div class="d-flex flex-column gap-3 flex-md-row flex-wrap">
+                            <button type="button" class="btn btn-charcoal" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Remove</button>
+                        </div>
+                    </footer>
+                </form>
+            </div>
+        </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
