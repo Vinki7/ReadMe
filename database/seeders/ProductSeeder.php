@@ -22,6 +22,10 @@ class ProductSeeder extends Seeder
             'price' => 19.99,
             'stock' => 50,
             'category' => 'sci-fi',
+            'language' => 'English',
+            'publisher' => 'Secker & Warburg',
+            'publication_date' => '1949-06-08',
+            'isbn' => '978-0-451-52493-5',
         ])->authors()->attach(Author::where('surname', 'Orwell')->first()->id);
 
         // Fantasy books
@@ -33,6 +37,10 @@ class ProductSeeder extends Seeder
             'price' => 12.99,
             'stock' => 20,
             'category' => 'fantasy',
+            'language' => 'Slovak',
+            'publisher' => 'Ikar',
+            'publication_date' => '2000-01-01',
+            'isbn' => '978-80-8085-200-0',
         ])->authors()->attach($author->id);
 
         Product::create([
@@ -42,6 +50,10 @@ class ProductSeeder extends Seeder
             'price' => 14.99,
             'stock' => 30,
             'category' => 'fantasy',
+            'language' => 'Slovak',
+            'publisher' => 'Ikar',
+            'publication_date' => '2000-01-01',
+            'isbn' => '978-80-8085-201-7',
         ])->authors()->attach($author->id);
 
         Product::create([
@@ -51,6 +63,10 @@ class ProductSeeder extends Seeder
             'price' => 18.99,
             'stock' => 25,
             'category' => 'fantasy',
+            'language' => 'Slovak',
+            'publisher' => 'Ikar',
+            'publication_date' => '2003-01-01',
+            'isbn' => '978-80-8085-205-5',
         ])->authors()->attach($author->id);
 
         // Education books
@@ -61,6 +77,10 @@ class ProductSeeder extends Seeder
             'price' => 15.99,
             'stock' => 40,
             'category' => 'education',
+            'language' => 'Czech',
+            'publisher' => 'Pragma',
+            'publication_date' => '1937-01-01',
+            'isbn' => '978-80-87128-00-8',
         ])->authors()->attach(Author::where('surname', 'Hill')->first()->id);
 
         Product::create([
@@ -70,6 +90,10 @@ class ProductSeeder extends Seeder
             'price' => 22.99,
             'stock' => 15,
             'category' => 'education',
+            'language' => 'Slovak',
+            'publisher' => 'Fitness Academy',
+            'publication_date' => '2015-01-01',
+            'isbn' => '978-80-971540-0-1',
         ])->authors()->attach(Author::where('surname', 'Prekop')->first()->id);
 
         Product::create([
@@ -79,6 +103,10 @@ class ProductSeeder extends Seeder
             'price' => 17.99,
             'stock' => 10,
             'category' => 'education',
+            'language' => 'Czech',
+            'publisher' => 'Pragma',
+            'publication_date' => '1998-01-01',
+            'isbn' => '978-80-87128-01-5',
         ])->authors()->attach(Author::where('surname', 'Kiyosaki')->first()->id);
 
         Product::create([
@@ -88,6 +116,10 @@ class ProductSeeder extends Seeder
             'price' => 55.99,
             'stock' => 5,
             'category' => 'education',
+            'language' => 'Czech',
+            'publisher' => 'Grada',
+            'publication_date' => '1949-01-01',
+            'isbn' => '978-80-87128-02-2',
         ])->authors()->attach(Author::where('surname', 'Graham')->first()->id);
 
         Product::create([
@@ -97,6 +129,10 @@ class ProductSeeder extends Seeder
             'price' => 12.99,
             'stock' => 20,
             'category' => 'education',
+            'language' => 'Czech',
+            'publisher' => 'Pragma',
+            'publication_date' => '1926-01-01',
+            'isbn' => '978-80-87128-03-9',
         ])->authors()->attach(Author::where('surname', 'Classon')->first()->id);
 
         // Adult books
@@ -107,6 +143,10 @@ class ProductSeeder extends Seeder
             'price' => 29.99,
             'stock' => 12,
             'category' => 'adults',
+            'language' => 'English',
+            'publisher' => 'Bantam Books',
+            'publication_date' => '1998-11-16',
+            'isbn' => '978-0-553-10803-3',
         ])->authors()->attach(Author::where('surname', 'Martin')->first()->id);
     }
 }
