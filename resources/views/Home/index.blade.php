@@ -18,25 +18,13 @@
         </header>
         <div class="d-flex justify-content-start flex-column flex-md-row flex-wrap gap-5">
             @foreach ($fantasyBooks as $book)
-                <article class="card col-12 col-md-5 col-lg-3 flex-column">
-                    <div class="d-flex flex-column flex-sm-row">
-                        <div class="col-12 col-sm-5">
-                            <img src="{{ asset($book->frontCover) }}" class="card-img img-fluid" alt="{{ $book->title }}" title="{{ $book->title }}">
-                        </div>
-                        <div class="card-body flex-grow-1 flex-column">
-                            <a class="title card-title" href="../product-details/product-details.html" href="../product-details/product-details.html">
-                                {{ $book->title }}
-                            </a>
-                            <div class="card-text">
-                                <p>Author:<br>{{ implode(', ', $book->authors) }}</p>
-                                <p><strong>{{ $book->price }} €</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                    <footer class="card-footer mt-auto d-flex justify-content-center flex-row flex-wrap">
-                        <button class="btn btn-secondary">Add to Cart</button>
-                    </footer>
-                </article>
+                <x-product-listing-card
+                    :frontCoverPath="$book->frontCover"
+                    :title="$book->title"
+                    :authors="$book->authors"
+                    :price="$book->price"
+                    detailsUrl="../product-details/product-details.html"
+                />
             @endforeach
         </div>
     </section>
@@ -47,23 +35,13 @@
         </span>
         <section class="d-flex justify-content-start flex-column flex-md-row flex-wrap gap-5">
             @foreach ($educationBooks as $book)
-                <article class="card col-12 col-md-5 col-lg-3 flex-column">
-                    <div class="d-flex flex-column flex-sm-row">
-                        <div class="col-12 col-sm-5">
-                            <img src="{{ asset($book->frontCover) }}" class="card-img img-fluid" alt="{{ $book->title }}" title="{{ $book->title }}">
-                        </div>
-                        <div class="card-body flex-grow-1 flex-column">
-                            <a class="title card-title" href="../product-details/product-details.html">{{ $book->title }}</a>
-                            <div class="card-text">
-                                <p>Author:<br>{{ implode(", ", $book->authors) }}</p>
-                                <p><strong>{{ $book->price }} €</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                    <footer class="card-footer mt-auto d-flex justify-content-center flex-row flex-wrap">
-                        <button class="btn btn-secondary">Add to Cart</button>
-                    </footer>
-                </article>
+                <x-product-listing-card
+                    :frontCoverPath="$book->frontCover"
+                    :title="$book->title"
+                    :authors="$book->authors"
+                    :price="$book->price"
+                    detailsUrl="../product-details/product-details.html"
+                />
             @endforeach
         </section>
     </section>
