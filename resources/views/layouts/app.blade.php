@@ -11,27 +11,20 @@
     </head>
     <body>
         <x-header-component></x-header-component>
-        <main>
-            <div *ngIf="isSidebarVisible && !isDesktopView" [ngClass]="{'visible':isSidebarVisible}" class="overlay" (click)="toggleSidebar()"></div>
-            <nav [ngClass]="{'hidden': !isSidebarVisible}" class="sidebar col-3">
-                <ul class="sidenav-container">
-                    <li class="nav-btn" [routerLink]="['/kanban']" routerLinkActive="active-link">
-                        <img sizes="2rem" [src]="kanbanImagePath" alt="Kanban">
-                    </li>
-                    <li class="nav-btn" [routerLink]="['/calendar']" routerLinkActive="active-link">
-                        <img [src]="calendarImagePath" alt="Calendar">
-                    </li>
+        @yield('content')
+        <footer class="container-fluid d-flex pt-4 pb-3 mt-auto align-items-center justify-content-center flex-column">
+            <section class="top-content d-flex gap-3 flex-column">
+                <p>Contact:</p>
+                <ul class="list-unstyled d-flex gap-2 gap-lg-5 flex-column flex-lg-row ps-4">
+                    <li>Mail: <a href="mailto:help@readme.com">help@readme.com</a></li>
+                    <li>Instagram: <a href="https://www.instagram.com/readme">www.instagram.com/readme</a></li>
                 </ul>
-                <p class="anotation">
-                    Demo project
-                    authored by S. V., 2024
-                </p>
-            </nav>
-            <article class="app-content">
-                @yield('content')
-            </article>
-        </main>
-        <footer>Page footer Here!!!</footer>
-
+            </section>
+            <section class="bottom-content container d-flex flex-column flex-lg-row gap-lg-6 justify-content-center align-items-center flex-wrap">
+                <span class="logo">Read<span>Me</span></span>
+                <p class="m-0 mx-lg-3">The place where stories live...</p>
+            </section>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+q8iDf4z4z9p1E6p1F9j" crossorigin="anonymous"></script>
     </body>
 </html>

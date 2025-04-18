@@ -1,32 +1,25 @@
-<header class="vw-100 p-4 d-flex justify-content-between align-items-center">
-    <div class="p-3">
-        <img src="{{ asset('images/logo.png') }}" alt="Logo"/>
+<header class="navbar navbar-expand-lg bg-white shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold logo" href="{{ url("/home") }}" title="Bring me home">Read<span>Me</span></a>
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <nav class="navbar-collapse justify-content-end collapse" id="navbarNav">
+            <ul class="navbar-nav d-flex gap-5 mx-5">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url("/home") }}" title="Navigate to home page">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url("/products") }}" title="Navigate to product listing">Products</a>
+                </li>
+            </ul>
+        </nav>
+        <span class="navbar-collapse d-flex justify-content-center mt-3 mt-lg-0 flex-wrap">
+            <a href="../auth/sign-in.html" class="btn btn-primary mx-2" title="Navigate to Sign In page">Sign In</a>
+            <a href="../auth/register.html" class="btn mx-2" title="Navigate to Register page">Register</a>
+            <a href="{{ url("/cart") }}" class="btn btn-icon mx-2" title="Navigate to Cart page">
+                <img src="{{ asset("images/icons/cart.png") }}" alt="cart">
+            </a>
+        </span>
     </div>
-    <nav class="d-none d-lg-block">
-        <ul class="navr">
-            <li class="nav-item" [routerLink]="['/kanban']" routerLinkActive="active-link">
-                link 1
-            </li>
-            <li class="nav-item" [routerLink]="['/calendar']" routerLinkActive="active-link">
-                link 2
-            </li>
-        </ul>
-    </nav>
-    <x-chevron-button-component class="d-block d-lg-none" direction="right" onClick="toggleNavigation()"/>
 </header>
-<nav class="navigation d-none d-flex flex-column align-items-center">
-    <ul class="nav d-flex flex-column align-items-center p-2">
-        <li class="nav-item p-4" [routerLink]="['/kanban']" routerLinkActive="active-link">
-            navigation 1
-        </li>
-        <li class="nav-item p-4" [routerLink]="['/calendar']" routerLinkActive="active-link">
-            navigation 2
-        </li>
-    </ul>
-</nav>
-<script>
-    function toggleNavigation() {
-        const navigation = document.querySelector('.navigation');
-        navigation.classList.toggle('d-none');
-    }
-</script>

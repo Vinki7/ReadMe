@@ -49,4 +49,15 @@ class Product extends Model
                     ->withPivot('quantity', 'price')
                     ->withTimestamps();
     }
+
+    // Relationship with product images (one-to-many)
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class, 'product_id', 'id');
+    }
+
+    public function frontCover()
+    {
+        return $this->images()->where('image_path', 'like', '%front-cover%')->first();
+    }
 }

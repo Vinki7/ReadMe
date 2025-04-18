@@ -1,0 +1,22 @@
+.label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    align-self: stretch;
+    color: var(--secondary-500, #613B03);
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.input {
+    display: flex;
+    align-self: stretch;
+    padding: 0.5rem;
+    border-radius: 0.625rem;
+    border: 0.125rem solid var(--white-300, #AFAFAF);
+    background: var(--White, #FFF);
+    box-shadow: 0rem 0rem var(--Blur, 0.75rem) 0rem var(--DropShadow, rgba(0, 0, 0, 0.25));
+}
