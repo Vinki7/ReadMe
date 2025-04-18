@@ -29,15 +29,15 @@
             <div class="d-flex flex-column col-12 col-sm-5 flex-grow-1  justify-content-center">
                 <h1 class="product-detail-title">{{ $product->title }}</h1>
                 <h2 class="subtitle">{{ implode(', ', $product->authors) }}</h2>
-                <p class="product-description">Publisher: Ikar, 2015</p>
-                <p class="product-description">Language: SK</p>
-                <p class="product-description">ISBN: 978-80-551-4307-1</p>
+                <p class="product-description">Publisher: {{ $product->publisher }}, {{ $product->publicationDate }}</p>
+                <p class="product-description">Language: {{ $product->language }}</p>
+                <p class="product-description">ISBN: {{ $product->isbn }}</p>
             </div>
             <form class="d-flex flex-column flex-sm-row flex-md-column gap-3 col-12 col-md-3 justify-content-center align-items-center">
-                <h5>999&nbsp;999€</h5>
+                <h5>{{ $product->price }} €</h5>
                 <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center align-items-center">
                     <label class="label" for="count">Amount:</label>
-                    <input class="input w-25 align-self-center text-center" type="number" id="count" name="count" value="1" min="1">
+                    <input class="input w-100 align-self-center text-center" type="number" id="count" name="count" value="1" min="1" max="{{ $product->stock }}" required>
                 </div>
                 <input type="submit" class="btn btn-secondary" value="Add to Cart">
             </form>
@@ -47,14 +47,46 @@
             <h3>Description</h3>
             <hr class="divider">
             <p>
-                When a letter arrives for unhappy but ordinary Harry Potter, a decade-old secret is
-                revealed to him that apparently he's the last to know. His parents were wizards,
-                killed by a Dark Lord's curse when Harry was just a baby, and which he somehow survived.
-                Leaving his unsympathetic aunt and uncle for Hogwarts, a wizarding school brimming with
-                ghosts and enchantments, Harry stumbles upon a sinister mystery when he finds a three-headed
-                dog guarding a room on the third floor. Then he hears of a missing stone with astonishing
-                powers which could be valuable, dangerous - or both.
+                {{ $product->description }}
             </p>
         </section>
     </main>
+@endsection
+@section('modals')
+    <section class="modal fade" id="showGalery" tabindex="-1" aria-labelledby="showGaleryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered justify-content-center">
+            <div class="modal-content">
+                <div id="carouselIndicators" class="carousel slide">
+                    <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Front cover"></button>
+                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Back cover"></button>
+                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Book insights"></button>
+                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="3" aria-label="Full book"></button>
+                    </div>
+                    <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="product-image" src="{{ asset($product->frontCover->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - front cover" title="{{ $product->title }}">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="product-image" src="{{ asset($product->backCover->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - back cover" title="{{ $product->title }}">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="product-image" src="{{ asset($product->bookInsights->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - insights" title="{{ $product->title }}">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="product-image" src="{{ asset($product->fullBook->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - full book" title="{{ $product->title }}">
+                    </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection

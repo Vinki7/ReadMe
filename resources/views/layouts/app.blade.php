@@ -10,9 +10,10 @@
         @vite(['resources/css/app.scss', 'resources/js/app.js'])
         @stack('styles')
     </head>
-    <body>
+    <body class="d-flex flex-column min-vh-100">
         <x-header-component></x-header-component>
         @yield('content')
+        @yield('modals')
         <footer class="container-fluid d-flex pt-4 pb-3 mt-auto align-items-center justify-content-center flex-column">
             <section class="top-content d-flex gap-3 flex-column">
                 <p>Contact:</p>
