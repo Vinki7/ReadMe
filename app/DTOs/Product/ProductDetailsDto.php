@@ -13,6 +13,10 @@ class ProductDetailsDto {
     public float $price;
     public int $stock;
     public string $category;
+    public string $language;
+    public string $publisher;
+    public ?string $publicationDate;
+    public ?string $isbn;
     public array $authors;
     public ?ProductImage $frontCover = null;
     public ?ProductImage $backCover = null;
@@ -29,7 +33,10 @@ class ProductDetailsDto {
         $this->authors = $product->authors->map(function ($author) {
             return "{$author->name} {$author->surname}";
         })->toArray();
-
+        $this->language = $product->language;
+        $this->publisher = $product->publisher;
+        $this->publicationDate = $product->publication_date;
+        $this->isbn = $product->isbn;
         $productImages = $product->allImages()->all();
         $this->assignImages($productImages);
     }
