@@ -1,31 +1,39 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Auth\ConfirmPasswordController;
 use Illuminate\Support\Facades\Route;
-use Livewire\Volt\Volt;
 
 Route::middleware('guest')->group(function () {
-    Volt::route('register', 'pages.auth.register')
+    // Register
+    Route::get('register', [RegisterController::class, 'show'])
         ->name('register');
+    Route::post('register', [RegisterController::class, 'store']);
 
-    Volt::route('login', 'pages.auth.login')
+    // Login
+    Route::get('login', [LoginController::class, 'show'])
         ->name('login');
+    Route::post('login', [LoginController::class, 'store']);
 
-    Volt::route('forgot-password', 'pages.auth.forgot-password')
-        ->name('password.request');
+    // Forgot Password
+    Route::get('forgot-password', [ForgotPasswordController::class, 'show'])->name('password.request');
+    Route::post('forgot-password', [ForgotPasswordController::class, 'sendResetLink'])->name('password.email');
 
-    Volt::route('reset-password/{token}', 'pages.auth.reset-password')
-        ->name('password.reset');
+    // Reset Password
+    Route::get('reset-password/{token}', [ResetPasswordController::class, 'show'])->name('password.reset');
+    Route::post('reset-password', [ResetPasswordController::class, 'reset'])->name('password.update');
 });
 
 Route::middleware('auth')->group(function () {
-    Volt::route('verify-email', 'pages.auth.verify-email')
-        ->name('verification.notice');
+    // Email verification
+    Route::get('verify-email', [VerifyEmailController::class, 'notice'])->name('verification.notice');
+    Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
 
-    Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
-        ->middleware(['signed', 'throttle:6,1'])
-        ->name('verification.verify');
-
-    Volt::route('confirm-password', 'pages.auth.confirm-password')
-        ->name('password.confirm');
+    // Confirm password
+    Route::get('confirm-password', [ConfirmPasswordController::class, 'show'])->name('password.confirm');
+    Route::post('confirm-password', [ConfirmPasswordController::class, 'confirm']);
 });

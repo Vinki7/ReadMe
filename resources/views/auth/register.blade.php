@@ -23,6 +23,13 @@
                 @error('name') <small class="text-danger">{{ $message }}</small> @enderror
             </section>
 
+            <!-- Surname -->
+            <section class="d-flex flex-column gap-2">
+                <label for="surname" class="label form-label">Surname</label>
+                <input type="text" name="surname" id="surname" class="input" value="{{ old('surname') }}" required>
+                @error('surname') <small class="text-danger">{{ $message }}</small> @enderror
+            </section>
+
             <!-- Username -->
             <section class="d-flex flex-column gap-2">
                 <label for="username" class="label form-label">Username</label>
