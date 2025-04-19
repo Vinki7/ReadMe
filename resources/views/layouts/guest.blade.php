@@ -12,6 +12,7 @@
         @stack('styles')
     </head>
     <body class="d-flex flex-column min-vh-100">
+        <x-header-component></x-header-component>
         @yield('content')
     </body>
 </html>

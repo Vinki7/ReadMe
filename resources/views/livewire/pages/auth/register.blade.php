@@ -8,7 +8,7 @@ use Illuminate\Validation\Rules;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
-new #[Layout('layouts.guest')] class extends Component
+new class extends Component
 {
     public string $name = '';
     public string $email = '';
@@ -67,7 +67,7 @@ new #[Layout('layouts.guest')] class extends Component
                 </section>
 
                 <!-- Password -->
-                <div class="d-flex flex-column gap-2">
+                <section class="d-flex flex-column gap-2">
                     <x-input-label for="password" :value="__('Password')" class="label form-label" />
 
                     <x-text-input wire:model="password" id="password" class="input"
@@ -76,10 +76,10 @@ new #[Layout('layouts.guest')] class extends Component
                                     required autocomplete="new-password" />
 
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                </div>
+                </section>
 
                 <!-- Confirm Password -->
-                <div class="d-flex flex-column gap-2">
+                <section class="d-flex flex-column gap-2">
                     <x-input-label for="password_confirmation" :value="__('Confirm Password')" class="label form-label" />
 
                     <x-text-input wire:model="password_confirmation" id="password_confirmation" class="input"
@@ -87,17 +87,17 @@ new #[Layout('layouts.guest')] class extends Component
                                     name="password_confirmation" required autocomplete="new-password" />
 
                     <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-                </div>
+                </section>
 
-                <div class="flex items-center justify-end mt-4">
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}" wire:navigate>
-                        {{ __('Already registered?') }}
+                <section class="d-flex justify-content-center flex-column flex-sm-row flex-wrap gap-2 gap-lg-5">
+                    <a class="btn btn-charcoal" href="{{ route('login') }}" wire:navigate>
+                        {{ __('Sign-in instead') }}
                     </a>
 
-                    <x-primary-button class="ms-4">
+                    <x-primary-button class="btn btn-secondary">
                         {{ __('Register') }}
                     </x-primary-button>
-                </div>
+                </section>
             </form>
         </section>
     </main>
