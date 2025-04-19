@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: var(--white-base, #FFFFFF);
+    color: var($white-base, #FFFFFF);
 }
 
 .title-section::before {
@@ -30,6 +30,6 @@
 /* categories */
 .category-header {
     padding: 1rem;
-    border-bottom: 0.2rem solid var(--secondary-400, #8F5A06);
+    border-bottom: 0.2rem solid var($secondary-400, #8F5A06);
     margin-right: 25vw;
 }
