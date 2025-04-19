@@ -198,170 +198,20 @@
 				</div>
 			</div>
 
-			<!-- Product Grid -->
-			<div class="row row-cols-auto justify-content-center gap-4 pb-3 g-0">
-				<article class="card col-12 col-md-5 col-xl-3 flex-column px-0">
-					<div class="d-flex flex-column flex-sm-row">
-						<div class="col-12 col-sm-5">
-							<img src="../../public/images/products/harry-potter-1/front-cover.PNG" class="card-img img-fluid" alt="Harry Potter a Kameň mudrcov" title="Harry Potter a Kameň mudrcov">
-						</div>
-						<div class="card-body flex-grow-1 flex-column">
-							<a class="title card-title" href="../product-details/product-details.html"title" href="../product-details/product-details.html">Harry Potter a Kameň mudrcov</a>
-							<div class="card-text">
-								<p>Author:<br>J. K. Rowling</p>
-								<p><strong>9990 €</strong></p>
-							</div>
-						</div>
-					</div>
-					<footer class="card-footer mt-auto d-flex justify-content-center flex-row flex-wrap">
-						<button class="btn btn-secondary">Add to Cart</button>
-					</footer>
-				</article>
+			<!-- Product cards -->
+            <div class="row row-cols-auto justify-content-center gap-4 pb-3 g-0">
+            @foreach ($products as $product)
+                <x-product-listing-card
+                    :frontCoverPath="$product->frontCover()"
+                    :title="$product->title"
+                    :authors="$product->authors"
+                    :price="$product->price"
+                    :productId="$product->id"
+                    detailsUrl="{{ route('products.show', $product->id) }}"
+                />
+            @endforeach
+            </div>
 
-				<article class="card col-12 col-md-5 col-xl-3 flex-column px-0">
-					<div class="d-flex flex-column flex-sm-row">
-						<div class="col-12 col-sm-5">
-							<img src="../../public/images/products/harry-potter-2/front-cover.PNG" class="card-img img-fluid" alt="Harry Potter a Tajomná komnata" title="Harry Potter a Tajomná komnata">
-						</div>
-						<div class="card-body flex-grow-1 flex-column">
-							<a class="title card-title" href="../product-details/product-details.html">Harry Potter a Tajomná komnata</a>
-							<div class="card-text">
-								<p>Author:<br>J. K. Rowling</p>
-								<p><strong>9990 €</strong></p>
-							</div>
-						</div>
-					</div>
-					<footer class="card-footer mt-auto d-flex justify-content-center flex-row flex-wrap">
-						<button class="btn btn-secondary">Add to Cart</button>
-					</footer>
-				</article>
-
-				<article class="card col-12 col-md-5 col-xl-3 flex-column px-0">
-					<div class="d-flex flex-column flex-sm-row">
-						<div class="col-12 col-sm-5">
-							<img src="../../public/images/products/harry-potter-5/front-cover.PNG" class="card-img img-fluid" alt="Harry Potter a Fénixov rád" title="Harry Potter a Fénixov rád">
-						</div>
-						<div class="card-body flex-grow-1 flex-column">
-							<a class="title card-title" href="../product-details/product-details.html">Harry Potter a Fénixov rád</a>
-							<div class="card-text">
-								<p>Author:<br>J. K. Rowling</p>
-								<p><strong>9990 €</strong></p>
-							</div>
-						</div>
-					</div>
-					<footer class="card-footer mt-auto d-flex justify-content-center flex-row flex-wrap">
-						<button class="btn btn-secondary">Add to Cart</button>
-					</footer>
-				</article>
-
-				<article class="card col-12 col-md-5 col-xl-3 flex-column px-0">
-					<div class="d-flex flex-column flex-sm-row">
-						<div class="col-12 col-sm-5">
-							<img src="../../public/images/products/game-of-thrones-2/front-cover.PNG" class="card-img img-fluid" alt="Game of Thrones - A Clash of Kings" title="Game of Thrones - A Clash of Kings">
-						</div>
-						<div class="card-body flex-grow-1 flex-column">
-							<a class="title card-title" href="../product-details/product-details.html">Game of Thrones - A Clash of Kings</a>
-							<div class="card-text">
-								<p>Author:<br>George R. R. Martin</p>
-								<p><strong>9990 €</strong></p>
-							</div>
-						</div>
-					</div>
-					<footer class="card-footer mt-auto d-flex justify-content-center flex-row flex-wrap">
-						<button class="btn btn-secondary">Add to Cart</button>
-					</footer>
-				</article>
-
-				<article class="card col-12 col-md-5 col-xl-3 flex-column px-0">
-					<div class="d-flex flex-column flex-sm-row">
-						<div class="col-12 col-sm-5">
-							<img src="../../public/images/products/myslenim-k-bohatstvi/front-cover.PNG" class="card-img img-fluid" alt="Myšlením k bohatství" title="Myšlením k bohatství">
-						</div>
-						<div class="card-body flex-grow-1 flex-column">
-							<a class="title card-title" href="../product-details/product-details.html">Myšlením k bohatství</a>
-							<div class="card-text">
-								<p>Author:<br>Napoleon Hill</p>
-								<p><strong>9990 €</strong></p>
-							</div>
-						</div>
-					</div>
-					<footer class="card-footer mt-auto d-flex justify-content-center flex-row flex-wrap">
-						<button class="btn btn-secondary">Add to Cart</button>
-					</footer>
-				</article>
-
-				<article class="card col-12 col-md-5 col-xl-3 flex-column px-0">
-					<div class="d-flex flex-column flex-sm-row">
-						<div class="col-12 col-sm-5">
-							<img src="../../public/images/products/ako-nabrat-svaly/front-cover.PNG" class="card-img img-fluid" alt="Ako nabrať svaly" title="Ako nabrať svaly">
-						</div>
-						<div class="card-body flex-grow-1 flex-column">
-							<a class="title card-title" href="../product-details/product-details.html">Ako nabrať svaly</a>
-							<div class="card-text">
-								<p>Author:<br>Boris Prekop</p>
-								<p><strong>9990 €</strong></p>
-							</div>
-						</div>
-					</div>
-					<footer class="card-footer mt-auto d-flex justify-content-center flex-row flex-wrap">
-						<button class="btn btn-secondary">Add to Cart</button>
-					</footer>
-				</article>
-
-				<article class="card col-12 col-md-5 col-xl-3 flex-column px-0">
-					<div class="d-flex flex-column flex-sm-row">
-						<div class="col-12 col-sm-5">
-							<img src="../../public/images/products/cashflow-kvadrant/front-cover.PNG" class="card-img img-fluid" alt="Cashflow kvadrant" title="Cashflow kvadrant">
-						</div>
-						<div class="card-body flex-grow-1 flex-column">
-							<a class="title card-title" href="../product-details/product-details.html">Cashflow kvadrant</a>
-							<div class="card-text">
-								<p>Author:<br>Robert. T. Kiyosaki</p>
-								<p><strong>9990 €</strong></p>
-							</div>
-						</div>
-					</div>
-					<footer class="card-footer mt-auto d-flex justify-content-center flex-row flex-wrap">
-						<button class="btn btn-secondary">Add to Cart</button>
-					</footer>
-				</article>
-
-				<article class="card col-12 col-md-5 col-xl-3 flex-column px-0">
-					<div class="d-flex flex-column flex-sm-row">
-						<div class="col-12 col-sm-5">
-							<img src="../../public/images/products/inteligentni-investor/front-cover.PNG" class="card-img img-fluid" alt="Inteligentní investor" title="Inteligentní investor">
-						</div>
-						<div class="card-body flex-grow-1 flex-column">
-							<a class="title card-title" href="../product-details/product-details.html">Inteligentní investor</a>
-							<div class="card-text">
-								<p>Author:<br>Benjamin Graham</p>
-								<p><strong>9990 €</strong></p>
-							</div>
-						</div>
-					</div>
-					<footer class="card-footer mt-auto d-flex justify-content-center flex-row flex-wrap">
-						<button class="btn btn-secondary">Add to Cart</button>
-					</footer>
-				</article>
-
-				<article class="card col-12 col-md-5 col-xl-3 flex-column px-0">
-					<div class="d-flex flex-column flex-sm-row">
-						<div class="col-12 col-sm-5">
-							<img src="../../public/images/products/nejbohatsi-muz-v-babylone/front-cover.PNG" class="card-img img-fluid" alt="Nejbohatší muž v Babylóně" title="Nejbohatší muž v Babylóně">
-						</div>
-						<div class="card-body flex-grow-1 flex-column">
-							<a class="title card-title" href="../product-details/product-details.html">Nejbohatší muž v Babylóně</a>
-							<div class="card-text">
-								<p>Author:<br>George S. Clason</p>
-								<p><strong>9990 €</strong></p>
-							</div>
-						</div>
-					</div>
-					<footer class="card-footer mt-auto d-flex justify-content-center flex-row flex-wrap">
-						<button class="btn btn-secondary">Add to Cart</button>
-					</footer>
-				</article>
-			</div>
 			<div class="row btn-container justify-content-center gap-4 pb-3">
 				<button class="btn btn-secondary col-1 active-selection">1</button>
 				<button class="btn btn-secondary col-1">2</button>
