@@ -36,53 +36,69 @@ new #[Layout('layouts.guest')] class extends Component
     }
 }; ?>
 
-<div>
-    <form wire:submit="register">
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input wire:model="name" id="name" class="block mt-1 w-full" type="text" name="name" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+@extends('layouts.guest')
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input wire:model="email" id="email" class="block mt-1 w-full" type="email" name="email" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+@push('styles')
+    @vite(['resources/css/_auth.scss'])
+@endpush
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+@section('title', 'Register - ReadMe')
 
-            <x-text-input wire:model="password" id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+@section('content')
+    <main class="container-fluid flex-grow-1 flex-column px-5">
+        <section class="auth-panel col-12 col-lg-4 my-5">
+            <header class="d-flex justify-content-center text-left flex-column">
+                <h2>Register</h2>
+                <hr>
+            </header>
+            <form wire:submit="register" class="d-flex flex-column gap-5 p-2 p-lg-5">
+                <!-- Email Address -->
+                <section class="d-flex flex-column gap-2">
+                    <x-input-label for="email" :value="__('Email')" class="label form-label" />
+                    <x-text-input wire:model="email" id="email" class="input" type="email" name="email" required autocomplete="username" />
+                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                </section>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+                <!-- Username -->
+                <section class="d-flex flex-column gap-2">
+                    <x-input-label for="username" :value="__('Userame')" class="label form-label" />
+                    <x-text-input wire:model="username" id="username" class="input" type="text" name="name" required autofocus autocomplete="username" />
+                    <x-input-error :messages="$errors->get('username')" class="mt-2" />
+                </section>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+                <!-- Password -->
+                <div class="d-flex flex-column gap-2">
+                    <x-input-label for="password" :value="__('Password')" class="label form-label" />
 
-            <x-text-input wire:model="password_confirmation" id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+                    <x-text-input wire:model="password" id="password" class="input"
+                                    type="password"
+                                    name="password"
+                                    required autocomplete="new-password" />
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
+                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}" wire:navigate>
-                {{ __('Already registered?') }}
-            </a>
+                <!-- Confirm Password -->
+                <div class="d-flex flex-column gap-2">
+                    <x-input-label for="password_confirmation" :value="__('Confirm Password')" class="label form-label" />
 
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</div>
+                    <x-text-input wire:model="password_confirmation" id="password_confirmation" class="input"
+                                    type="password"
+                                    name="password_confirmation" required autocomplete="new-password" />
+
+                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                </div>
+
+                <div class="flex items-center justify-end mt-4">
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}" wire:navigate>
+                        {{ __('Already registered?') }}
+                    </a>
+
+                    <x-primary-button class="ms-4">
+                        {{ __('Register') }}
+                    </x-primary-button>
+                </div>
+            </form>
+        </section>
+    </main>
+@endsection
