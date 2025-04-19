@@ -58,32 +58,34 @@
             <div class="modal-content">
                 <div id="carouselIndicators" class="carousel slide">
                     <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Front cover"></button>
-                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Back cover"></button>
-                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Book insights"></button>
-                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="3" aria-label="Full book"></button>
+                        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Front cover"></button>
+                        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Back cover"></button>
+                        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Book insights"></button>
+                        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="3" aria-label="Full book"></button>
                     </div>
                     <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="product-image" src="{{ asset($product->frontCover->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - front cover" title="{{ $product->title }}">
+                        <div class="carousel-item active">
+                            <img class="product-image" src="{{ asset($product->frontCover->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - front cover" title="{{ $product->title }}">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="product-image" src="{{ asset($product->backCover->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - back cover" title="{{ $product->title }}">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="product-image" src="{{ asset($product->bookInsights->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - insights" title="{{ $product->title }}">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="product-image" src="{{ asset($product->fullBook->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - full book" title="{{ $product->title }}">
+                        </div>
                     </div>
-                    <div class="carousel-item">
-                        <img class="product-image" src="{{ asset($product->backCover->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - back cover" title="{{ $product->title }}">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="product-image" src="{{ asset($product->bookInsights->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - insights" title="{{ $product->title }}">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="product-image" src="{{ asset($product->fullBook->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - full book" title="{{ $product->title }}">
-                    </div>
-                    </div>
+
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
                     </button>
+
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
                     </button>
                 </div>
             </div>
