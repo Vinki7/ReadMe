@@ -4,7 +4,7 @@
                <img src="{{ asset($frontCoverPath) }}" class="card-img img-fluid" alt="{{ $title }}" title="{{ $title }}">
          </div>
          <div class="card-body flex-grow-1 flex-column">
-               <a class="title card-title" href="{{ $detailsUrl }}">
+               <a class="title card-title" href="{{ route('products.show', $productId) }}">
                     {{ $title }}
                </a>
                <div class="card-text">

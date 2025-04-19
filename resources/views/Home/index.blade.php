@@ -23,7 +23,7 @@
                     :title="$book->title"
                     :authors="$book->authors"
                     :price="$book->price"
-                    detailsUrl="../product-details/product-details.html"
+                    :productId="$book->id"
                 />
             @endforeach
         </div>
@@ -40,7 +40,7 @@
                     :title="$book->title"
                     :authors="$book->authors"
                     :price="$book->price"
-                    detailsUrl="../product-details/product-details.html"
+                    :productId="$book->id"
                 />
             @endforeach
         </section>
