@@ -23,6 +23,7 @@
                     :title="$book->title"
                     :authors="$book->authors"
                     :price="$book->price"
+                    :productId="$book->id"
                     detailsUrl="../product-details/product-details.html"
                 />
             @endforeach
@@ -40,6 +41,7 @@
                     :title="$book->title"
                     :authors="$book->authors"
                     :price="$book->price"
+                    :productId="$book->id"
                     detailsUrl="../product-details/product-details.html"
                 />
             @endforeach
@@ -64,6 +66,7 @@
                     :title="$book->title"
                     :authors="$book->authors"
                     :price="$book->price"
+                    :productId="$book->id"
                     detailsUrl="../product-details/product-details.html"
                 />
             @endforeach
@@ -81,6 +84,7 @@
                     :title="$book->title"
                     :authors="$book->authors"
                     :price="$book->price"
+                    :productId="$book->id"
                     detailsUrl="../product-details/product-details.html"
                 />
             @endforeach
