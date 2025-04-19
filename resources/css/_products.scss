@@ -1,0 +1,140 @@
+/* ASIDE STYLES */
+.filter-box {
+    border-radius: 15px;
+    border: 1px solid var(--black-base, #1e1e1e);
+    background: var(--charcoal-100, #f1f0f1);
+    box-shadow: 0px 0px var(--Blur, 12px) 0px var(--DropShadow, rgba(0, 0, 0, 0.25));
+    padding: 20px;
+}
+
+.offcanvas .filter-box {
+    padding: 1.25rem;
+}
+
+.price-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.range-slider {
+    width: 100%;
+    position: relative;
+    margin: 15px 0 30px 0;
+}
+
+.range-fill {
+    height: 6px;
+    background-color: var(--secondary-400, #8f5a06);
+    position: absolute;
+    z-index: 1;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    background: transparent;
+    position: absolute;
+    left: 0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: var(--secondary-400, #8f5a06);
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    margin-top: -5px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 5px;
+    width: 100%;
+    background: var(--white-base, #ffffff);
+    border-radius: 3px;
+    border: none;
+}
+
+aside.col-md-3 {
+    padding: 2rem;
+}
+
+@media (max-width: 992px) {
+    aside {
+        display: none;
+    }
+
+    .offcanvas {
+        width: 80%;
+    }
+
+    .offcanvas .offcanvas-body {
+        padding: 1.5rem;
+    }
+}
+
+.offcanvas {
+    width: 80%;
+}
+
+@media (min-width: 992px) {
+    #filterOffcanvas {
+        display: none !important;
+    }
+}
+
+div[role="group"] div {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-container .btn-secondary {
+    background-color: var(--charcoal-100, #F1F0F1);
+    color: var(--charcoal-base, #211D1E);
+    border: 0.1rem solid var(--secondary-400, #8F5A06);
+    min-width: fit-content;
+}
+
+.btn-secondary.active-selection {
+    background-color: var(--secondary-300, #C07A0C);
+    color: var(--white-base, #FFF);
+}
+
+.btn-container input {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 1.5rem;
+    border: 1px solid var(--charcoal-base, #211D1E);
+    background: var(--charcoal-100, #F1F0F1);
+    box-shadow: 0px 0px var(--Blur, 12px) 0px var(--DropShadow, rgba(0, 0, 0, 0.25));
+    background: url('../../public/images/icons/magnifying_glass.png') no-repeat left 0.8rem center;
+
+    padding: 0.6rem 1rem 0.6rem 2.5rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    background-size: 1.2rem;
+}
+
+/* Order buttons */
+
+.order-radio {
+    display: none; /* Hide checkboxes */
+}
+
+.order-icon {
+    width: 14px;
+    height: 10px;
+}
+
+.order-radio:checked + .order-button {
+    background: var(--secondary-300, #C07A0C);
+    box-shadow: 0px 0px var(--Blur, 12px) 0px var(--DropShadow, rgba(0, 0, 0, 0.25));
+    color: var(--white-base, #FFF);
+}
+
+.order-radio:checked + .order-button:hover {
+    cursor: pointer;
+    background: var(--secondary-400, #8F5A06);
+    color: var(--white-base, #FFF);
+}
