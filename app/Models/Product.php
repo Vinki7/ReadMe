@@ -20,12 +20,17 @@ class Product extends Model
         'price',
         'stock',
         'category',
+        'language',
+        'publisher',
+        'publication_date',
+        'isbn',
     ];
 
     protected $casts = [
         'id' => 'string',
         'price' => 'decimal:2',
         'category' => Category::class,
+        'publication_date' => 'date',
     ];
 
     // Relationship with authors (many-to-many)
@@ -54,6 +59,11 @@ class Product extends Model
     public function images()
     {
         return $this->hasMany(ProductImage::class, 'product_id', 'id');
+    }
+
+    public function allImages()
+    {
+        return $this->images()->get();
     }
 
     public function frontCover()

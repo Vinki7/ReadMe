@@ -16,16 +16,22 @@ class ProductRepository implements IRepository
 
     public function getById($id)
     {
-        return Product::find($id);
+        $result = Product::with('authors')
+        ->where('id', $id)
+        ->first();
+
+        return $result;
     }
 
     public function getByCategory(string $category, int | null $limit)
     {
-        return Product::with('authors')
+        $result = Product::with('authors')
         ->where('category', $category)
         ->latest()
         ->when($limit, fn ($query) => $query->limit($limit))
         ->get();
+
+        return $result;
     }
 
     public function create(array $data)
