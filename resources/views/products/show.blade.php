@@ -9,18 +9,18 @@
         <section class="d-flex row flex-column flex-sm-row flex-wrap gap-4 my-3">
             <div class="small-gallery d-flex flex-row gap-3 justify-content-center col-12 col-sm-5 col-md-3" data-bs-toggle="modal" data-bs-target="#showGalery">
                 <div class="d-flex flex-column col-8">
-                    <img class="product-image" src="{{ asset($product->frontCover->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - front cover" title="{{ $product->title }}">
+                    <img class="product-image" src="{{ asset(optional($product->frontCover)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - front cover" title="{{ $product->title }}">
                 </div>
 
                 <div class="d-flex col-2 flex-column gap-2 justify-content-center">
                     <div>
-                        <img class="product-image" src="{{ asset($product->backCover->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - back cover" title="{{ $product->title }}">
+                        <img class="product-image" src="{{ asset(optional($product->backCover)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - back cover" title="{{ $product->title }}">
                     </div>
                     <div>
-                        <img class="product-image" src="{{ asset($product->bookInsights->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - insights" title="{{ $product->title }}">
+                        <img class="product-image" src="{{ asset(optional($product->bookInsights)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - insights" title="{{ $product->title }}">
                     </div>
                     <div>
-                        <img class="product-image" src="{{ asset($product->fullBook->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - full book" title="{{ $product->title }}">
+                        <img class="product-image" src="{{ asset(optional($product->fullBook)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - full book" title="{{ $product->title }}">
                     </div>
 
                 </div>
@@ -65,16 +65,16 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="product-image" src="{{ asset($product->frontCover->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - front cover" title="{{ $product->title }}">
+                            <img class="product-image" src="{{ asset(optional($product->frontCover)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - front cover" title="{{ $product->title }}">
                         </div>
                         <div class="carousel-item">
-                            <img class="product-image" src="{{ asset($product->backCover->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - back cover" title="{{ $product->title }}">
+                            <img class="product-image" src="{{ asset(optional($product->backCover)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - back cover" title="{{ $product->title }}">
                         </div>
                         <div class="carousel-item">
-                            <img class="product-image" src="{{ asset($product->bookInsights->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - insights" title="{{ $product->title }}">
+                            <img class="product-image" src="{{ asset(optional($product->bookInsights)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - insights" title="{{ $product->title }}">
                         </div>
                         <div class="carousel-item">
-                            <img class="product-image" src="{{ asset($product->fullBook->getImagePath()) }}" class="d-block w-100" alt="{{ $product->title }} - full book" title="{{ $product->title }}">
+                            <img class="product-image" src="{{ asset(optional($product->fullBook)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - full book" title="{{ $product->title }}">
                         </div>
                     </div>
 

@@ -32,7 +32,7 @@ class ProductImage extends Model
 
     public function getImagePath(): string
     {
-        return $this->image_path;
+        return $this->image_path ?? "";
     }
 
     public function getProductId(): string

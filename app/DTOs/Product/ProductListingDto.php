@@ -26,6 +26,6 @@ class ProductListingDto
         $this->authors = $product->authors->map(function ($author) {
             return "{$author->name} {$author->surname}";
         })->toArray();
-        $this->frontCover = $product->frontCover()->image_path ?? '';
+        $this->frontCover = $product->frontCover()->image_path ?? "";
     }
 }
