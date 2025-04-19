@@ -12,18 +12,18 @@ class ProductListingCard extends Component
     public $title;
     public $authors;
     public $price;
-    public $detailsUrl;
+    public $productId;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($frontCoverPath, $title, $authors, $price, $detailsUrl)
+    public function __construct($frontCoverPath, $title, $authors, $price, $productId)
     {
         $this->frontCoverPath = $frontCoverPath;
         $this->title = $title;
         $this->authors = $authors;
         $this->price = $price;
-        $this->detailsUrl = $detailsUrl;
+        $this->productId = $productId;
     }
 
     /**
