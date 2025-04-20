@@ -1,0 +1,33 @@
+@use "variables" as *;
+
+.product-detail-title
+{
+    font-size: 1.3rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.product-description {
+    font-size: 0.9rem;
+}
+
+.product-image
+{
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+.small-gallery:hover {
+    background-color: $primary-100;
+    border-radius: 0.625rem;
+    cursor: pointer;
+}
+
+.label {
+    align-items: center;
+    justify-content: center;
+}
