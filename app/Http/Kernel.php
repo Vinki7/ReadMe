@@ -21,6 +21,5 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
 
         // Custom middleware
-        \App\Http\Middleware\ScreenSizeMiddleware::class,
     ];
 }
