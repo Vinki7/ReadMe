@@ -12,8 +12,13 @@
         <livewire:layout.navigation />
 
         <span class="navbar-collapse d-flex justify-content-center mt-3 mt-lg-0 flex-wrap">
-            <a href="../auth/sign-in.html" class="btn btn-primary mx-2" title="Navigate to Sign In page">Sign In</a>
-            <a href="../auth/register.html" class="btn mx-2" title="Navigate to Register page">Register</a>
+            @auth
+                <a href="{{ route("logout") }}" class="btn btn-primary mx-2" title="Log out">Log out</a>
+            @endauth
+            @guest
+                <a href="{{ route("login") }}" class="btn btn-primary mx-2" title="Navigate to Sign In page">Sign In</a>
+                <a href="{{ route("register") }}" class="btn mx-2" title="Navigate to Register page">Register</a>
+            @endguest
             <a href="{{ url("/cart") }}" class="btn btn-icon mx-2" title="Navigate to Cart page">
                 <img src="{{ asset("images/icons/cart.png") }}" alt="cart">
             </a>
