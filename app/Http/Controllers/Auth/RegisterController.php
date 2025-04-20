@@ -32,9 +32,9 @@ class RegisterController extends Controller
         }
 
         if ($user->hasRole(Role::User)) {
-            return redirect()->route('user.dashboard')->with('success', 'Registration successful! Please check your email for verification.');
+            return redirect()->route('home.index')->with('success', 'Registration successful! Please check your email for verification.');
         }
 
-        return redirect()->route('home')->with('success', 'Registration successful! Please check your email for verification.');
+        return redirect()->route('home.index')->with('success', 'Registration successful! Please check your email for verification.');
     }
 }

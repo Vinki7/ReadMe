@@ -13,7 +13,12 @@
 
         <span class="navbar-collapse d-flex justify-content-center mt-3 mt-lg-0 flex-wrap">
             @auth
-                <a href="{{ route("logout") }}" class="btn btn-primary mx-2" title="Log out">Log out</a>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="btn btn-primary mx-2" title="Log out">
+                    Log out
+                </button>
+            </form>
             @endauth
             @guest
                 <a href="{{ route("login") }}" class="btn btn-primary mx-2" title="Navigate to Sign In page">Sign In</a>

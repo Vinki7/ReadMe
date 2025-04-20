@@ -41,6 +41,6 @@ class LoginController extends Controller
     {
         auth()->logout();
 
-        return redirect()->route('home')->with('success', 'Logout successful!');
+        return redirect()->route('home.index')->with('success', 'Logout successful!');
     }
 }
