@@ -31,11 +31,21 @@ class UserRepository implements IRepository
 
 	public function update($id, array $data)
 	{
-		// Implement the update method
+
 	}
 
     public function getByEmail(string $email): ?User
     {
         return User::where('email', $email)->first();
+    }
+
+    public function getByUsername(string $username): ?User
+    {
+        return User::where('username', $username)->first();
+    }
+
+    public function updateLoginTimestamp(User $user): bool
+    {
+        return $user->update(['last_login' => now()]);
     }
 }
