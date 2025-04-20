@@ -17,9 +17,9 @@ class LoginController extends Controller
 
     public function show()
     {
-        // if(auth()->check()) {
-        //     return redirect()->route('home.index');
-        // }
+        if(auth()->check()) {
+            return redirect()->route('home.index');
+        }
 
         return view('auth.login');
     }

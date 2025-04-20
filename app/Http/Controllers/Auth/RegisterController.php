@@ -23,6 +23,10 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
+        if (auth()->check()) {
+            return redirect()->route('home.index');
+        }
+
         $user = $this->registerService->register($request->all());
 
         auth()->login($user);
