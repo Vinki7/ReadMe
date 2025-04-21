@@ -4,6 +4,23 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Service Providers
+    |--------------------------------------------------------------------------
+    |
+    | The service providers listed here will be automatically loaded on the
+    | request to your application. You can add your own services to this
+    | array to grant expanded functionality to your applications. Feel free
+    | to add your own services to this array to grant expanded functionality.
+    |
+    */
+    'providers' => [
+        App\Providers\EventServiceProvider::class,
+    ],
+
+
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Name
     |--------------------------------------------------------------------------
     |
