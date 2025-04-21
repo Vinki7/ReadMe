@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\Auth\PasswordService;
+use Illuminate\Support\Facades\Password;
 
 class ForgotPasswordController extends Controller
 {
@@ -26,18 +27,12 @@ class ForgotPasswordController extends Controller
 
     public function sendResetLink(Request $request)
     {
-        $this->passwordService->sendResetLink($request->input('email'), $request->input('username'));
+        $result = $this->passwordService->sendResetLink($request->input('email'), $request->input('username'));
 
-        return redirect()->route('password.reset');
-        // Validate the request
+        if ($result === Password::RESET_LINK_SENT) {
+            return redirect()->back()->with('status', __($result));
+        }
 
-
-        // $this->validate($request, [
-        //     'email' => 'required|email|exists:users,email',
-        // ]);
-
-        // $this->forgotPasswordService->sendResetLink($request->input('email'));
-
-        // return redirect()->back()->with('status', 'Password reset link sent to your email.');
+        return redirect()->back()->withErrors(['email' => __($result)]);
     }
 }

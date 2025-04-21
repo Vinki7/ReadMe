@@ -47,6 +47,26 @@ class ValidationService
         return $this->messages;
     }
 
+    public function usernameExists(string $username): bool
+    {
+        $validator = Validator::make(
+            ['username' => $username],
+            ['username' => 'required|string|exists:users,username']
+        );
+
+        return $this->assertResult($validator);
+    }
+
+    public function emailExists(string $email): bool
+    {
+        $validator = Validator::make(
+            ['email' => $email],
+            ['email' => 'required|email|exists:users,email']
+        );
+
+        return $this->assertResult($validator);
+    }
+
     /**
      * Validate the given field with the specified rules.
      * This method uses the Laravel Validator to validate the field.
@@ -65,15 +85,7 @@ class ValidationService
             is_array($rules[$field] ?? null) ? $rules : [$field => $rules]
         );
 
-        if ($validator->fails()) {
-            $this->messages->merge($validator->errors());
-
-            return false;
-        }
-
-        $this->results = array_merge($this->results, $validator->validated());
-
-        return true;
+        return $this->assertResult($validator);
     }
 
     public function hasErrors(): bool
@@ -117,6 +129,19 @@ class ValidationService
         if ($this->messages->isNotEmpty()) {
             return false;
         }
+
+        return true;
+    }
+
+    private function assertResult(\Illuminate\Validation\Validator $validator): bool
+    {
+        if ($validator->fails()) {
+            $this->messages->merge($validator->errors());
+
+            return false;
+        }
+
+        $this->results = array_merge($this->results, $validator->validated());
 
         return true;
     }

@@ -19,7 +19,7 @@ Route::prefix('auth')->middleware('guest')->group(function () {
         ->name('login');
     Route::post('login', [LoginController::class, 'store']);
 
-    // Forgot Password
+    // Forgot Password - email verification
     Route::get('forgot-password', [ForgotPasswordController::class, 'show'])->name('password.request');
     Route::post('forgot-password', [ForgotPasswordController::class, 'sendResetLink'])->name('password.email');
 
@@ -30,6 +30,9 @@ Route::prefix('auth')->middleware('guest')->group(function () {
      * */
     Route::get('reset-password/{token}', [ResetPasswordController::class, 'show'])->name('password.reset');
     Route::post('reset-password', [ResetPasswordController::class, 'reset'])->name('password.update');
+
+    // Handle password update
+    Route::post('update-password', [ResetPasswordController::class, 'update'])->name('password.update');
 });
 
 Route::middleware('auth')->group(function () {
