@@ -2,22 +2,22 @@
     text-align: center;
     font-size: 2rem;
     font-weight: 400;
-    color: var(--primary-base);
+    color: $primary-base;
     padding: 1.5rem 2rem;
 }
 
 .logo span {
-    color: var(--secondary-base, #F39C12);
+    color: $secondary-base;
 }
 
 footer {
     gap: 0.625rem;
-    border-top: 0.2rem solid var(--primary-200, #BCD0E7);
+    border-top: 0.2rem solid $primary-200;
     background: #FFF;
 }
 
 .bottom-content {
-    border-top: 0.05rem solid var(--secondary-200, #F39C12);
+    border-top: 0.05rem solid $secondary-200;
 }
 
 .top-content {
@@ -26,21 +26,21 @@ footer {
 
 /* Overriden nav */
 .navbar {
-    border-bottom: 0.2rem solid var(--primary-200, #BCD0E7);
+    border-bottom: 0.2rem solid $primary-200;
 }
 
 .navbar-toggler {
     padding: 1rem;
     border-radius: 0.5rem;
-    background: var(--charcoal-300, #ADA5A7);
+    background: $charcoal-300;
     box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.16);
 }
 .navbar-toggler:hover {
-    background: var(--charcoal-300, #ADA5A7);
+    background: $charcoal-300;
 }
 
 .navbar-toggler.collapsed {
-    background: var(--charcoal-200, #D1CDCE);
+    background: $charcoal-200;
 }
 
 .nav-link {
@@ -55,17 +55,17 @@ footer {
 }
 
 .nav-item:hover {
-    background: var(--charcoal-200, #D1CDCE);
+    background: $charcoal-200;
     box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.16);
     border-radius: 6.25rem;
 }
 
 .nav-item:has(.nav-link.active) {
     border-radius: 6.25rem;
-    background: var(--secondary-100, #FECDA7);
+    background: $secondary-100;
     box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.16);
 }
 
 .nav-item:has(.nav-link.active):hover {
-    background: var(--charcoal-200, #D1CDCE);
+    background: $charcoal-200;
 }
