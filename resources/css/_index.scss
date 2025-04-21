@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: var($white-base, #FFFFFF);
+    color: $white-base;
 }
 
 .title-section::before {
@@ -32,7 +32,7 @@
 /* categories */
 .category-header {
     padding: 1rem;
-    border-bottom: 0.2rem solid var($secondary-400, #8F5A06);
+    border-bottom: 0.2rem solid $secondary-400;
     margin-right: 25vw;
 }
 
@@ -59,7 +59,7 @@
 }
 
 .small-galery:hover {
-    background-color: var($primary-100, #1A1A1A);
+    background-color: $primary-100;
     border-radius: 0.625rem;
 }
 

@@ -1,3 +1,6 @@
+$title-section-white-base: #FFFFFF;
+$category-secondary-400: #8F5A06;
+
 .title-section {
     background-image: url("../../public/images/backgrounds/close-up-open-book.jpg");
     background-size: cover;
@@ -9,7 +12,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: var($white-base, #FFFFFF);
+    color: $title-section-white-base;
 }
 
 .title-section::before {
@@ -30,6 +33,6 @@
 /* categories */
 .category-header {
     padding: 1rem;
-    border-bottom: 0.2rem solid var($secondary-400, #8F5A06);
+    border-bottom: 0.2rem solid $category-secondary-400;
     margin-right: 25vw;
 }
