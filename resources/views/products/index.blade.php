@@ -172,14 +172,14 @@
                             <div>
                                 <input type="radio" id="name-asc" name="sort" class="order-radio">
                                 <label for="name-asc" class="order-button btn btn-secondary">
-                                    Name <img src="../../public/images/icons/chevron_up_icon.png" class="order-icon">
+									Name <img src="{{ asset('images/icons/chevron_up_icon.png') }}" alt="up arrow" class="order-icon">
                                 </label>
                             </div>
 
                             <div>
                                 <input type="radio" id="name-desc" name="sort" class="order-radio">
                                 <label for="name-desc" class="order-button btn btn-secondary">
-                                    Name <img src="../../public/images/icons/chevron_down_icon.png" class="order-icon">
+								Name <img src="{{ asset('images/icons/chevron_down_icon.png') }}" alt="up arrow" class="order-icon">
                                 </label>
                             </div>
                         </div>
@@ -188,14 +188,14 @@
                             <div>
                                 <input type="radio" id="price-asc" name="sort" class="order-radio">
                                 <label for="price-asc" class="order-button btn btn-secondary">
-                                    Price <img src="../../public/images/icons/chevron_up_icon.png" class="order-icon">
+									Price <img src="{{ asset('images/icons/chevron_up_icon.png') }}" alt="up arrow" class="order-icon">
                                 </label>
                             </div>
 
                             <div>
                                 <input type="radio" id="price-desc" name="sort" class="order-radio">
                                 <label for="price-desc" class="order-button btn btn-secondary">
-                                    Price <img src="../../public/images/icons/chevron_down_icon.png" class="order-icon">
+									Price <img src="{{ asset('images/icons/chevron_down_icon.png') }}" alt="up arrow" class="order-icon">
                                 </label>
                             </div>
                         </div>
