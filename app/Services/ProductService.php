@@ -16,12 +16,13 @@ class ProductService
     {
         $this->productRepository = $repository;
     }
-
+    
     public function getAllProducts(): Collection
     {
-        return $this->productRepository->getAll();
+        return $this->productRepository->getAll()
+            ->map(fn ($product) => new ProductListingDto($product));
     }
-
+    
     public function getProductById(string $id): ?ProductDetailsDto
     {
         $product = $this->productRepository->getById($id);
