@@ -2,14 +2,17 @@
 namespace App\Models;
 
 use App\Enums\Role;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Notifications\Notifiable;
+use Str;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
 
     protected $table = 'users';
     public $incrementing = false;
@@ -22,6 +25,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'last_login',
     ];
 
     protected $casts = [
@@ -34,6 +38,17 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    protected static function boot()
+{
+    parent::boot();
+
+    static::creating(function ($model) {
+        if (empty($model->id)) {
+            $model->id = (string) Str::uuid();
+        }
+    });
+}
 
     /**
      * Relationship with the Cart model.
@@ -49,5 +64,16 @@ class User extends Authenticatable
     public function orders(): BelongsToMany
     {
         return $this->belongsToMany(Order::class, 'user_orders', 'user_id', 'order_id');
+    }
+
+    public function assignRole(Role $role): void
+    {
+        $this->role = $role;
+        $this->save();
+    }
+
+    public function hasRole(Role $role): bool
+    {
+        return $this->role === $role;
     }
 }

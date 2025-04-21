@@ -15,5 +15,11 @@ services:
       - pg_data:/var/lib/postgresql/data
     #   - ./init.sql:/docker-entrypoint-initdb.d/init.sql not needed, we are using migrations
 
+  mailpit:
+    image: axllent/mailpit
+    ports:
+        - "1025:1025"    # SMTP
+        - "8025:8025"    # Web UI
+
 volumes:
   pg_data:
