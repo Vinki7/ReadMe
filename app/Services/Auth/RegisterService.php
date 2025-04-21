@@ -5,6 +5,7 @@ namespace App\Services\Auth;
 use App\Enums\Role;
 use App\Models\User;
 use App\Repositories\UserRepository;
+use App\Services\Helpers\ValidationService;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -13,17 +14,19 @@ use Illuminate\Validation\ValidationException;
 class RegisterService
 {
     protected UserRepository $userRepository;
+    protected ValidationService $validationService;
 
     public function __construct(UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
+        $this->validationService = new ValidationService();
     }
 
     public function register(array $data): User
     {
         $validator = $this->validate($data);
 
-        $validatedData = $validator->validated();
+        $validatedData = $validator->getResults();
 
         $newUser = $this->createUser($validatedData);
 
@@ -34,17 +37,48 @@ class RegisterService
 
     private function validate(array $data)
     {
-        $validator = Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'surname' => 'required|string|max:255',
-            'username' => 'required|string|max:255|unique:users',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:8',
-            'password_confirmation' => 'required_with:password|same:password|min:8',
-        ]);
+        $validator = new ValidationService();
 
-        if ($validator->fails()) {
-            throw new ValidationException($validator);
+        $validator->validateField(
+            'name',
+            $data['name'],
+            ['required', 'string', 'max:255']
+        );
+
+        $validator->validateField(
+            'surname',
+            $data['surname'],
+            ['required', 'string', 'max:255']
+        );
+
+        $validator->validateField(
+            'username',
+            $data['username'],
+            ['required', 'string', 'max:255', 'unique:users,username']
+        );
+
+        $validator->validateField(
+            'email',
+            $data['email'],
+            ['required', 'string', 'email', 'max:255', 'unique:users,email']
+        );
+
+        $validator->validateField(
+            'password',
+            $data['password'],
+            ['required', 'string', 'min:8', 'confirmed']
+        );
+
+        $validator->validateField(
+            'password_confirmation',
+            $data['password_confirmation'],
+            ['required', 'string', 'min:8']
+        );
+
+        $result = $validator->combineResults();
+
+        if (!$result) {
+            throw ValidationException::withMessages($validator->getMessages()->toArray());
         }
 
         return $validator;
