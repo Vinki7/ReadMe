@@ -4,6 +4,10 @@
     @vite(['resources/css/_products.scss'])
 @endpush
 
+@push('scripts')
+	@vite(['resources/js/products.js'])
+@endpush
+
 @section('content')
 <main class="container-fluid row row-cols-auto mx-0 justify-content-center">
             <!-- Side filter panel -->
