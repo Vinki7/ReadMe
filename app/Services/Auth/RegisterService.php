@@ -37,51 +37,45 @@ class RegisterService
 
     private function validate(array $data)
     {
-        $validator = new ValidationService();
 
-        $validator->validateField(
+        $this->validationService->validateField(
             'name',
             $data['name'],
             ['required', 'string', 'max:255']
         );
 
-        $validator->validateField(
+        $this->validationService->validateField(
             'surname',
             $data['surname'],
             ['required', 'string', 'max:255']
         );
 
-        $validator->validateField(
+        $this->validationService->validateField(
             'username',
             $data['username'],
             ['required', 'string', 'max:255', 'unique:users,username']
         );
 
-        $validator->validateField(
+        $this->validationService->validateField(
             'email',
             $data['email'],
             ['required', 'string', 'email', 'max:255', 'unique:users,email']
         );
 
-        $validator->validateField(
+        $this->validationService->validateField(
             'password',
-            $data['password'],
-            ['required', 'string', 'min:8', 'confirmed']
+            [
+                'password' => $data['password'] ?? null,
+                'password_confirmation' => $data['password_confirmation'] ?? null,
+            ],
+            [
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+            ]
         );
 
-        $validator->validateField(
-            'password_confirmation',
-            $data['password_confirmation'],
-            ['required', 'string', 'min:8']
-        );
+        $this->validationService->throwIfInvalid();
 
-        $result = $validator->combineResults();
-
-        if (!$result) {
-            throw ValidationException::withMessages($validator->getMessages()->toArray());
-        }
-
-        return $validator;
+        return $this->validationService;
     }
 
     private function createUser(array $data): User

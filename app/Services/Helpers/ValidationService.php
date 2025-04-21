@@ -58,9 +58,12 @@ class ValidationService
      */
     public function validateField(string $field, mixed $value, array $rules): bool
     {
-        $validator = Validator::make([$field => $value], [
-            $field => $rules,
-        ]);
+        $data = is_array($value) ? $value : [$field => $value];
+
+        $validator = Validator::make(
+            $data,
+            is_array($rules[$field] ?? null) ? $rules : [$field => $rules]
+        );
 
         if ($validator->fails()) {
             $this->messages->merge($validator->errors());
@@ -69,6 +72,7 @@ class ValidationService
         }
 
         $this->results = array_merge($this->results, $validator->validated());
+
         return true;
     }
 
