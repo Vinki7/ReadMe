@@ -159,53 +159,59 @@
 	<!-- Main area-->
 	<section class="col-12 col-lg-9 pt-5">
 		<!-- Search/order area -->
-		<div class="btn-container row row-cols-1 row-cols-md-2 align-items-center justify-content-center gap-3 gap-lg-0 gap mb-4 px-md-5">
-			<!-- Search bar -->
-			<form method="GET" class="col">
-				<input
-					type="text"
-					name="search"
-					class="form-control col-12"
-					placeholder="Search"
-					value="{{ request('search') }}"
-				>
-			</form>
+        <form method="GET" id="searchSortForm" class="btn-container row row-cols-1 row-cols-md-2 align-items-center justify-content-center gap-3 gap-lg-0 gap mb-4 px-md-5">
+            <!-- Search bar -->
+            <div class="col">
+                <input
+                    type="text"
+                    name="search"
+                    class="form-control col-12"
+                    placeholder="Search"
+                    value="{{ request('search') }}"
+                >
+            </div>
 
-			<!-- Ordering buttons -->
-			<form method="GET" class="col-7 col-sm-4 d-flex flex-column justify-content-end flex-md-row flex-wrap gap-2" role="group" id="sortForm">
-				<!-- Name sort -->
-				<div class="d-flex flex-column flex-xl-row gap-2">
-					<div>
-						<input type="radio" id="name-asc" name="sort" value="name_asc" class="order-radio" {{ request('sort') === 'name_asc' ? 'checked' : '' }} onchange="document.getElementById('sortForm').submit()">
-						<label for="name-asc" class="order-button btn btn-secondary {{ request('sort') === 'name_asc' ? 'active-selection' : '' }}">
-							Name <img src="{{ asset('images/icons/chevron_up_icon.png') }}" alt="up arrow" class="order-icon">
-						</label>
-					</div>
-					<div>
-						<input type="radio" id="name-desc" name="sort" value="name_desc" class="order-radio" {{ request('sort') === 'name_desc' ? 'checked' : '' }} onchange="document.getElementById('sortForm').submit()">
-						<label for="name-desc" class="order-button btn btn-secondary {{ request('sort') === 'name_desc' ? 'active-selection' : '' }}">
-							Name <img src="{{ asset('images/icons/chevron_down_icon.png') }}" alt="down arrow" class="order-icon">
-						</label>
-					</div>
-				</div>
-			
-				<!-- Price sort -->
-				<div class="d-flex flex-column flex-xl-row gap-2">
-					<div>
-						<input type="radio" id="price-asc" name="sort" value="price_asc" class="order-radio" {{ request('sort') === 'price_asc' ? 'checked' : '' }} onchange="document.getElementById('sortForm').submit()">
-						<label for="price-asc" class="order-button btn btn-secondary {{ request('sort') === 'price_asc' ? 'active-selection' : '' }}">
-							Price <img src="{{ asset('images/icons/chevron_up_icon.png') }}" alt="up arrow" class="order-icon">
-						</label>
-					</div>
-					<div>
-						<input type="radio" id="price-desc" name="sort" value="price_desc" class="order-radio" {{ request('sort') === 'price_desc' ? 'checked' : '' }} onchange="document.getElementById('sortForm').submit()">
-						<label for="price-desc" class="order-button btn btn-secondary {{ request('sort') === 'price_desc' ? 'active-selection' : '' }}">
-							Price <img src="{{ asset('images/icons/chevron_down_icon.png') }}" alt="down arrow" class="order-icon">
-						</label>
-					</div>
-				</div>
-			</form>
-		</div>
+            <!-- Sort options -->
+            <div class="col-7 col-sm-4 d-flex flex-column justify-content-end flex-md-row flex-wrap gap-2">
+                <div class="d-flex flex-column flex-xl-row gap-2">
+                    <div>
+                        <input type="radio" id="name-asc" name="sort" value="name_asc" class="order-radio"
+                            {{ request('sort') === 'name_asc' ? 'checked' : '' }}
+                            onchange="document.getElementById('searchSortForm').submit()">
+                        <label for="name-asc" class="order-button btn btn-secondary {{ request('sort') === 'name_asc' ? 'active-selection' : '' }}">
+                            Name <img src="{{ asset('images/icons/chevron_up_icon.png') }}" class="order-icon">
+                        </label>
+                    </div>
+                    <div>
+                        <input type="radio" id="name-desc" name="sort" value="name_desc" class="order-radio"
+                            {{ request('sort') === 'name_desc' ? 'checked' : '' }}
+                            onchange="document.getElementById('searchSortForm').submit()">
+                        <label for="name-desc" class="order-button btn btn-secondary {{ request('sort') === 'name_desc' ? 'active-selection' : '' }}">
+                            Name <img src="{{ asset('images/icons/chevron_down_icon.png') }}" class="order-icon">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-column flex-xl-row gap-2">
+                    <div>
+                        <input type="radio" id="price-asc" name="sort" value="price_asc" class="order-radio"
+                            {{ request('sort') === 'price_asc' ? 'checked' : '' }}
+                            onchange="document.getElementById('searchSortForm').submit()">
+                        <label for="price-asc" class="order-button btn btn-secondary {{ request('sort') === 'price_asc' ? 'active-selection' : '' }}">
+                            Price <img src="{{ asset('images/icons/chevron_up_icon.png') }}" class="order-icon">
+                        </label>
+                    </div>
+                    <div>
+                        <input type="radio" id="price-desc" name="sort" value="price_desc" class="order-radio"
+                            {{ request('sort') === 'price_desc' ? 'checked' : '' }}
+                            onchange="document.getElementById('searchSortForm').submit()">
+                        <label for="price-desc" class="order-button btn btn-secondary {{ request('sort') === 'price_desc' ? 'active-selection' : '' }}">
+                            Price <img src="{{ asset('images/icons/chevron_down_icon.png') }}" class="order-icon">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
 
 		<!-- Product Cards -->
 		<div class="row row-cols-auto justify-content-center gap-4 pb-3 g-0">
