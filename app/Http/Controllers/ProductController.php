@@ -19,12 +19,28 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $products = $this->productService->getAllProducts();
+    // public function index()
+    // {
+    //     $products = $this->productService->getAllProducts();
 
-        return view('products.index', compact('products'));
+    //     return view('products.index', compact('products'));
+    // }
+
+    public function index(Request $request)
+    {
+        if($request)
+        {
+            $sort = $request->get('sort');
+            $products = $this->productService->getAllProductsSorted($sort);
+            return view('products.index', compact('products'));
+        }
+        else
+        {
+            $products = $this->productService->getAllProducts();
+            return view('products.index', compact('products'));
+        }
     }
+
 
     /**
      * Show the form for creating a new resource.

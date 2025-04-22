@@ -60,9 +60,27 @@ class ProductRepository implements IRepository
         return false;
     }
 
-    public function getAllPaginated(int $perPage = 6)
+    private $perPage = 6;
+    public function getAllPaginated()
     {
-        return Product::with('authors')->paginate($perPage)
+        return Product::with('authors')->paginate($this->perPage)
         ->through(fn ($product) => new ProductListingDto($product));
     }
+
+    public function getAllSortedPaginated(?string $sort = null)
+{
+    $query = Product::with('authors');
+
+    match ($sort) {
+        'name_asc' => $query->orderBy('title', 'asc'),
+        'name_desc' => $query->orderBy('title', 'desc'),
+        'price_asc' => $query->orderBy('price', 'asc'),
+        'price_desc' => $query->orderBy('price', 'desc'),
+        default => null,
+    };
+
+    return $query->paginate($this->perPage)
+    ->through(fn ($product) => new ProductListingDto($product));
+}
+
 }

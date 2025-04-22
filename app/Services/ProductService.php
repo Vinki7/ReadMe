@@ -22,6 +22,11 @@ class ProductService
     {
         return $this->productRepository->getAllPaginated();
     }
+
+    public function getAllProductsSorted($sort): LengthAwarePaginator
+    {
+        return $this->productRepository->getAllSortedPaginated($sort);
+    }
     
     public function getProductById(string $id): ?ProductDetailsDto
     {

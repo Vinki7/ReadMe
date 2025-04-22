@@ -166,40 +166,39 @@
                     </div>
 
                     <!-- Ordering buttons -->
-                    <div class="col-7 col-sm-4 d-flex flex-column justify-content-end flex-md-row flex-wrap gap-2" role="group">
-                        <!-- Name sort buttons -->
-                        <div class="d-flex flex-column flex-xl-row gap-2">
-                            <div>
-                                <input type="radio" id="name-asc" name="sort" class="order-radio">
-                                <label for="name-asc" class="order-button btn btn-secondary">
+					<form method="GET" class="col-7 col-sm-4 d-flex flex-column justify-content-end flex-md-row flex-wrap gap-2" role="group" id="sortForm">
+						<!-- Name sort -->
+						<div class="d-flex flex-column flex-xl-row gap-2">
+							<div>
+								<input type="radio" id="name-asc" name="sort" value="name_asc" class="order-radio" {{ request('sort') === 'name_asc' ? 'checked' : '' }} onchange="document.getElementById('sortForm').submit()">
+								<label for="name-asc" class="order-button btn btn-secondary {{ request('sort') === 'name_asc' ? 'active-selection' : '' }}">
 									Name <img src="{{ asset('images/icons/chevron_up_icon.png') }}" alt="up arrow" class="order-icon">
-                                </label>
-                            </div>
-
-                            <div>
-                                <input type="radio" id="name-desc" name="sort" class="order-radio">
-                                <label for="name-desc" class="order-button btn btn-secondary">
-								Name <img src="{{ asset('images/icons/chevron_down_icon.png') }}" alt="up arrow" class="order-icon">
-                                </label>
-                            </div>
-                        </div>
-                        <!-- Price Sort Buttons -->
-                        <div class="d-flex flex-column flex-xl-row gap-2">
-                            <div>
-                                <input type="radio" id="price-asc" name="sort" class="order-radio">
-                                <label for="price-asc" class="order-button btn btn-secondary">
+								</label>
+							</div>
+							<div>
+								<input type="radio" id="name-desc" name="sort" value="name_desc" class="order-radio" {{ request('sort') === 'name_desc' ? 'checked' : '' }} onchange="document.getElementById('sortForm').submit()">
+								<label for="name-desc" class="order-button btn btn-secondary {{ request('sort') === 'name_desc' ? 'active-selection' : '' }}">
+									Name <img src="{{ asset('images/icons/chevron_down_icon.png') }}" alt="down arrow" class="order-icon">
+								</label>
+							</div>
+						</div>
+					
+						<!-- Price sort -->
+						<div class="d-flex flex-column flex-xl-row gap-2">
+							<div>
+								<input type="radio" id="price-asc" name="sort" value="price_asc" class="order-radio" {{ request('sort') === 'price_asc' ? 'checked' : '' }} onchange="document.getElementById('sortForm').submit()">
+								<label for="price-asc" class="order-button btn btn-secondary {{ request('sort') === 'price_asc' ? 'active-selection' : '' }}">
 									Price <img src="{{ asset('images/icons/chevron_up_icon.png') }}" alt="up arrow" class="order-icon">
-                                </label>
-                            </div>
-
-                            <div>
-                                <input type="radio" id="price-desc" name="sort" class="order-radio">
-                                <label for="price-desc" class="order-button btn btn-secondary">
-									Price <img src="{{ asset('images/icons/chevron_down_icon.png') }}" alt="up arrow" class="order-icon">
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+								</label>
+							</div>
+							<div>
+								<input type="radio" id="price-desc" name="sort" value="price_desc" class="order-radio" {{ request('sort') === 'price_desc' ? 'checked' : '' }} onchange="document.getElementById('sortForm').submit()">
+								<label for="price-desc" class="order-button btn btn-secondary {{ request('sort') === 'price_desc' ? 'active-selection' : '' }}">
+									Price <img src="{{ asset('images/icons/chevron_down_icon.png') }}" alt="down arrow" class="order-icon">
+								</label>
+							</div>
+						</div>
+					</form>
                 </div>
 
         <!-- Product Cards -->
@@ -218,10 +217,13 @@
         </div>
 		<div class="row btn-container justify-content-center gap-4 pb-3">
 			@foreach ($products->getUrlRange(1, $products->lastPage()) as $page => $url)
-        		<a href="{{ $url }}" class="btn btn-secondary col-1 {{ $products->currentPage() === $page ? 'active-selection' : '' }}">
-        	    	{{ $page }}
-        		</a>
-    		@endforeach
+    			@php
+        			$sortUrl = $url . (request('sort') ? '&sort=' . request('sort') : '');
+    			@endphp
+    			<a href="{{ $sortUrl }}" class="btn btn-secondary col-1 {{ $products->currentPage() === $page ? 'active-selection' : '' }}">
+        			{{ $page }}
+    			</a>
+			@endforeach
 		</div>
 
     </section>
