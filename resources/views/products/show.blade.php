@@ -33,11 +33,12 @@
                 <p class="product-description">Language: {{ $product->language }}</p>
                 <p class="product-description">ISBN: {{ $product->isbn }}</p>
             </div>
-            <form class="d-flex flex-column flex-sm-row flex-md-column gap-3 col-12 col-md-3 justify-content-center align-items-center">
+            <form action="{{ route('cart.add', $product->id) }}" method="POST" class="d-flex flex-column flex-sm-row flex-md-column gap-3 col-12 col-md-3 justify-content-center align-items-center">
+                @csrf
                 <h5>{{ $product->price }} €</h5>
                 <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center align-items-center">
-                    <label class="label" for="count">Amount:</label>
-                    <input class="input w-100 align-self-center text-center" type="number" id="count" name="count" value="1" min="1" max="{{ $product->stock }}" required>
+                    <label class="label" for="quantity">Amount:</label>
+                    <input class="input w-100 align-self-center text-center" type="number" id="quantity" name="quantity" value="1" min="1" max="{{ $product->stock }}" required>
                 </div>
                 <input type="submit" class="btn btn-secondary" value="Add to Cart">
             </form>

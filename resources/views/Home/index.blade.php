@@ -5,6 +5,11 @@
 @endpush
 
 @section('content')
+@if (session('cart_merged'))
+    <div class="alert alert-success">
+        {{ session('cart_merged') }}
+    </div>
+@endif
 <main class="container-fluid flex-grow-1 flex-column px-5">
     <section class="container-fluid title-section" role="img" aria-labelledby="hero-heading">
             <div class="text-white d-flex flex-column justify-content-center align-items-start">

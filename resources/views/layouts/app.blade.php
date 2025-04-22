@@ -14,6 +14,13 @@
     <body class="d-flex flex-column min-vh-100">
         <x-header-component></x-header-component>
 
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show flash-alert" role="alert">
+                {{ session('success') }}
+                {{ session('info')}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <!-- Page Content -->
         @yield('content')
         @yield('modals')
