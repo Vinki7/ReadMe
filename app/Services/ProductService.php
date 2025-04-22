@@ -7,6 +7,7 @@ use App\DTOs\Product\ProductDetailsDto;
 use App\Enums\Category;
 use App\Repositories\ProductRepository;
 use Illuminate\Support\Collection;
+use \Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class ProductService
 {
@@ -17,10 +18,9 @@ class ProductService
         $this->productRepository = $repository;
     }
     
-    public function getAllProducts(): Collection
+    public function getAllProducts(): LengthAwarePaginator
     {
-        return $this->productRepository->getAll()
-            ->map(fn ($product) => new ProductListingDto($product));
+        return $this->productRepository->getAllPaginated();
     }
     
     public function getProductById(string $id): ?ProductDetailsDto

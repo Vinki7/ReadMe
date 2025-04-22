@@ -6,6 +6,7 @@ use App\Enums\Category;
 use App\Repositories\Interfaces\IRepository;
 use App\Models\Product;
 use Illuminate\Support\Collection;
+use App\DTOs\Product\ProductListingDto;
 
 class ProductRepository implements IRepository
 {
@@ -57,5 +58,11 @@ class ProductRepository implements IRepository
             return true;
         }
         return false;
+    }
+
+    public function getAllPaginated(int $perPage = 6)
+    {
+        return Product::with('authors')->paginate($perPage)
+        ->through(fn ($product) => new ProductListingDto($product));
     }
 }
