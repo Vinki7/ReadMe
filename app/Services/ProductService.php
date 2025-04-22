@@ -40,4 +40,17 @@ class ProductService
                 return new ProductListingDto($product);
             });
     }
+
+    public function getListOfProductsByIds(array $ids): Collection
+    {
+        $products = $this->productRepository->getByIds($ids);
+
+        if ($products->isEmpty()) {
+            return collect();
+        }
+
+        return $products->map(function ($product): ProductListingDto {
+            return new ProductListingDto($product);
+        });
+    }
 }

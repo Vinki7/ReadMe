@@ -22,9 +22,17 @@ class CartService
                 ['id' => Str::uuid(), 'total_amount' => 0]
             );
 
-            $cart->products()->syncWithoutDetaching([
-                $product->id => ['quantity' => $quantity]
-            ]);
+            // Check if product already exists in cart
+            $existing = $cart->products()->where('product_id', $product->id)->first();
+
+            if ($existing) {
+                $currentQuantity = $existing->pivot->quantity;
+                $cart->products()->updateExistingPivot($product->id, [
+                    'total_amount' => $currentQuantity + $quantity
+                ]);
+            } else {
+                $cart->products()->attach($product->id, ['quantity' => $quantity]);
+            }
 
         } else {
             $cart = session()->get($this->sessionKey(), []);
@@ -42,8 +50,17 @@ class CartService
     public function getItems(): array
     {
         if (Auth::check()) {
-            $cart = Cart::where('user_id', Auth::id())->with('products')->first();
-            return $cart?->products->mapWithKeys(fn ($p) => [$p->id => $p->pivot->quantity])->toArray() ?? [];
+            $cart = Cart::where('user_id', Auth::id())->with('products')->first(); // this could be delegated to the CartRepository
+
+            if ($cart) {
+                return $cart->products->mapWithKeys(function ($product) {
+                    return [
+                        $product->id => ['quantity' => $product->pivot->quantity],
+                    ];
+                })->toArray();
+            }
+
+            return [];
         }
 
         return session()->get($this->sessionKey(), []);
@@ -52,7 +69,7 @@ class CartService
     public function remove(string $productId): void
     {
         if (Auth::check()) {
-            $cart = Cart::where('user_id', Auth::id())->first();
+            $cart = Cart::where('user_id', Auth::id())->first(); // this could be delegated to the CartRepository
             $cart?->products()->detach($productId);
         } else {
             $cart = session()->get($this->sessionKey(), []);
@@ -65,12 +82,16 @@ class CartService
     {
         if (Auth::check()) {
             $cart = Cart::where('user_id', Auth::id())->first();
+
             if ($cart && $cart->products()->where('product_id', $productId)->exists()) {
                 $cart->products()->updateExistingPivot($productId, ['quantity' => $quantity]);
             }
         } else {
             $cart = session()->get($this->sessionKey(), []);
-            $cart[$productId] = $quantity;
+
+            // Always store as array with 'quantity' key
+            $cart[$productId] = ['quantity' => $quantity];
+
             session()->put($this->sessionKey(), $cart);
         }
     }
@@ -87,10 +108,19 @@ class CartService
             ['id' => Str::uuid(), 'total_amount' => 0]
         );
 
-        foreach ($sessionCart as $productId => $qty) {
-            $cart->products()->syncWithoutDetaching([
-                $productId => ['quantity' => $qty]
-            ]);
+        foreach ($sessionCart as $productId => $data) {
+            $quantity = is_array($data) ? ($data['quantity'] ?? 1) : $data;
+
+            $existing = $cart->products()->where('product_id', $productId)->first();
+
+            if ($existing) {
+                $currentQty = $existing->pivot->quantity ?? 0;
+                $cart->products()->updateExistingPivot($productId, [
+                    'quantity' => $currentQty + $quantity
+                ]);
+            } else {
+                $cart->products()->attach($productId, ['quantity' => $quantity]);
+            }
         }
 
         session()->forget($this->sessionKey());

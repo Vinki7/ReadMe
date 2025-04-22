@@ -5,23 +5,28 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Services\CartService;
 use App\Models\Product;
+use App\Services\ProductService;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
     private CartService $cartService;
+    private ProductService $productService;
 
-    public function __construct(CartService $cartService)
+    public function __construct(CartService $cartService, ProductService $productService)
     {
+        // CartService and ProductService are injected via the constructor => Dependency Injection
         $this->cartService = $cartService;
+        $this->productService = $productService;
     }
 
     public function index()
     {
         $items = $this->cartService->getItems();
 
+        $listOfIds = $items ? array_keys($items) : [];
         // Fetch full product details
-        $products = Product::whereIn('id', array_keys($items))->get();
+        $products = $this->productService->getListOfProductsByIds($listOfIds); // this should be delegated to the ProductService
 
         return view('cart.index', compact('products', 'items'));
     }
@@ -33,7 +38,7 @@ class CartController extends Controller
         $product = Product::findOrFail($productId);
         $quantity = $request->input('quantity');
 
-        $this->cartService->add($product, $request->input('quantity'));
+        $this->cartService->add($product, $quantity);
 
         return redirect()->back()->with('success', 'Item added to cart!');
     }
