@@ -1,0 +1,39 @@
+@use "variables" as *;
+
+.modal-dialog {
+    max-width: 100%;
+    width: auto;
+    justify-content: center;
+}
+
+.modal-content {
+    border-radius: 1.6rem;
+    padding: 0.5rem;
+    max-width: 90%;
+    max-height: fit-content;
+}
+
+.order-image {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 10 / 14.375;
+}
+
+@media screen and (min-width: 577px) {
+    .order-image {
+        width: 4.375rem;
+        height: 6.25rem;
+        object-fit: cover;
+    }
+
+    .modal-dialog {
+        max-width: 40%;
+        width: auto;
+    }
+
+    .modal-dialog.wide-modal {
+        max-width: 90%;
+        width: auto;
+    }
+}
