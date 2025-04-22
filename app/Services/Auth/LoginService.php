@@ -4,6 +4,7 @@ namespace App\Services\Auth;
 
 use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Login;
 
 class LoginService
 {
@@ -29,6 +30,9 @@ class LoginService
         }
 
         auth()->login($user);
+
+        event(new Login('web', $user, false)); // <-- fire the login event manually
+
         $this->userRepository->updateLoginTimestamp($user);
 
         return true;
