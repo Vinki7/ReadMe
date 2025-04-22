@@ -31,7 +31,8 @@ class ProductController extends Controller
         if($request)
         {
             $sort = $request->get('sort');
-            $products = $this->productService->getAllProductsSorted($sort);
+            $search = $request->get('search');
+            $products = $this->productService->getAllFilteredAndSorted($search, $sort);
             return view('products.index', compact('products'));
         }
         else

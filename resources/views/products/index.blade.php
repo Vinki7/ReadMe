@@ -161,9 +161,15 @@
                 <!-- Search/order area -->
                 <div class="btn-container row row-cols-1 row-cols-md-2 align-items-center justify-content-center gap-3 gap-lg-0 gap mb-4 px-md-5">
                     <!-- Search bar -->
-                    <div class="col">
-                        <input type="text" class="form-control col-12" placeholder="Search">
-                    </div>
+                    <form method="GET" class="col">
+                        <input
+                            type="text"
+                            name="search"
+                            class="form-control col-12"
+                            placeholder="Search"
+                            value="{{ request('search') }}"
+                        >
+                    </form>
 
                     <!-- Ordering buttons -->
 					<form method="GET" class="col-7 col-sm-4 d-flex flex-column justify-content-end flex-md-row flex-wrap gap-2" role="group" id="sortForm">
@@ -216,14 +222,18 @@
             @endforelse
         </div>
 		<div class="row btn-container justify-content-center gap-4 pb-3">
-			@foreach ($products->getUrlRange(1, $products->lastPage()) as $page => $url)
-    			@php
-        			$sortUrl = $url . (request('sort') ? '&sort=' . request('sort') : '');
-    			@endphp
-    			<a href="{{ $sortUrl }}" class="btn btn-secondary col-1 {{ $products->currentPage() === $page ? 'active-selection' : '' }}">
-        			{{ $page }}
-    			</a>
-			@endforeach
+            @foreach ($products->getUrlRange(1, $products->lastPage()) as $page => $url)
+                @php
+                    $params = [
+                        'search' => request('search'),
+                        'sort' => request('sort'),
+                        'page' => $page,
+                    ];
+                @endphp
+                <a href="{{ route('products.index', $params) }}" class="btn btn-secondary col-1 {{ $products->currentPage() === $page ? 'active-selection' : '' }}">
+                    {{ $page }}
+                </a>
+            @endforeach
 		</div>
 
     </section>

@@ -67,20 +67,30 @@ class ProductRepository implements IRepository
         ->through(fn ($product) => new ProductListingDto($product));
     }
 
-    public function getAllSortedPaginated(?string $sort = null)
-{
-    $query = Product::with('authors');
+    public function searchAndSort(?string $search = null, ?string $sort = null)
+    {
+        $query = Product::with('authors');
 
-    match ($sort) {
-        'name_asc' => $query->orderBy('title', 'asc'),
-        'name_desc' => $query->orderBy('title', 'desc'),
-        'price_asc' => $query->orderBy('price', 'asc'),
-        'price_desc' => $query->orderBy('price', 'desc'),
-        default => null,
-    };
+        if (!empty($search)) {
+            $query->where(function ($q) use ($search) {
+                $q->where('title', 'LIKE', '%' . $search . '%')
+                  ->orWhereHas('authors', fn ($authorQ) =>
+                      $authorQ->where('name', 'LIKE', '%' . $search . '%')
+                );
+            });
+        }
 
-    return $query->paginate($this->perPage)
-    ->through(fn ($product) => new ProductListingDto($product));
-}
+    
+        match ($sort) {
+            'name_asc' => $query->orderBy('title', 'asc'),
+            'name_desc' => $query->orderBy('title', 'desc'),
+            'price_asc' => $query->orderBy('price', 'asc'),
+            'price_desc' => $query->orderBy('price', 'desc'),
+            default => null,
+        };
 
+        return $query->paginate($this->perPage)
+            ->appends(['search' => $search, 'sort' => $sort])
+            ->through(fn ($product) => new ProductListingDto($product));
+    }
 }

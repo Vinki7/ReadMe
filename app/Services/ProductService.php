@@ -23,9 +23,9 @@ class ProductService
         return $this->productRepository->getAllPaginated();
     }
 
-    public function getAllProductsSorted($sort): LengthAwarePaginator
+    public function getAllFilteredAndSorted(?string $search = null, ?string $sort = null)
     {
-        return $this->productRepository->getAllSortedPaginated($sort);
+        return $this->productRepository->searchAndSort($search, $sort);
     }
     
     public function getProductById(string $id): ?ProductDetailsDto
