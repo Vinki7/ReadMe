@@ -13,9 +13,6 @@ return [
     | to add your own services to this array to grant expanded functionality.
     |
     */
-    'providers' => [
-        App\Providers\EventServiceProvider::class,
-    ],
 
 
 
