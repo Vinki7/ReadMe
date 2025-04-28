@@ -28,7 +28,10 @@ class CartController extends Controller
         // Fetch full product details
         $products = $this->productService->getListOfProductsByIds($listOfIds); // this should be delegated to the ProductService
 
-        return view('cart.index', compact('products', 'items'));
+        $finalPrice = 0;
+        $finalPrice = $this->cartService->getFinalPrice();
+
+        return view('cart.index', compact('products', 'items', 'finalPrice'));
     }
 
     public function addToCart(Request $request, string $productId)
@@ -36,7 +39,7 @@ class CartController extends Controller
         $request->validate(['quantity' => 'required|integer|min:1']);
 
         $product = Product::findOrFail($productId);
-        $quantity = $request->input('quantity');
+        $quantity = (int) $request->input('quantity');
 
         $this->cartService->add($product, $quantity);
 

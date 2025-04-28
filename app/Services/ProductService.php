@@ -35,10 +35,16 @@ class ProductService
 
     public function getLimitedProductsByCategory(Category $category, int $limit = 3): Collection
     {
-        return $this->productRepository->getByCategory($category->value, $limit)
-            ->map(function ($product) {
-                return new ProductListingDto($product);
-            });
+        $products = $this->productRepository->getByCategory($category->value, $limit)
+        ->map(function ($product) {
+            return new ProductListingDto($product);
+        });
+
+        if ($products->isEmpty()) {
+            return collect();
+        }
+
+        return $products;
     }
 
     public function getListOfProductsByIds(array $ids): Collection

@@ -16,34 +16,11 @@ class CartService
 
     public function add(Product $product, int $quantity = 1): void
     {
+
         if (Auth::check()) {
-            $cart = Cart::firstOrCreate(
-                ['user_id' => Auth::id()],
-                ['id' => Str::uuid(), 'total_amount' => 0]
-            );
-
-            // Check if product already exists in cart
-            $existing = $cart->products()->where('product_id', $product->id)->first();
-
-            if ($existing) {
-                $currentQuantity = $existing->pivot->quantity;
-                $cart->products()->updateExistingPivot($product->id, [
-                    'total_amount' => $currentQuantity + $quantity
-                ]);
-            } else {
-                $cart->products()->attach($product->id, ['quantity' => $quantity]);
-            }
-
-        } else {
-            $cart = session()->get($this->sessionKey(), []);
-
-            if (isset($cart[$product->id])) {
-                $cart[$product->id] += $quantity;
-            } else {
-                $cart[$product->id] = $quantity;
-            }
-
-            session()->put($this->sessionKey(), $cart);
+            $this->addToDatabase($product, $quantity);
+        }else {
+            $this->addToSession($product, $quantity);
         }
     }
 
@@ -96,6 +73,21 @@ class CartService
         }
     }
 
+    public function getFinalPrice(): float
+    {
+        $items = $this->getItems();
+        $finalPrice = 0;
+
+        foreach ($items as $productId => $data) {
+            $product = Product::find($productId);
+            if ($product) {
+                $finalPrice += $product->price * ($data['quantity'] ?? 1);
+            }
+        }
+
+        return $finalPrice;
+    }
+
     public function mergeSessionToUser(): void
     {
         if (!Auth::check()) return;
@@ -124,5 +116,41 @@ class CartService
         }
 
         session()->forget($this->sessionKey());
+    }
+
+    private function addToDatabase(Product $product, int $quantity): void
+    {
+        $cart = Cart::firstOrCreate(
+            ['user_id' => Auth::id()],
+            ['id' => Str::uuid(), 'total_amount' => 0]
+        );
+
+        $existingProduct = $cart->products()->where('product_id', $product->id)->first();
+
+        if ($existingProduct) {
+            $currentQuantity = $existingProduct->pivot->quantity ?? 0;
+            $cart->products()->updateExistingPivot($product->id, [
+                'quantity' => $currentQuantity + $quantity,
+            ]);
+        } else {
+            $cart->products()->attach($product->id, [
+                'quantity' => $quantity,
+            ]);
+        }
+    }
+
+    private function addToSession(Product $product, int $quantity): void
+    {
+        $cart = session()->get($this->sessionKey(), []);
+
+        if (isset($cart[$product->id])) {
+            $cart[$product->id]['quantity'] += $quantity;
+        } else {
+            $cart[$product->id] = [
+                'quantity' => $quantity,
+            ];
+        }
+
+        session()->put($this->sessionKey(), $cart);
     }
 }
