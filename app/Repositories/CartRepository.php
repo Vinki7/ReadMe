@@ -2,10 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Models\Cart; // Import the Cart model
-use Arr;
-use Illuminate\Support\Facades\Auth; // Import the Auth facade
-use Illuminate\Support\Str; // Import the Str class
+use App\Models\Cart;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 /**
  * Class CartRepository
@@ -122,11 +121,14 @@ class CartRepository
         $this->updateTotalAmount($cart);
     }
 
-    public function getAllProduct($userId)
-    {
-        // Logic to retrieve all items in the user's cart from the database
-    }
-
+    /**
+     * Retrieves a specific product from the user's cart.
+     *
+     * @param int $userId The ID of the user whose cart is being accessed.
+     * @param int $productId The ID of the product to retrieve.
+     *
+     * @return \App\Models\Product|null The product instance if found, null otherwise.
+     */
     public function getProductById($userId, $productId)
     {
         // Logic to retrieve a specific product in the user's cart from the database
@@ -139,6 +141,17 @@ class CartRepository
         return $product;
     }
 
+    /**
+     * Updates the quantity of a specific product in the user's cart.
+     *
+     * @param int $userId The ID of the user whose cart is being updated.
+     * @param int $productId The ID of the product whose quantity is being updated.
+     * @param int $quantity The new quantity of the product.
+     *
+     * @throws \Exception If the cart is not found or if the update operation fails.
+     *
+     * @return void
+     */
     public function updateProductQuantity($userId, $productId, $quantity)
     {
         // Logic to update the quantity of a specific product in the user's cart in the database
@@ -158,6 +171,35 @@ class CartRepository
         $this->updateTotalAmount($cart);
     }
 
+    /**
+     * Clears the cart for the specified user by detaching all products,
+     * resetting the total amount to zero, and saving the changes.
+     *
+     * @param int $userId The ID of the user whose cart needs to be cleared.
+     *
+     * @throws \Exception If the cart is not found for the given user ID.
+     */
+    public function clearCart($userId)
+    {
+        $cart = $this->getCart($userId);
+
+        if ($cart) {
+            $cart->products()->detach();
+            $cart->total_amount = 0;
+            $cart->save();
+        } else {
+            throw new \Exception('Cart not found');
+        }
+    }
+
+    /**
+     * Updates the total amount of the given cart by calculating the sum of
+     * the prices of all products multiplied by their respective quantities.
+     *
+     * @param \App\Models\Cart $cart The cart instance whose total amount needs to be updated.
+     *
+     * @return void
+     */
     private function updateTotalAmount($cart)
     {
         $total = $cart->products->sum(function ($product) {
