@@ -27,7 +27,8 @@
                             </div>
                             <div class="d-flex col-12 col-md-7 flex-row align-items-center justify-content-center justify-content-md-end gap-3 mt-2 mt-md-0 flex-wrap">
                                 <form method="POST" action="{{ route('cart.update', $product->id) }}" class="d-flex align-items-center justify-content-center justify-content-md-end gap-3 flex-wrap">
-                                    <span class="ms-3 fw-bold">{{ $product->price }} €</span>
+                                    <span class="ms-3 fw-bold">Price: {{ $product->price }} €</span>
+                                    <span class="ms-3 fw-bold">Total: {{ $product->price * ($items[$product->id]['quantity'] ?? 1) }} €</span>
                                     @csrf
                                     @method('PATCH')
                                     <input class="input col-12 col-sm-4" type="number" name="quantity" value="{{ $items[$product->id]['quantity'] ?? 1 }}" min="1">
@@ -44,10 +45,20 @@
                             </div>
                         </article>
                     @endforeach
+                    <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-end align-items-center mt-4">
+                        <h4 class="fw-bold">Total: {{ $finalPrice }} €</h4>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-center align-items-center mt-4">
+                        <a class="btn btn-secondary col-12 col-sm-5 col-md-3" href="{{route('checkout.address')}}">Proceed to checkout</a>
+                    </div>
                 @else
                     <p>Your cart is empty.</p>
                 @endif
         </div>
         </section>
     </main>
-    @endsection
+@endsection
+
+@push('scripts')
+    @vite(['resources/js/cart.js'])
+@endpush
