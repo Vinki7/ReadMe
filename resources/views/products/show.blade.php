@@ -38,7 +38,7 @@
                 <h5>{{ $product->price }} €</h5>
                 <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center align-items-center">
                     <label class="label" for="quantity">Amount:</label>
-                    <input class="input w-100 align-self-center text-center" type="number" id="quantity" name="quantity" value="1" min="1" max="{{ $product->stock }}" required>
+                    <input class="input w-100 align-self-center text-center" type="number" id="quantity" name="quantity" value="1" min="1" max="{{ 20{{--$product->stock--}} }}" required>
                 </div>
                 <input type="submit" class="btn btn-secondary" value="Add to Cart">
             </form>

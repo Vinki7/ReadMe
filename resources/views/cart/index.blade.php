@@ -9,7 +9,7 @@
 @section('content')
     <main class="container-fluid flex-grow-1 row justify-content-center align-items-center g-0 py-4 px-5">
         <section class="card container p-5 shadow-sm">
-            <h1>Your Shopping Cart</h1>
+            <h1 class="text-secondary">Your Cart</h1>
             <hr>
 
             <div class="cart-items">

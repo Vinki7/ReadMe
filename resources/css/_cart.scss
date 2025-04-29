@@ -1,5 +1,30 @@
 @use "variables" as *;
 
+.order-image {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 10 / 14.375;
+}
+
+@media screen and (min-width: 577px) {
+    .order-image {
+        width: 4.375rem;
+        height: 6.25rem;
+        object-fit: cover;
+    }
+
+    .modal-dialog {
+        max-width: 40%;
+        width: auto;
+    }
+
+    .modal-dialog.wide-modal {
+        max-width: 90%;
+        width: auto;
+    }
+}
+
 .card-header .nav-item {
     border-radius: 6.25rem;
     border-color: #fff;

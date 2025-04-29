@@ -8,13 +8,16 @@
 
 @section('content')
 <main class="container-fluid flex-grow-1 row justify-content-center align-items-center g-0 py-4 px-5">
-    <div class="modal-dialog modal-dialog-centered">
-        <form class="modal-content" id="paymentForm" method="POST" action="{{ route('checkout.address') }}">
+    <section class="card col-12 col-lg-9 p-4 shadow-sm">
+        <form class="col-12 d-flex flex-column justify-content-center" id="paymentForm" method="POST" action="{{ route('checkout.address') }}">
             @csrf
-            <header class="modal-header">
-                <h1 class="modal-title" id="addressModalLabel">Enter Address Information</h1>
+            <header class="ps-sm-1 ps-md-3">
+                <h1 class="h2 text-secondary">Enter Address Details</h1>
             </header>
-            <div class="modal-body d-flex flex-column gap-3">
+
+            <hr>
+
+            <div class="d-flex align-self-center flex-column gap-3 col-12 col-sm-9 col-md-6">
                 <section class="d-flex flex-column gap-2">
                     <label class="label">Full Name</label>
                     <input class="input" type="text" name="fullName" id="fullName" placeholder="Enter name" required>
@@ -40,10 +43,11 @@
                     <input class="input" type="text" name="country" id="country" placeholder="Enter country" required>
                 </section>
             </div>
+            <hr>
             <footer class="modal-footer">
                 <button type="submit" class="btn btn-primary">Proceed to Payment</button>
             </footer>
         </form>
-    </div>
+    </section>
 </main>
 @endsection
