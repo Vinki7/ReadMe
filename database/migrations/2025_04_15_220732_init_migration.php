@@ -30,7 +30,6 @@ return new class extends Migration {
             $table->string('title', 100);
             $table->text('description');
             $table->decimal('price', 10, 2);
-            $table->integer('stock')->default(0);
             $table->enum('category', [
                 'fantasy', 'sci-fi', 'mystery', 'romance', 'horror',
                 'non-fiction', 'biography', 'self_help', 'education',
