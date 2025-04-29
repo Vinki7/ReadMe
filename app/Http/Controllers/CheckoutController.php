@@ -5,22 +5,26 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Services\CartService;
 use App\Services\CheckoutService;
+use App\Services\ProductService;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
     private CartService $cartService;
     private CheckoutService $checkoutService;
+    private ProductService $productService;
 
-    public function __construct(CartService $cartService, CheckoutService $checkoutService)
+    public function __construct(CartService $cartService, CheckoutService $checkoutService, ProductService $productService)
+
     {
         $this->cartService = $cartService;
         $this->checkoutService = $checkoutService;
+        $this->productService = $productService;
     }
 
     public function address(Request $request)
     {
-        $cart = $this->cartService->getItems();
+        $cart = $this->cartService->getCart();
 
         if (empty($cart)) {
             return redirect()->route('cart.index')->with('error', 'Your cart is empty.');
@@ -44,7 +48,7 @@ class CheckoutController extends Controller
 
     public function payment()
     {
-        $cart = $this->cartService->getItems();
+        $cart = $this->cartService->getCart();
 
         if (empty($cart)) {
             return redirect()->route('cart.index')->with('error', 'Your cart is empty.');
@@ -52,10 +56,19 @@ class CheckoutController extends Controller
 
         $finalPrice = $this->cartService->getFinalPrice();
 
+        $items = $this->cartService->getCart();
+        $listOfIds = $items ? array_keys($items) : [];
+        $products = $this->productService->getListOfProductsByIds($listOfIds); // this should be delegated to the ProductService
+
+        if (empty($products)) {
+            return redirect()->route('cart.index')->with('error', 'No products found in your cart.');
+        }
+
         return view('cart.payment')->with([
-            'cart' => $cart,
+            'products' => $products,
             'address' => session('checkout.address'),
             'finalPrice' => $finalPrice,
+            'cart' => $cart,
         ]);
     }
 

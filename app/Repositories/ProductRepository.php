@@ -65,4 +65,9 @@ class ProductRepository implements IRepository
         }
         return false;
     }
+
+    public function productExists(string $productId): bool
+    {
+        return Product::where('id', $productId)->exists();
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Repositories\ProductRepository;
 use App\Services\CartService;
+use App\Repositories\CartRepository;
 use App\Services\CheckoutService;
 use App\Services\ProductService;
 use Illuminate\Support\ServiceProvider;
@@ -16,13 +17,21 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // Register the CartService as a singleton
-        $this->app->singleton(CartService::class, function ($app) {
-            return new CartService();
-        });
 
         $this->app->singleton(ProductRepository::class, function ($app) {
             return new ProductRepository();
+        });
+
+        $this->app->singleton(CartRepository::class, function ($app) {
+            return new CartRepository();
+        });
+
+        // Register the CartService as a singleton
+        $this->app->singleton(CartService::class, function ($app) {
+            return new CartService(
+                $app->make(ProductRepository::class),
+                $app->make(CartRepository::class)
+            );
         });
 
         // Register the ProductService as a singleton

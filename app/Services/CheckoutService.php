@@ -20,7 +20,7 @@ class CheckoutService
         return $validated;
     }
 
-    public function validatePayment(Request $request)
+    public function handlePayment(Request $request)
     {
 
         $validated = $request->validate([
