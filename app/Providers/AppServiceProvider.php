@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Repositories\ProductRepository;
 use App\Services\CartService;
+use App\Services\CheckoutService;
 use App\Services\ProductService;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
@@ -29,6 +30,10 @@ class AppServiceProvider extends ServiceProvider
             return new ProductService($app->make(ProductRepository::class));
         });
 
+        // Register the CheckoutService as a singleton
+        $this->app->singleton(CheckoutService::class, function ($app) {
+            return new CheckoutService();
+        });
 
     }
 

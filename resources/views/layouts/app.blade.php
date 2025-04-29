@@ -43,5 +43,6 @@
             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+q8iDf4z4z9p1E6p1F9j"
             crossorigin="anonymous"
         ></script>
+        @stack('scripts')
     </body>
 </html>

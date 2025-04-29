@@ -1,6 +1,4 @@
-$secondary-300: #C07A0C;
-$secondary-400: #C07A0C; // Replace with the actual value if different
-$black-100: #000000; // Replace with the actual value if different
+@use "variables";
 
 h1 {
     font-size: 3rem;
@@ -157,4 +155,8 @@ small .note, .note {
     small .note, .note {
         font-size: 0.625rem;
     }
+}
+
+.text-secondary {
+    color: $secondary-300!important;
 }

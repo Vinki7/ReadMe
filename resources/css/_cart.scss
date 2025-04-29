@@ -1,39 +1,32 @@
 @use "variables" as *;
 
-.modal-dialog {
-    max-width: 100%;
-    width: auto;
-    justify-content: center;
+.card-header .nav-item {
+    border-radius: 6.25rem;
+    border-color: #fff;
+    background-color: $charcoal-200;
+    padding: 0.1rem 1rem;
 }
 
-.modal-content {
-    border-radius: 1.6rem;
-    padding: 0.5rem;
-    max-width: 90%;
-    max-height: fit-content;
+.card-nav .nav-item:has(.nav-link.active) {
+    background: $secondary-300;
 }
 
-.order-image {
-    object-fit: cover;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 10 / 14.375;
+.card-nav .nav-item:hover {
+    background: $charcoal-200;
+    border-color: $charcoal-200;
 }
 
-@media screen and (min-width: 577px) {
-    .order-image {
-        width: 4.375rem;
-        height: 6.25rem;
-        object-fit: cover;
-    }
+.card-nav .nav-link:hover {
+    border-color: $charcoal-200;
+}
 
-    .modal-dialog {
-        max-width: 40%;
-        width: auto;
-    }
+.card-nav .nav-link.active {
+    background-color: inherit;
+    border-color: $secondary-100;
+}
 
-    .modal-dialog.wide-modal {
-        max-width: 90%;
-        width: auto;
-    }
+.card-nav .nav-link {
+    background: inherit;
+    text-decoration: none;
+    color: $charcoal-base;
 }
