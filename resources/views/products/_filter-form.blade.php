@@ -45,7 +45,13 @@
         </div>
     </div>
 
-    <button type="submit" class="btn btn-primary w-100 mt-3">
-        Apply Filters
-    </button>
+    <div class="d-flex justify-content-between mt-3">
+        <button type="submit" class="btn btn-primary">
+            Apply
+        </button>
+
+        <a href="{{ route('products.index') }}" class="btn btn-outline-secondary">
+            Reset Filters
+        </a>
+    </div>
 </form>
