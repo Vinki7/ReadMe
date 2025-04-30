@@ -34,7 +34,7 @@
     <!-- Main Content -->
     <section class="col-12 col-lg-9 pt-4">
 		<!-- Sort menu -->
-        <form method="GET" id="searchSortForm" class="row row-cols-1 row-cols-md-2 align-items-center justify-content-center gap-3 px-md-5 mb-4">
+        <form method="GET" id="searchSortForm" class="btn-container row row-cols-1 row-cols-md-2 align-items-center justify-content-center gap-3 gap-lg-0 gap mb-4 px-md-5">
             <div class="col">
                 <input type="text" name="search" class="form-control" placeholder="Search"
                     value="{{ request('search') }}">
