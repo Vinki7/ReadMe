@@ -68,9 +68,9 @@ class CartService
     {
         if (Auth::check()) {
             $this->addToDatabase($productId, $quantity);
-        }else {
-            $this->addToSession($productId, $quantity);
         }
+
+        $this->addToSession($productId, $quantity);
     }
 
     /**
@@ -90,7 +90,9 @@ class CartService
     public function getCart(): array
     {
         if (Auth::check()) {
-            $cart = Cart::where('user_id', Auth::id())->with('products')->first(); // this could be delegated to the CartRepository
+            $userId = Auth::id();
+
+            $cart = $this->cartRepository->getCart($userId);
 
             if ($cart) {
                 return $cart->products->mapWithKeys(function ($product) {
@@ -119,14 +121,16 @@ class CartService
     public function remove(string $productId): void
     {
         if (Auth::check()) {
-            $this->cartRepository->removeProduct(Auth::id(), $productId);
-        } else {
-            $cart = session()->get($this->sessionKey(), []);
+            $userId = Auth::id();
 
-            unset($cart[$productId]);
-
-            session()->put($this->sessionKey(), $cart);
+            $this->cartRepository->removeProduct($userId, $productId);
         }
+
+        $cart = session()->get($this->sessionKey(), []);
+
+        unset($cart[$productId]);
+
+        session()->put($this->sessionKey(), $cart);
     }
 
     /**
@@ -148,14 +152,14 @@ class CartService
             if ($cart && $cart->products()->where('product_id', $productId)->exists()) {
                 $cart->products()->updateExistingPivot($productId, ['quantity' => $quantity]);
             }
-        } else {
-            $cart = session()->get($this->sessionKey(), []);
-
-            // Always store as array with 'quantity' key
-            $cart[$productId] = ['quantity' => $quantity];
-
-            session()->put($this->sessionKey(), $cart);
         }
+
+        $cart = session()->get($this->sessionKey(), []);
+
+        // Always store as array with 'quantity' key
+        $cart[$productId] = ['quantity' => $quantity];
+
+        session()->put($this->sessionKey(), $cart);
     }
 
     /**
@@ -190,6 +194,18 @@ class CartService
         return $finalPrice;
     }
 
+    /**
+     * * Merges the session cart into the authenticated user's cart.
+     *
+     * This method checks if the user is authenticated and if there is a session cart.
+     * If both conditions are met, it attempts to merge the session cart into the user's cart
+     * using the cart repository. If an error occurs during the process, it logs the error.
+     * After successfully merging, the session cart is cleared.
+     *
+     * @return void
+     *
+     * @throws \Exception If the user is not authenticated.
+     */
     public function mergeSessionToUser(): void
     {
         if (!Auth::check())
@@ -207,11 +223,6 @@ class CartService
         try {
             $userId = Auth::id();
 
-            if (!$userId)
-            {
-                throw new \Exception('User not authenticated');
-            }
-
             $this->cartRepository->updateWithSession($userId, $sessionCart);
         }
         catch (\Exception $e) {
@@ -222,6 +233,46 @@ class CartService
         session()->forget($this->sessionKey());
 
         return;
+    }
+
+    private function loadCartToSession(): void
+    {
+        if (!Auth::check()) {
+            throw new \Exception('User is not authenticated.');
+        }
+
+        try {
+            $userId = Auth::id();
+
+            $userCart = $this->cartRepository->getCart($userId);
+
+            foreach ($userCart->products() as $product) {
+                $this->addToSession($product->id, $product->pivot->quantity);
+            }
+        } catch (\Exception $e) {
+            logger()->error('Error loading cart to session: ' . $e->getMessage());
+            throw $e;
+        }
+    }
+
+    /**
+     * Clears the user's cart.
+     *
+     * If the user is authenticated, the method clears the cart in the database.
+     * If the user is not authenticated, it clears the session-based cart.
+     *
+     * @param string $userId The ID of the user whose cart is to be cleared.
+     * @return void
+     */
+    public function clearCart(): void
+    {
+        if (Auth::check()) {
+            $userId = Auth::id();
+
+            $this->cartRepository->clearCart($userId);
+        }
+
+        session()->forget($this->sessionKey());
     }
 
     /**

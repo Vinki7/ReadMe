@@ -14,10 +14,9 @@
     <body class="d-flex flex-column min-vh-100">
         <x-header-component></x-header-component>
 
-        @if (session('success'))
-            <div class="alert alert-success alert-dismissible fade show flash-alert" role="alert">
-                {{ session('success') }}
-                {{ session('info')}}
+        @if(session('error') || session('success') || session('info'))
+            <div class="alert alert-{{ session('error') ? 'danger' : (session('success') ? 'success' : 'info') }} alert-dismissible fade show flash-alert" role="alert">
+                {{ session('error') ?? session('success') ?? session('info') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif

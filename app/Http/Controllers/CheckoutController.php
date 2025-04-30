@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\DeliveryMethod;
+use App\Enums\PaymentMethod;
 use App\Http\Controllers\Controller;
 use App\Services\CartService;
 use App\Services\CheckoutService;
@@ -22,7 +24,17 @@ class CheckoutController extends Controller
         $this->productService = $productService;
     }
 
-    public function address(Request $request)
+    /**
+     * Display the address form for the checkout process.
+     *
+     * This method retrieves the current cart using the cart service.
+     * If the cart is empty, the user is redirected to the cart index page
+     * with an error message. Otherwise, it returns the view for the
+     * address form.
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
+    public function address()
     {
         $cart = $this->cartService->getCart();
 
@@ -30,22 +42,40 @@ class CheckoutController extends Controller
             return redirect()->route('cart.index')->with('error', 'Your cart is empty.');
         }
 
-        return view('cart.address');
+        $deliveryMethods = [
+            DeliveryMethod::Standard->value,
+            DeliveryMethod::Express->value,
+            DeliveryMethod::Pickup->value
+        ];
+
+        return view('cart.address', compact('deliveryMethods'));
     }
 
+    /**
+     * Handles the checkout request by processing the address
+     * and redirecting the user to the payment step.
+     *
+     * @param \Illuminate\Http\Request $request The incoming HTTP request containing checkout data.
+     * @return \Illuminate\Http\RedirectResponse Redirects to the checkout payment route.
+     */
     public function handleRequest(Request $request)
     {
-        // Validate the request data
-        // If validation fails, an excetion will be thrown and handled by the framework
-        // If validation passes, the validated data will be returned
-        $validated = $this->checkoutService->handleAddress($request);
-
-        // Store the validated address in the session
-        session()->put('checkout.address', $validated);
+        $this->checkoutService->handleAddress($request);
 
         return redirect()->route('checkout.payment');
     }
 
+    /**
+     * Handles the payment process for the user's cart.
+     *
+     * This method retrieves the current cart using the cart service. If the cart is empty,
+     * the user is redirected to the cart index page with an error message. It then prepares
+     * the cart details using the checkout service. If no products are found in the cart,
+     * the user is redirected to the cart index page with an error message. Otherwise, it
+     * returns the payment view with the prepared cart details.
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function payment()
     {
         $cart = $this->cartService->getCart();
@@ -54,35 +84,46 @@ class CheckoutController extends Controller
             return redirect()->route('cart.index')->with('error', 'Your cart is empty.');
         }
 
-        $finalPrice = $this->cartService->getFinalPrice();
+        $cartDetails = $this->checkoutService->prepareCartDetails();
 
-        $items = $this->cartService->getCart();
-        $listOfIds = $items ? array_keys($items) : [];
-        $products = $this->productService->getListOfProductsByIds($listOfIds); // this should be delegated to the ProductService
-
-        if (empty($products)) {
+        if (empty($cartDetails['products'])) {
             return redirect()->route('cart.index')->with('error', 'No products found in your cart.');
         }
 
-        return view('cart.payment')->with([
-            'products' => $products,
-            'address' => session('checkout.address'),
-            'finalPrice' => $finalPrice,
-            'cart' => $cart,
-        ]);
+        return view('cart.payment')->with($cartDetails);
     }
 
+    /**
+     * Process the payment and place the order.
+     *
+     * This method handles the payment process, places the order, and clears the cart
+     * upon successful completion. It also redirects the user to the home page with
+     * a success message.
+     *
+     * @param \Illuminate\Http\Request $request The HTTP request containing payment details.
+     * @return \Illuminate\Http\RedirectResponse Redirects to the home page with a success message.
+     */
     public function processPayment(Request $request)
     {
-        $validated = $this->checkoutService->handlePayment($request);
+        if ($request->input('paymentMethod') == PaymentMethod::CashOnDelivery->value) {
+            $this->checkoutService->placeOrder(
+                [
+                    'paymentMethod' => $request->input('paymentMethod')
+                ]
+            );
+        } else {
+            $validated = $this->checkoutService->handlePayment($request);
+            $validated['paymentMethod'] = $request->input('paymentMethod');
 
-        // Optional: Validate/Use session('checkout.address') info
+            try {
+                $this->checkoutService->placeOrder($validated);
 
-        // Simulate order placement
-        // Save to DB or trigger payment gateway
-
-        // Clear cart if successful
-        session()->forget('cart.items');
+                $this->cartService->clearCart();
+            }
+            catch (\Exception $e) {
+                return redirect()->route('cart.index')->with('error', 'An error occurred while processing your order. Please try again.');
+            }
+        }
 
         return redirect()->route('home.index')->with('success', 'Your order has been placed successfully!');
     }

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Repositories\OrderRepository;
 use App\Repositories\ProductRepository;
 use App\Services\CartService;
 use App\Repositories\CartRepository;
@@ -26,6 +27,10 @@ class AppServiceProvider extends ServiceProvider
             return new CartRepository();
         });
 
+        $this->app->singleton(OrderRepository::class, function ($app) {
+            return new OrderRepository();
+        });
+
         // Register the CartService as a singleton
         $this->app->singleton(CartService::class, function ($app) {
             return new CartService(
@@ -41,7 +46,11 @@ class AppServiceProvider extends ServiceProvider
 
         // Register the CheckoutService as a singleton
         $this->app->singleton(CheckoutService::class, function ($app) {
-            return new CheckoutService();
+            return new CheckoutService(
+                $app->make(CartService::class),
+                $app->make(ProductService::class),
+                $app->make(OrderRepository::class)
+            );
         });
 
     }

@@ -42,6 +42,18 @@
                     <label class="label">Country</label>
                     <input class="input" type="text" name="country" id="country" placeholder="Enter country" required>
                 </section>
+                <section class="d-flex flex-column gap-2">
+                    <h4 class="title">Choose delivery method:</h4>
+                    <div class="d-flex justify-content-center flex-columnt flex-sm-row gap-5">
+                        @foreach ($deliveryMethods as $method)
+                            <span class="d-flex justify-content-center gap-4">
+                                <label class="label" for="{{$method}}">{{ $method }}</label>
+                                <input type="radio" name="deliveryMethod" id="{{$method}}" value="{{$method}}"  required>
+                            </span>
+                        @endforeach
+                    </div>
+                        {{-- <input class="input" type="text" name="deliveryMethod" id="deliveryMethod" placeholder="Enter CVV" required> --}}
+                </section>
             </div>
             <hr>
             <footer class="modal-footer">

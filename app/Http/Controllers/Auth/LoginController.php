@@ -40,6 +40,7 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
+        session()->invalidate();
         auth()->logout();
 
         return redirect()->route('home.index')->with('success', 'Logout successful!');

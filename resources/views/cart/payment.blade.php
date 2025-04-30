@@ -54,11 +54,11 @@
             <hr class="col-11 mx-auto">
 
             {{-- Card Form --}}
-            <form class="tab-pane active" method="POST" action="{{ route('checkout.payment') }}" id="card" role="tabpanel" aria-labelledby="card-tab" tabindex="0">
+            <form class="tab-pane active" method="POST" action="{{ route('checkout.payment.submit') }}" id="card" role="tabpanel" aria-labelledby="card-tab" tabindex="0">
                 @csrf
 
                 <div class="d-flex col-12 px-1 px-sm-5 gap-4 flex-column">
-                    <input type="hidden" name="payment_method" id="paymentMethod" value="card">
+                    <input type="hidden" name="paymentMethod" id="paymentMethod" value="credit card">
                     <section class="d-flex flex-column gap-2">
                         <label class="label" for="cardName">Cardholder Name</label>
                         <input class="input" type="text" name="cardName" id="cardName" placeholder="Enter name" required>
@@ -69,7 +69,7 @@
                     </section>
                     <section class="d-flex flex-column gap-2">
                         <label class="label" for="expiryDate">Expiry Date</label>
-                        <input class="input" type="text" name="expiryDate" id="expiryDate" placeholder="Enter expiration date" required>
+                        <input class="input" type="text" name="expiryDate" id="expiryDate" placeholder="MM/YY" required pattern="\d{2}/\d{2}" maxlength="5" oninput="this.value = this.value.replace(/[^0-9/]/g, '').replace(/(\d{2})(\d{1,2})/, '$1/$2').slice(0, 5);">
                     </section>
                     <section class="d-flex flex-column gap-2">
                         <label class="label" for="cvv">CVV</label>
@@ -87,10 +87,10 @@
             </form>
 
             {{-- On-delivery Form --}}
-            <form class="tab-pane" id="on-delivery" role="tabpanel" aria-labelledby="on-delivery-tab" tabindex="0">
+            <form class="tab-pane" method="POST" action="{{ route('checkout.payment.submit') }}" id="on-delivery" role="tabpanel" aria-labelledby="on-delivery-tab" tabindex="0">
                 @csrf
                 <div class="d-flex col-12 px-1 px-sm-5 gap-4 flex-column ">
-                    <input type="hidden" name="payment_method" id="paymentMethod" value="card">
+                    <input type="hidden" name="paymentMethod" id="paymentMethod" value="cash on delivery">
                     <section class="d-flex flex-column gap-2 mt-3 p-5 text-center">
                         <p>By submitting this payment method, I agree to pay the total amount of <strong>{{ $finalPrice }}&nbsp;€</strong> for my order on delivery.</p>
                         <div class="d-flex flex-column gap-3 flex-md-row flex-wrap justify-content-center">
@@ -99,6 +99,7 @@
                     </section>
                 </div>
             </form>
+            {{ dd(session()->all()) }}
         </section>
     </div>
 </main>
