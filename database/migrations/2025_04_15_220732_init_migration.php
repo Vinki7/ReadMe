@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\PaymentMethod;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -81,10 +82,16 @@ return new class extends Migration {
         Schema::create('orders', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->enum('delivery_method', ['standard', 'express', 'overnight', 'pickup', 'same_day', 'in_store_pickup']);
-            $table->enum('payment_method', ['credit_card', 'debit_card','paypal', 'bank_transfer', 'cash_on_delivery']);
+            $table->enum('payment_method', [
+                PaymentMethod::CreditCard->value,
+                PaymentMethod::DebitCard->value,
+                PaymentMethod::PayPal->value,
+                PaymentMethod::CashOnDelivery->value,
+                PaymentMethod::BankTransfer->value
+            ]);
             $table->decimal('price', 10, 2);
-            $table->string('delivery_address', 255);
-            $table->string('billing_address', 255);
+            $table->json('delivery_address');
+            $table->json('billing_address');
             $table->timestamp('payment_date')->nullable();
             $table->timestamp('delivery_date')->nullable();
             $table->timestamp('expedition_date')->nullable();
