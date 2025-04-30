@@ -20,11 +20,11 @@ class ProductController extends Controller
     {
         $products = $this->productService->getAllFilteredAndSorted($request->all());
 
-        $genres = Product::distinct()->pluck('genre');
+        $categories = Product::distinct()->pluck('category');
         $authors = Product::with('authors')->get()->pluck('authors')->flatten()->unique('name')->pluck('name');
         $languages = Product::distinct()->pluck('language');
 
-        return view('products.index', compact('products', 'genres', 'authors', 'languages'));
+        return view('products.index', compact('products', 'categories', 'authors', 'languages'));
     }
 
 

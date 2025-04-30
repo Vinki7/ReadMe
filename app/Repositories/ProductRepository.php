@@ -79,8 +79,8 @@ class ProductRepository implements IRepository
             });
         }
     
-        if (!empty($filters['genre'])) {
-            $query->where('genre', $filters['genre']);
+        if (!empty($filters['category'])) {
+            $query->where('category', $filters['category']);
         }
     
         if (!empty($filters['author'])) {

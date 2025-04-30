@@ -2,12 +2,12 @@
     <h5 class="mb-3">Filter</h5>
 
     <div class="mb-3">
-        <label class="form-label">Genre</label>
-        <select name="genre" class="form-select">
+        <label class="form-label">Category</label>
+        <select name="category" class="form-select">
             <option value="">All</option>
-            @foreach ($genres as $genre)
-                <option value="{{ $genre }}" {{ request('genre') == $genre ? 'selected' : '' }}>
-                    {{ $genre }}
+            @foreach ($categories as $category)
+                <option value="{{ $category }}" {{ request('category') == $category ? 'selected' : '' }}>
+                    {{ $category }}
                 </option>
             @endforeach
         </select>
