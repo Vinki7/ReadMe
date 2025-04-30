@@ -19,7 +19,7 @@
             <option value="">All</option>
             @foreach ($authors as $author)
                 <option value="{{ $author }}" {{ request('author') == $author ? 'selected' : '' }}>
-                    {{ $author }}
+                    {{ $author->name . ' ' . $author->surname }}
                 </option>
             @endforeach
         </select>
