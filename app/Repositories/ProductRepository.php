@@ -67,30 +67,49 @@ class ProductRepository implements IRepository
         ->through(fn ($product) => new ProductListingDto($product));
     }
 
-    public function searchAndSort(?string $search = null, ?string $sort = null)
+    public function searchAndSort(array $filters = [])
     {
         $query = Product::with('authors');
 
-        if (!empty($search)) {
+        if (!empty($filters['search'])) {
+            $search = $filters['search'];
             $query->where(function ($q) use ($search) {
-                $q->where('title', 'LIKE', '%' . $search . '%')
-                  ->orWhereHas('authors', fn ($authorQ) =>
-                      $authorQ->where('name', 'LIKE', '%' . $search . '%')
-                );
+                $q->where('title', 'LIKE', "%{$search}%")
+                  ->orWhereHas('authors', fn ($q2) => $q2->where('name', 'LIKE', "%{$search}%"));
             });
         }
-
     
-        match ($sort) {
+        if (!empty($filters['genre'])) {
+            $query->where('genre', $filters['genre']);
+        }
+    
+        if (!empty($filters['author'])) {
+            $author = $filters['author'];
+            $query->whereHas('authors', fn ($q) => $q->where('name', $author));
+        }
+    
+        if (!empty($filters['language'])) {
+            $query->where('language', $filters['language']);
+        }
+    
+        if (!empty($filters['min_price'])) {
+            $query->where('price', '>=', $filters['min_price']);
+        }
+    
+        if (!empty($filters['max_price'])) {
+            $query->where('price', '<=', $filters['max_price']);
+        }
+    
+        match ($filters['sort'] ?? null) {
             'name_asc' => $query->orderBy('title', 'asc'),
             'name_desc' => $query->orderBy('title', 'desc'),
             'price_asc' => $query->orderBy('price', 'asc'),
             'price_desc' => $query->orderBy('price', 'desc'),
             default => null,
         };
-
+    
         return $query->paginate($this->perPage)
-            ->appends(['search' => $search, 'sort' => $sort])
-            ->through(fn ($product) => new ProductListingDto($product));
+            ->appends($filters)
+            ->through(fn ($product) => new \App\DTOs\Product\ProductListingDto($product));
     }
 }
