@@ -21,7 +21,7 @@ class ProductController extends Controller
         $products = $this->productService->getAllFilteredAndSorted($request->all());
 
         $categories = Product::distinct()->pluck('category');
-        $authors = Product::with('authors')->get()->pluck('authors')->flatten()->unique('name')->pluck('name');
+        $authors = Product::with('authors')->get()->pluck('authors')->flatten()->unique(fn ($author) => $author->name . ' ' . $author->surname)->sortBy('name');
         $languages = Product::distinct()->pluck('language');
 
         return view('products.index', compact('products', 'categories', 'authors', 'languages'));

@@ -18,8 +18,11 @@
         <select name="author" class="form-select">
             <option value="">All</option>
             @foreach ($authors as $author)
-                <option value="{{ $author }}" {{ request('author') == $author ? 'selected' : '' }}>
-                    {{ $author->name . ' ' . $author->surname }}
+                @php
+                    $fullName = $author->name . ' ' . $author->surname;
+                @endphp
+                <option value="{{ $fullName }}" {{ request('author') === $fullName ? 'selected' : '' }}>
+                    {{ $fullName }}
                 </option>
             @endforeach
         </select>

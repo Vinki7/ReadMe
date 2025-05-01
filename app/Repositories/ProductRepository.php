@@ -84,8 +84,10 @@ class ProductRepository implements IRepository
         }
     
         if (!empty($filters['author'])) {
-            $author = $filters['author'];
-            $query->whereHas('authors', fn ($q) => $q->where('name', $author));
+            $authorFullName = $filters['author'];
+            $query->whereHas('authors', function ($q) use ($authorFullName) {
+                $q->whereRaw("CONCAT(name, ' ', surname) = ?", [$authorFullName]);
+            });
         }
     
         if (!empty($filters['language'])) {
