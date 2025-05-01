@@ -81,6 +81,8 @@ return new class extends Migration {
         // Orders table
         Schema::create('orders', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->uuid('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->enum('delivery_method', ['standard', 'express', 'overnight', 'pickup', 'same_day', 'in_store_pickup']);
             $table->enum('payment_method', [
                 PaymentMethod::CreditCard->value,
@@ -96,14 +98,6 @@ return new class extends Migration {
             $table->timestamp('delivery_date')->nullable();
             $table->timestamp('expedition_date')->nullable();
             $table->timestamps();
-        });
-
-        // Reference table for many-to-many relationship between orders and users
-        Schema::create('user_orders', function (Blueprint $table) {
-            $table->uuid('user_id');
-            $table->uuid('order_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
         });
 
         // Refference table for many-to-many relationship between orders and products

@@ -2,21 +2,26 @@
 
 namespace App\Services;
 
+use App\Enums\Role;
 use App\Repositories\OrderRepository;
 use Date;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Repositories\UserRepository;
 
 class CheckoutService
 {
     private CartService $cartService;
     private ProductService $productService;
     private OrderRepository $orderRepository;
+    private UserRepository $userRepository;
 
-    public function __construct(CartService $cartService, ProductService $productService, OrderRepository $orderRepository)
+    public function __construct(CartService $cartService, ProductService $productService, OrderRepository $orderRepository, UserRepository $userRepository)
     {
         $this->cartService = $cartService;
         $this->productService = $productService;
         $this->orderRepository = $orderRepository;
+        $this->userRepository = $userRepository;
     }
 
     public function handleAddress(Request $request)
@@ -79,7 +84,9 @@ class CheckoutService
     {
         $cartDetails = $this->prepareCartDetails();
 
-        $this->orderRepository->createOrder($cartDetails, $validatedPaymentData);
+        $userId = Auth::check() ? Auth::user()->id : null;
+
+        $this->orderRepository->createOrder($cartDetails, $validatedPaymentData, $userId);
 
         $this->cartService->clearCart();
         session()->forget('checkout.address');

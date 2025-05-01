@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Order;
+use Auth;
 use DB;
 use Illuminate\Support\Str;
 
@@ -11,14 +12,15 @@ class OrderRepository
     // This class will handle the database operations related to orders.
     // For example, creating an order, updating order status, etc.
 
-    public function createOrder(array $data, array $payment)
+    public function createOrder(array $data, array $payment, string | null $userId)
     {
         // Transaction to ensure that all database operations are completed successfully - atomicity
-        return DB::transaction(function () use ($data, $payment) {
+        return DB::transaction(function () use ($data, $payment, $userId) {
             $orderId = $data['id'] ?? Str::uuid()->toString();
 
             $order = Order::create([
                 'id' => $orderId,
+                'user_id' => $userId,
                 'delivery_method' => $data['deliveryMethod'],
                 'payment_method' => $payment['paymentMethod'],
                 'price' => $data['finalPrice'],
@@ -30,8 +32,6 @@ class OrderRepository
             ]);
 
             // Attach the authenticated user to the order
-            $order->users()->attach(auth()->user()->id);
-
             return $order;
         });
     }

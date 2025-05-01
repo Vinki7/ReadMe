@@ -105,24 +105,26 @@ class CheckoutController extends Controller
      */
     public function processPayment(Request $request)
     {
-        if ($request->input('paymentMethod') == PaymentMethod::CashOnDelivery->value) {
-            $this->checkoutService->placeOrder(
-                [
-                    'paymentMethod' => $request->input('paymentMethod')
-                ]
-            );
-        } else {
-            $validated = $this->checkoutService->handlePayment($request);
-            $validated['paymentMethod'] = $request->input('paymentMethod');
+        try {
+            if ($request->input('paymentMethod') == PaymentMethod::CashOnDelivery->value) {
+                $this->checkoutService->placeOrder(
+                    [
+                        'paymentMethod' => $request->input('paymentMethod')
+                    ]
+                );
+            } else {
+                $validated = $this->checkoutService->handlePayment($request);
+                $validated['paymentMethod'] = $request->input('paymentMethod');
 
-            try {
-                $this->checkoutService->placeOrder($validated);
 
-                $this->cartService->clearCart();
+                    $this->checkoutService->placeOrder($validated);
+
+                    $this->cartService->clearCart();
+
+
             }
-            catch (\Exception $e) {
-                return redirect()->route('cart.index')->with('error', 'An error occurred while processing your order. Please try again.');
-            }
+        } catch (\Exception $e) {
+            return redirect()->route('cart.index')->with('error', $e->getMessage());
         }
 
         return redirect()->route('home.index')->with('success', 'Your order has been placed successfully!');

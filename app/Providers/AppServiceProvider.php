@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Repositories\OrderRepository;
 use App\Repositories\ProductRepository;
+use App\Repositories\UserRepository;
 use App\Services\CartService;
 use App\Repositories\CartRepository;
 use App\Services\CheckoutService;
@@ -18,6 +19,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        $this->app->singleton(UserRepository::class, function ($app) {
+            return new UserRepository();
+        });
 
         $this->app->singleton(ProductRepository::class, function ($app) {
             return new ProductRepository();
@@ -49,7 +53,8 @@ class AppServiceProvider extends ServiceProvider
             return new CheckoutService(
                 $app->make(CartService::class),
                 $app->make(ProductService::class),
-                $app->make(OrderRepository::class)
+                $app->make(OrderRepository::class),
+                $app->make(UserRepository::class)
             );
         });
 
