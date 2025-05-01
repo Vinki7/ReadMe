@@ -99,7 +99,6 @@
                     </section>
                 </div>
             </form>
-            {{ dd(session()->all()) }}
         </section>
     </div>
 </main>
