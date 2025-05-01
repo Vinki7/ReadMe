@@ -62,18 +62,30 @@
                     <section class="d-flex flex-column gap-2">
                         <label class="label" for="cardName">Cardholder Name</label>
                         <input class="input" type="text" name="cardName" id="cardName" placeholder="Enter name" required>
+                        @error('cardName')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
                     </section>
                     <section class="d-flex flex-column gap-2">
                         <label class="label" for="cardNumber">Card Number</label>
                         <input class="input" type="text" name="cardNumber" id="cardNumber" placeholder="Enter card number" required>
+                        @error('cardNumber')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
                     </section>
                     <section class="d-flex flex-column gap-2">
                         <label class="label" for="expiryDate">Expiry Date</label>
                         <input class="input" type="text" name="expiryDate" id="expiryDate" placeholder="MM/YY" required pattern="\d{2}/\d{2}" maxlength="5" oninput="this.value = this.value.replace(/[^0-9/]/g, '').replace(/(\d{2})(\d{1,2})/, '$1/$2').slice(0, 5);">
+                        @error('expiryDate')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
                     </section>
                     <section class="d-flex flex-column gap-2">
                         <label class="label" for="cvv">CVV</label>
                         <input class="input" type="text" name="cvv" id="cvv" placeholder="Enter CVV" required>
+                        @error('cvv')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
                     </section>
                     <section class="d-flex flex-column gap-2">
                         <p class="text-center">
