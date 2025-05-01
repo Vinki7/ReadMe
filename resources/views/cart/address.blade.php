@@ -70,7 +70,6 @@
                             </span>
                         @endforeach
                     </div>
-                        {{-- <input class="input" type="text" name="deliveryMethod" id="deliveryMethod" placeholder="Enter CVV" required> --}}
                 </section>
             </div>
             <hr>
