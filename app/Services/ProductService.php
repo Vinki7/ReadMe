@@ -46,4 +46,24 @@ class ProductService
                 return new ProductListingDto($product);
             });
     }
+
+    public function getAllCategories()  {
+        return $this->productRepository->fetchAllCategories();
+    }
+
+    public function getAllAuthors() {
+        return $this->productRepository->fetchAllAuthors();
+    }
+
+    public function getAllLanguages() {
+        return $this->productRepository->fetchAllLanguages();
+    }
+
+    public function getMinPrice() {
+        return $this->productRepository->fetchMinPrice();
+    }
+
+    public function getMaxPrice() {
+        return $this->productRepository->fetchMaxPrice();
+    }
 }

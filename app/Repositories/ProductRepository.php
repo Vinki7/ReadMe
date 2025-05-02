@@ -60,14 +60,13 @@ class ProductRepository implements IRepository
         return false;
     }
 
-    private $perPage = 6;
-    public function getAllPaginated()
+    public function getAllPaginated($perPage = 6)
     {
-        return Product::with('authors')->paginate($this->perPage)
+        return Product::with('authors')->paginate($perPage)
         ->through(fn ($product) => new ProductListingDto($product));
     }
 
-    public function searchAndSort(array $filters = [])
+    public function searchAndSort(array $filters = [], $perPage = 6)
     {
         $query = Product::with('authors');
 
@@ -110,8 +109,28 @@ class ProductRepository implements IRepository
             default => null,
         };
     
-        return $query->paginate($this->perPage)
+        return $query->paginate($perPage)
             ->appends($filters)
             ->through(fn ($product) => new \App\DTOs\Product\ProductListingDto($product));
+    }
+
+    public function fetchAllCategories() {
+        return Product::distinct()->pluck('category');
+    }
+
+    public function fetchAllAuthors() {
+        return Product::with('authors')->get()->pluck('authors')->flatten()->unique(fn ($author) => $author->name . ' ' . $author->surname)->sortBy('name');
+    }
+
+    public function fetchAllLanguages() {
+        return Product::distinct()->pluck('language');
+    }
+
+    public function fetchMinPrice() {
+        return Product::min('price');
+    }
+
+    public function fetchMaxPrice() {
+        return Product::max('price');
     }
 }
