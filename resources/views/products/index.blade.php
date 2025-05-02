@@ -72,7 +72,7 @@
 
         <div class="row justify-content-center gap-4 pb-3">
             @foreach ($products->getUrlRange(1, $products->lastPage()) as $page => $url)
-                <a href="{{ $url }}" class="btn btn-secondary col-1 {{ $products->currentPage() === $page ? 'active-selection' : '' }}">
+                <a href="{{ $url }}" class="btn btn-secondary col-1 {{ $products->currentPage() === $page ? 'active' : '' }}">
                     {{ $page }}
                 </a>
             @endforeach
