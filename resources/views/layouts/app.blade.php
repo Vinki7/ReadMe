@@ -10,7 +10,6 @@
         <!-- Scripts -->
         @vite(['resources/css/app.scss', 'resources/js/app.js'])
         @stack('styles')
-        @stack('scripts')
     </head>
     <body class="d-flex flex-column min-vh-100">
         <x-header-component></x-header-component>
