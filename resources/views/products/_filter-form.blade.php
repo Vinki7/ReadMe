@@ -5,9 +5,12 @@
         <label class="form-label">Category</label>
         <select name="category" class="form-select">
             <option value="">All</option>
-            @foreach ($categories as $category)
-                <option value="{{ $category }}" {{ request('category') == $category ? 'selected' : '' }}>
-                    {{ $category }}
+            @php
+                use App\Enums\Category;
+            @endphp
+            @foreach (Category::cases() as $category)
+                <option value="{{ $category->value }}" {{ request('category') === $category->value ? 'selected' : '' }}>
+                    {{ ucfirst(str_replace('_', ' ', $category->name)) }}
                 </option>
             @endforeach
         </select>
@@ -43,8 +46,8 @@
     <div class="mb-3">
         <label class="form-label">Price Range</label>
         <div class="d-flex gap-2">
-            <input type="number" class="form-control" name="min_price" placeholder="Min" value="{{ request('min_price') }}">
-            <input type="number" class="form-control" name="max_price" placeholder="Max" value="{{ request('max_price') }}">
+            <input type="number" class="form-control" name="min_price" placeholder="Min" step="0.01" min="{{ floor($minPrice) }}" max="{{ ceil($maxPrice) }}" value="{{ request('min_price') }}">
+            <input type="number" class="form-control" name="max_price" placeholder="Max" step="0.01" min="{{ floor($minPrice) }}" max="{{ ceil($maxPrice) }}" value="{{ request('max_price') }}">
         </div>
     </div>
 
