@@ -24,8 +24,13 @@
                 <a href="{{ route("login") }}" class="btn btn-primary mx-2" title="Navigate to Sign In page">Sign In</a>
                 <a href="{{ route("register") }}" class="btn mx-2" title="Navigate to Register page">Register</a>
             @endguest
-            <a href="{{ url("/cart") }}" class="btn btn-icon mx-2" title="Navigate to Cart page">
+            <a href="{{ url("/cart") }}" class="btn btn-icon mx-2 position-relative" title="Navigate to Cart page">
                 <img src="{{ asset("images/icons/cart.png") }}" alt="cart">
+                @if (session()->has("cart.items") && count(session("cart.items")) > 0)
+                    <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                        <span class="visually-hidden">Items in cart</span>
+                    </span>
+                @endif
             </a>
         </span>
     </div>

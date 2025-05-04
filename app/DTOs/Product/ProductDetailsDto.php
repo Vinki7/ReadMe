@@ -5,15 +5,12 @@ namespace App\DTOs\Product;
 use App\Enums\ImageType;
 use App\Models\Product;
 use App\Models\ProductImage;
-use Carbon\Carbon;
-use Date;
 
 class ProductDetailsDto {
     public string $id;
     public string $title;
     public string $description;
     public float $price;
-    public int $stock;
     public string $category;
     public string $language;
     public string $publisher;
@@ -30,7 +27,6 @@ class ProductDetailsDto {
         $this->title = $product->title;
         $this->description = $product->description;
         $this->price = $product->price;
-        $this->stock = $product->stock;
         $this->category = $product->category->value;
         $this->authors = $product->authors->map(function ($author) {
             return "{$author->name} {$author->surname}";

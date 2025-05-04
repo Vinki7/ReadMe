@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\Auth\LoginService;
+use Illuminate\Auth\Events\Login;
 
 class LoginController extends Controller
 {
@@ -39,6 +40,7 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
+        session()->invalidate();
         auth()->logout();
 
         return redirect()->route('home.index')->with('success', 'Logout successful!');

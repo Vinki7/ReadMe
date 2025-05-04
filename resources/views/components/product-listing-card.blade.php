@@ -13,7 +13,9 @@
                </div>
          </div>
     </div>
-    <footer class="card-footer mt-auto d-flex justify-content-center flex-row flex-wrap">
-         <button class="btn btn-secondary">Add to Cart</button>
-    </footer>
+    <form method="POST" action="{{ route('cart.add', $id) }}" class="card-footer mt-auto d-flex justify-content-center flex-row flex-wrap">
+        @csrf
+        <input type="hidden" name="quantity" value="1">
+        <input class="btn btn-secondary" type="submit" value="Add to Cart">
+    </form>
 </article>

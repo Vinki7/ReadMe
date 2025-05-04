@@ -18,7 +18,6 @@ class Product extends Model
         'title',
         'description',
         'price',
-        'stock',
         'category',
         'language',
         'publisher',

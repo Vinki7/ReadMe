@@ -8,6 +8,7 @@ use Illuminate\Contracts\View\View;
 
 class ProductListingCard extends Component
 {
+    public $id;
     public $frontCoverPath;
     public $title;
     public $authors;
@@ -17,8 +18,9 @@ class ProductListingCard extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct($frontCoverPath, $title, $authors, $price, $productId)
+    public function __construct($id, $frontCoverPath, $title, $authors, $price, $productId)
     {
+        $this->id = $id;
         $this->frontCoverPath = $frontCoverPath;
         $this->title = $title;
         $this->authors = $authors;

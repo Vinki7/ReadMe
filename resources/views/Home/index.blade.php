@@ -5,6 +5,11 @@
 @endpush
 
 @section('content')
+@if (session('cart_merged'))
+    <div class="alert alert-success">
+        {{ session('cart_merged') }}
+    </div>
+@endif
 <main class="container-fluid flex-grow-1 flex-column px-5">
     <section class="container-fluid title-section" role="img" aria-labelledby="hero-heading">
             <div class="text-white d-flex flex-column justify-content-center align-items-start">
@@ -20,6 +25,7 @@
         <div class="d-flex justify-content-start flex-column flex-md-row flex-wrap gap-5">
             @foreach ($fantasyBooks as $book)
                 <x-product-listing-card
+                    :id="$book->id"
                     :frontCoverPath="$book->frontCover"
                     :title="$book->title"
                     :authors="$book->authors"
@@ -37,6 +43,7 @@
         <section class="d-flex justify-content-start flex-column flex-md-row flex-wrap gap-5">
             @foreach ($educationBooks as $book)
                 <x-product-listing-card
+                    :id="$book->id"
                     :frontCoverPath="$book->frontCover"
                     :title="$book->title"
                     :authors="$book->authors"

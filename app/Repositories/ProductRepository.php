@@ -35,6 +35,13 @@ class ProductRepository implements IRepository
         return $result;
     }
 
+    public function getByIds(array $ids)
+    {
+        return Product::with('authors')
+            ->whereIn('id', $ids)
+            ->get();
+    }
+
     public function create(array $data)
     {
         return Product::create($data);
@@ -132,5 +139,10 @@ class ProductRepository implements IRepository
 
     public function fetchMaxPrice() {
         return Product::max('price');
+    }
+    
+    public function productExists(string $productId): bool
+    {
+        return Product::where('id', $productId)->exists();
     }
 }

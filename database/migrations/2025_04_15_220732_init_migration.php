@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\PaymentMethod;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -30,7 +31,6 @@ return new class extends Migration {
             $table->string('title', 100);
             $table->text('description');
             $table->decimal('price', 10, 2);
-            $table->integer('stock')->default(0);
             $table->enum('category', [
                 'fantasy', 'sci-fi', 'mystery', 'romance', 'horror',
                 'non-fiction', 'biography', 'self_help', 'education',
@@ -81,23 +81,23 @@ return new class extends Migration {
         // Orders table
         Schema::create('orders', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->uuid('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->enum('delivery_method', ['standard', 'express', 'overnight', 'pickup', 'same_day', 'in_store_pickup']);
-            $table->enum('payment_method', ['credit_card', 'debit_card','paypal', 'bank_transfer', 'cash_on_delivery']);
+            $table->enum('payment_method', [
+                PaymentMethod::CreditCard->value,
+                PaymentMethod::DebitCard->value,
+                PaymentMethod::PayPal->value,
+                PaymentMethod::CashOnDelivery->value,
+                PaymentMethod::BankTransfer->value
+            ]);
             $table->decimal('price', 10, 2);
-            $table->string('delivery_address', 255);
-            $table->string('billing_address', 255);
+            $table->json('delivery_address');
+            $table->json('billing_address');
             $table->timestamp('payment_date')->nullable();
             $table->timestamp('delivery_date')->nullable();
             $table->timestamp('expedition_date')->nullable();
             $table->timestamps();
-        });
-
-        // Reference table for many-to-many relationship between orders and users
-        Schema::create('user_orders', function (Blueprint $table) {
-            $table->uuid('user_id');
-            $table->uuid('order_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
         });
 
         // Refference table for many-to-many relationship between orders and products

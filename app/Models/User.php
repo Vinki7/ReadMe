@@ -61,9 +61,9 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * Relationship with the Order model.
      */
-    public function orders(): BelongsToMany
+    public function orders(): HasMany
     {
-        return $this->belongsToMany(Order::class, 'user_orders', 'user_id', 'order_id');
+        return $this->hasMany(Order::class);
     }
 
     public function assignRole(Role $role): void
