@@ -7,6 +7,7 @@ use App\DTOs\Product\ProductDetailsDto;
 use App\Enums\Category;
 use App\Repositories\ProductRepository;
 use Illuminate\Support\Collection;
+use \Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class ProductService
 {
@@ -16,12 +17,17 @@ class ProductService
     {
         $this->productRepository = $repository;
     }
-
-    public function getAllProducts(): Collection
+    
+    public function getAllProducts(): LengthAwarePaginator
     {
-        return $this->productRepository->getAll();
+        return $this->productRepository->getAllPaginated();
     }
 
+    public function getAllFilteredAndSorted(array $filters = [])
+    {
+        return $this->productRepository->searchAndSort($filters);
+    }
+    
     public function getProductById(string $id): ?ProductDetailsDto
     {
         $product = $this->productRepository->getById($id);
@@ -58,5 +64,25 @@ class ProductService
         return $products->map(function ($product): ProductListingDto {
             return new ProductListingDto($product);
         });
+    }
+
+    public function getAllCategories()  {
+        return $this->productRepository->fetchAllCategories();
+    }
+
+    public function getAllAuthors() {
+        return $this->productRepository->fetchAllAuthors();
+    }
+
+    public function getAllLanguages() {
+        return $this->productRepository->fetchAllLanguages();
+    }
+
+    public function getMinPrice() {
+        return $this->productRepository->fetchMinPrice();
+    }
+
+    public function getMaxPrice() {
+        return $this->productRepository->fetchMaxPrice();
     }
 }

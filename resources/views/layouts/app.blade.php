@@ -23,7 +23,6 @@
         <!-- Page Content -->
         @yield('content')
         @yield('modals')
-
         <footer class="container-fluid d-flex pt-4 pb-3 mt-auto align-items-center justify-content-center flex-column">
             <section class="top-content d-flex gap-3 flex-column">
                 <p>Contact:</p>

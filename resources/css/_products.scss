@@ -1,0 +1,75 @@
+@use "variables" as *;
+
+/* FILTER BOX STYLES */
+.filter-box {
+    border-radius: 15px;
+    border: 1px solid $black-base;
+    background: $charcoal-100;
+    box-shadow: 0px 0px $blur 0px $drop-shadow;
+    padding: 20px;
+}
+
+.offcanvas .filter-box {
+    padding: 1.25rem;
+}
+
+/* RESPONSIVE OFFCANVAS */
+.offcanvas {
+    width: 80%;
+}
+
+@media (min-width: 992px) {
+    #filterOffcanvas {
+        display: none !important;
+    }
+}
+
+/* SEARCH INPUT */
+.btn-container input {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 1.5rem;
+    border: 1px solid $charcoal-base;
+    background: $charcoal-100;
+    box-shadow: 0px 0px $blur 0px $drop-shadow;
+    background: url('../../public/images/icons/magnifying_glass.png') no-repeat left 0.8rem center;
+
+    padding: 0.6rem 1rem 0.6rem 2.5rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    background-size: 1.2rem;
+}
+
+/* BUTTON STYLES */
+.btn-container .btn-secondary {
+    background-color: $charcoal-100;
+    color: $charcoal-base;
+    border: 0.1rem solid $secondary-400;
+    min-width: fit-content;
+}
+
+.btn-secondary.active-selection {
+    background-color: $secondary-300;
+    color: $white-base;
+}
+
+/* ORDER BUTTONS */
+.order-radio {
+    display: none; // hide deafult input
+}
+
+.order-icon {
+    width: 14px;
+    height: 10px;
+}
+
+.order-radio:checked + .order-button {
+    background: $secondary-300;
+    box-shadow: 0px 0px $blur 0px $drop-shadow;
+    color: $white-base;
+}
+
+.order-radio:checked + .order-button:hover {
+    cursor: pointer;
+    background: $secondary-400;
+    color: $white-base;
+}
