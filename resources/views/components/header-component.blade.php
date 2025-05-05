@@ -9,7 +9,7 @@
         </button>
 
         <!-- Navigation -->
-        <livewire:layout.navigation />
+        <x-navigation></x-navigation>
 
         <span class="navbar-collapse d-flex justify-content-center mt-3 mt-lg-0 flex-wrap">
             @auth
