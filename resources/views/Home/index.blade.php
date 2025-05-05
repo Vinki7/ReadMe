@@ -19,7 +19,7 @@
     </section>
     <section class="container my-5 d-flex justify-content-center flex-column gap-3">
         <header class="category-header d-flex justify-content-start w-full">
-            <a class="btn btn-charcoal" href="../products/products.html">Fantasy</a>
+            <a class="btn btn-charcoal" href="{{ url(path: '/products?category=fantasy') }}">Fantasy</a>
         </header>
 
         <div class="d-flex justify-content-start flex-column flex-md-row flex-wrap gap-5">
@@ -38,7 +38,7 @@
 
     <section class="container my-5 d-flex justify-content-center flex-column gap-3">
         <span class="category-header d-flex justify-content-start w-full">
-            <a class="btn btn-charcoal" href="../products/products.html">Educative</a>
+            <a class="btn btn-charcoal" href="{{ url(path: '/products?category=education') }}">Education</a>
         </span>
         <section class="d-flex justify-content-start flex-column flex-md-row flex-wrap gap-5">
             @foreach ($educationBooks as $book)
