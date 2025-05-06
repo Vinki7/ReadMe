@@ -15,26 +15,41 @@ class ProductImageSeeder extends Seeder
      */
     public function run(): void
     {
-        // Fantasy books
-        $theBook = Product::firstWhere('title', 'Harry Potter a Kameň mudrcov');
+        // Sci-Fi books
+        $theBook = Product::firstWhere('title', '1984');
         $images = [
             [
-                'product_id' => $theBook->id, // replace with actual UUID or get from DB
-                'image_path' => 'images/products/harry-potter-1/front-cover.PNG',
+                'product_id' => $theBook->id,
+                'image_path' => 'images/products/1984/front-cover.png',
             ],
             [
                 'product_id' => $theBook->id,
-                'image_path' => 'images/products/harry-potter-1/back-cover.PNG',
-            ],
-            [
-                'product_id' => $theBook->id,
-                'image_path' => 'images/products/harry-potter-1/book-insights.PNG',
-            ],
-            [
-                'product_id' => $theBook->id,
-                'image_path' => 'images/products/harry-potter-1/full-book.PNG',
+                'image_path' => 'images/products/1984/book-insights.png',
             ],
         ];
+
+        // Fantasy books
+        $theBook = Product::firstWhere('title', 'Harry Potter a Kameň mudrcov');
+        $images = array_merge($images,
+            [
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/harry-potter-1/front-cover.PNG',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/harry-potter-1/back-cover.PNG',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/harry-potter-1/book-insights.PNG',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/harry-potter-1/full-book.PNG',
+                ],
+            ]
+        );
 
         $theBook = Product::firstWhere('title', 'Harry Potter a Tajomná komnata');
         $images = array_merge($images,
@@ -213,6 +228,7 @@ class ProductImageSeeder extends Seeder
                 ],
             ]
         );
+
 
         foreach ($images as $image) {
             ProductImage::create([

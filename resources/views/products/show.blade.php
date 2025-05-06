@@ -13,16 +13,21 @@
                 </div>
 
                 <div class="d-flex col-2 flex-column gap-2 justify-content-center">
-                    <div>
-                        <img class="product-image" src="{{ asset(optional($product->backCover)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - back cover" title="{{ $product->title }}">
-                    </div>
-                    <div>
-                        <img class="product-image" src="{{ asset(optional($product->bookInsights)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - insights" title="{{ $product->title }}">
-                    </div>
-                    <div>
-                        <img class="product-image" src="{{ asset(optional($product->fullBook)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - full book" title="{{ $product->title }}">
-                    </div>
-
+                    @if (optional($product->backCover)->getImagePath())
+                        <div>
+                            <img class="product-image" src="{{ asset(optional($product->backCover)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - back cover" title="{{ $product->title }}">
+                        </div>
+                    @endif
+                    @if (optional($product->bookInsights)->getImagePath())
+                        <div>
+                            <img class="product-image" src="{{ asset(optional($product->bookInsights)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - insights" title="{{ $product->title }}">
+                        </div>
+                    @endif
+                    @if (optional($product->fullBook)->getImagePath())
+                        <div>
+                            <img class="product-image" src="{{ asset(optional($product->fullBook)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - full book" title="{{ $product->title }}">
+                        </div>
+                    @endif
                 </div>
             </div>
 
@@ -60,23 +65,37 @@
                 <div id="carouselIndicators" class="carousel slide">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Front cover"></button>
-                        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Back cover"></button>
-                        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Book insights"></button>
-                        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="3" aria-label="Full book"></button>
+                        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Book insights"></button>
+                        @php
+                            $imageIndex = 2;
+                        @endphp
+
+                        @if(optional($product->backCover)->getImagePath())
+                            <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="{{ $imageIndex }}" aria-label="Back cover"></button>
+                            @php $imageIndex++; @endphp
+                        @endif
+
+                        @if(optional($product->fullBook)->getImagePath())
+                            <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="{{ $imageIndex }}" aria-label="Full book"></button>
+                        @endif
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img class="product-image" src="{{ asset(optional($product->frontCover)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - front cover" title="{{ $product->title }}">
                         </div>
                         <div class="carousel-item">
-                            <img class="product-image" src="{{ asset(optional($product->backCover)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - back cover" title="{{ $product->title }}">
-                        </div>
-                        <div class="carousel-item">
                             <img class="product-image" src="{{ asset(optional($product->bookInsights)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - insights" title="{{ $product->title }}">
                         </div>
-                        <div class="carousel-item">
-                            <img class="product-image" src="{{ asset(optional($product->fullBook)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - full book" title="{{ $product->title }}">
-                        </div>
+                        @if (optional($product->backCover)->getImagePath())
+                            <div class="carousel-item">
+                                <img class="product-image" src="{{ asset(optional($product->backCover)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - back cover" title="{{ $product->title }}">
+                            </div>
+                        @endif
+                        @if (optional($product->fullBook)->getImagePath())
+                            <div class="carousel-item">
+                                <img class="product-image" src="{{ asset(optional($product->fullBook)->getImagePath() ?: "") }}" class="d-block w-100" alt="{{ $product->title }} - full book" title="{{ $product->title }}">
+                            </div>
+                        @endif
                     </div>
 
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
