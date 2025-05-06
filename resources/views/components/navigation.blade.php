@@ -16,11 +16,10 @@
         </li>
         @if (Auth::check() && Auth::user()->hasRole(Role::Admin))
             <li class="nav-item">
-                <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')" wire:navigate>
+                <x-nav-link :href="route('admin.listing')" :active="request()->routeIs('admin.listing')" wire:navigate>
                     {{ __('Manage products') }}
                 </x-nav-link>
             </li>
-
         @endif
     </ul>
 </nav>
