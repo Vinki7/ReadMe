@@ -1,0 +1,37 @@
+@import url("../styles.css");
+
+.btn-container input {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 1.5rem;
+    border: 1px solid var(--charcoal-base, #211D1E);
+    background: var(--charcoal-100, #F1F0F1);
+    box-shadow: 0px 0px var(--Blur, 12px) 0px var(--DropShadow, rgba(0, 0, 0, 0.25));
+    background: url('../../public/images/icons/magnifying_glass.png') no-repeat left 0.8rem center;
+
+    padding: 0.6rem 1rem 0.6rem 2.5rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    background-size: 1.2rem;
+}
+
+.product-image {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 10 / 14.375;
+}
+
+@media screen and (min-width: 577px) {
+    .product-image {
+        width: 4.375rem;
+        height: 6.25rem;
+        object-fit: cover;
+    }
+}
+
+.product-image-detail
+{
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}

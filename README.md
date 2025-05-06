@@ -193,7 +193,7 @@ ReadMe/<br>
 4. Set up the docker DB image
     ```sh
     docker run --name ReadMeDB -e POSTGRES_PASSWORD=ReadMe@5678 -p 5678:5432 -d postgres
-
+    ```
 5. Migrate the database:
     ```sh
     php artisan migrate --seed

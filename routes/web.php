@@ -1,17 +1,53 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
-use Laravel\Pail\ValueObjects\Origin\Console;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\AdminController;
+
+
+Route::view('dashboard', 'dashboard')
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
+Route::view('profile', 'profile')
+    ->middleware(['auth'])
+    ->name('profile');
+
+require __DIR__.'/auth.php';
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/home');
 });
 
-Route::resource('home', HomeController::class);
+Route::resource('/home', HomeController::class);
 
-Route::post('/update-screen-size', function (Request $request) {
-    session(["screenSize" => $request->input('screen_width')]);
-    return response()->json(['success' => true]);
+Route::resource('/products', ProductController::class);
+
+Route::prefix('checkout')->name('checkout.')->group(function () {
+    Route::get('/address', [CheckoutController::class, 'address'])
+        ->name('address');
+    Route::post('/address', [CheckoutController::class, 'handleRequest'])
+        ->name('address.submit');
+    Route::get('/payment', [CheckoutController::class, 'payment'])
+        ->name('payment');
+    Route::post('/payment', [CheckoutController::class, 'processPayment'])
+        ->name('payment.submit');
+});
+
+Route::prefix('cart')->name('cart.')->group(function () {
+    Route::get('/', [CartController::class, 'index'])
+        ->name('index');
+    Route::patch('/{productId}', [CartController::class, 'update'])
+        ->name('update');
+    Route::delete('/{productId}', [CartController::class, 'destroy'])
+        ->name('destroy');
+    Route::post('/add/{productId}', [CartController::class, 'addToCart'])
+        ->name('add');
+});
+
+Route::prefix('admin')->middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
 });

@@ -1,0 +1,71 @@
+.logo {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 400;
+    color: $primary-base;
+    padding: 1.5rem 2rem;
+}
+
+.logo span {
+    color: $secondary-base;
+}
+
+footer {
+    gap: 0.625rem;
+    border-top: 0.2rem solid $primary-200;
+    background: #FFF;
+}
+
+.bottom-content {
+    border-top: 0.05rem solid $secondary-200;
+}
+
+.top-content {
+    max-width: fit-content;
+}
+
+/* Overriden nav */
+.navbar {
+    border-bottom: 0.2rem solid $primary-200;
+}
+
+.navbar-toggler {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: $charcoal-300;
+    box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.16);
+}
+.navbar-toggler:hover {
+    background: $charcoal-300;
+}
+
+.navbar-toggler.collapsed {
+    background: $charcoal-200;
+}
+
+.nav-link {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 6.25rem;
+}
+
+.nav-item {
+    padding: 0.5rem 1rem;
+}
+
+.nav-item:hover {
+    background: $charcoal-200;
+    box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.16);
+    border-radius: 6.25rem;
+}
+
+.nav-item:has(.nav-link.active) {
+    border-radius: 6.25rem;
+    background: $secondary-100;
+    box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.16);
+}
+
+.nav-item:has(.nav-link.active):hover {
+    background: $charcoal-200;
+}

@@ -1,48 +1,79 @@
 <?php
-
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Enums\Role;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Notifications\Notifiable;
+use Str;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
+    protected $table = 'users';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
     protected $fillable = [
         'name',
+        'surname',
+        'username',
         'email',
         'password',
+        'role',
+        'last_login',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
+    protected $casts = [
+        'last_login' => 'datetime',
+        'email_verified_at' => 'datetime',
+        'role' => Role::class,
+    ];
+
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
+    protected static function boot()
+{
+    parent::boot();
+
+    static::creating(function ($model) {
+        if (empty($model->id)) {
+            $model->id = (string) Str::uuid();
+        }
+    });
+}
+
     /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
+     * Relationship with the Cart model.
      */
-    protected function casts(): array
+    public function carts(): HasMany
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->hasMany(Cart::class, 'user_id');
+    }
+
+    /**
+     * Relationship with the Order model.
+     */
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function assignRole(Role $role): void
+    {
+        $this->role = $role;
+        $this->save();
+    }
+
+    public function hasRole(Role $role): bool
+    {
+        return $this->role === $role;
     }
 }

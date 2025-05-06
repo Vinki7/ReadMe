@@ -2,17 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Category;
 use App\Http\Controllers\Controller;
+use App\Services\ProductService;
 use Illuminate\Http\Request;
 
+/**
+ * Class HomeController
+ * @package App\Http\Controllers
+ * @description This controller handles the home page and product-related actions.
+ */
 class HomeController extends Controller
 {
+    protected ProductService $productService;
+
+    /**
+     * HomeController constructor.
+     * @param ProductService $productService
+     * @description This constructor initializes the ProductService instance.
+     */
+    public function __construct(ProductService $productService)
+    {
+        $this->productService = $productService;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('home.index');
+        $fantasyBooks = $this->productService->getLimitedProductsByCategory(Category::Fantasy, 3);
+        $educationBooks = $this->productService->getLimitedProductsByCategory(Category::Education, 3);
+
+        return view('home.index', compact('fantasyBooks', 'educationBooks'));
     }
 
     /**

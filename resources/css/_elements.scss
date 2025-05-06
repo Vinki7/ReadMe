@@ -1,0 +1,114 @@
+/* Modals */
+.modal-content {
+    max-width: 90%;
+    max-height: 75vh;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+/* Cards */
+.card-img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 10 / 14;
+}
+
+/* Overriden buttons */
+.btn {
+    display: inline-flex;
+    padding: 0.438rem 1.25rem;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 0.625rem;
+    flex-wrap: wrap;
+    color: $white-base;
+
+    border-radius: 6.25rem;
+    background: $primary-500;
+    box-shadow: 0rem 0rem $blur 0rem $drop-shadow;
+}
+
+.btn:active {
+    background: $primary-600;
+}
+
+.btn:hover {
+    background: $primary-700;
+    color: $white-base;
+}
+
+.btn .btn-sm {
+    padding: 0.3125rem 0.9375rem;
+}
+
+.btn .btn-lg {
+    padding: 0.625rem 1.5625rem;
+}
+
+.btn-primary {
+    background: $primary-200;
+    color: $primary-base;
+}
+
+.btn-primary:hover {
+    background: $primary-300;
+}
+
+.btn-secondary {
+    background: $secondary-400;
+    box-shadow: 0rem 0rem $blur 0rem $drop-shadow;
+    color: $white-base;
+}
+
+.btn-secondary:hover {
+    background: $secondary-500;
+}
+
+.btn-icon {
+    display: flex;
+    width: 3.125rem;
+    height: 3.125rem;
+    padding: 0.625rem;
+    align-items: center;
+    gap: 0.625rem;
+    flex-shrink: 0;
+
+    border-radius: 6.25rem;
+    background: $charcoal-200;
+    box-shadow: 0rem 0rem $blur 0rem $drop-shadow;
+    color: $black-base;
+}
+
+.btn-icon:hover, .btn-user:hover {
+    background: $charcoal-300;
+}
+
+.link-profile {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    background: $charcoal-200;
+}
+
+.btn-user {
+    display: flex;
+    align-items: center;
+    border-radius: 6.25rem;
+    background: $charcoal-200;
+    box-shadow: 0rem 0rem $blur 0rem $drop-shadow;
+}
+
+.btn-charcoal {
+    background: $charcoal-500;
+}
+
+.btn-charcoal:hover {
+    background: $charcoal-700;
+}
