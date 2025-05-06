@@ -58,6 +58,10 @@ class ProductImageSeeder extends Seeder
                     'product_id' => $theBook->id,
                     'image_path' => 'images/products/harry-potter-1/book-insights.PNG',
                 ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/harry-potter-1/full-book.PNG',
+                ],
             ]
         );
 
