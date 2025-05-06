@@ -147,11 +147,7 @@ class CartService
     public function update(string $productId, int $quantity): void
     {
         if (Auth::check()) {
-            $cart = Cart::where('user_id', Auth::id())->first();
-
-            if ($cart && $cart->products()->where('product_id', $productId)->exists()) {
-                $cart->products()->updateExistingPivot($productId, ['quantity' => $quantity]);
-            }
+            $this->cartRepository->updateProductQuantity(Auth::id(), $productId, $quantity);
         }
 
         $cart = session()->get($this->sessionKey(), []);

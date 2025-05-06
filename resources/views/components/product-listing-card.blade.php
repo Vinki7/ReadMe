@@ -1,5 +1,5 @@
 <article class="card col-12 col-md-5 col-lg-3 flex-column">
-    <div class="d-flex flex-column flex-sm-row">
+    <div class="d-flex flex-column flex-sm-row overflow-hidden">
          <div class="col-12 col-sm-5">
                <img src="{{ asset($frontCoverPath) }}" class="card-img img-fluid" alt="{{ $title }}" title="{{ $title }}">
          </div>

@@ -15,26 +15,51 @@ class ProductImageSeeder extends Seeder
      */
     public function run(): void
     {
-        // Fantasy books
-        $theBook = Product::firstWhere('title', 'Harry Potter a Kameň mudrcov');
+        // Sci-Fi books
+        $theBook = Product::firstWhere('title', '1984');
         $images = [
             [
-                'product_id' => $theBook->id, // replace with actual UUID or get from DB
-                'image_path' => 'images/products/harry-potter-1/front-cover.PNG',
+                'product_id' => $theBook->id,
+                'image_path' => 'images/products/1984/front-cover.png',
             ],
             [
                 'product_id' => $theBook->id,
-                'image_path' => 'images/products/harry-potter-1/back-cover.PNG',
-            ],
-            [
-                'product_id' => $theBook->id,
-                'image_path' => 'images/products/harry-potter-1/book-insights.PNG',
-            ],
-            [
-                'product_id' => $theBook->id,
-                'image_path' => 'images/products/harry-potter-1/full-book.PNG',
+                'image_path' => 'images/products/1984/book-insights.png',
             ],
         ];
+
+        $theBook = Product::firstWhere('title', 'Animal Farm');
+        $images = array_merge($images,
+            [
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/animal-farm/front-cover.png',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/animal-farm/book-insights.png',
+                ],
+            ]
+        );
+
+        // Fantasy books
+        $theBook = Product::firstWhere('title', 'Harry Potter a Kameň mudrcov');
+        $images = array_merge($images,
+            [
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/harry-potter-1/front-cover.PNG',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/harry-potter-1/back-cover.PNG',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/harry-potter-1/book-insights.PNG',
+                ],
+            ]
+        );
 
         $theBook = Product::firstWhere('title', 'Harry Potter a Tajomná komnata');
         $images = array_merge($images,
@@ -50,10 +75,6 @@ class ProductImageSeeder extends Seeder
                 [
                 'product_id' => $theBook->id,
                 'image_path' => 'images/products/harry-potter-2/book-insights.PNG',
-                ],
-                [
-                'product_id' => $theBook->id,
-                'image_path' => 'images/products/harry-potter-2/full-book.PNG',
                 ],
             ]
         );
@@ -72,10 +93,6 @@ class ProductImageSeeder extends Seeder
                 [
                     'product_id' => $theBook->id,
                     'image_path' => 'images/products/harry-potter-5/book-insights.PNG',
-                ],
-                [
-                    'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-5/full-book.PNG',
                 ],
             ]
         );
@@ -96,10 +113,6 @@ class ProductImageSeeder extends Seeder
                     'product_id' => $theBook->id,
                     'image_path' => 'images/products/myslenim-k-bohatstvi/book-insights.PNG',
                 ],
-                [
-                    'product_id' => $theBook->id,
-                    'image_path' => 'images/products/myslenim-k-bohatstvi/full-book.PNG',
-                ],
             ]
         );
 
@@ -118,9 +131,19 @@ class ProductImageSeeder extends Seeder
                     'product_id' => $theBook->id,
                     'image_path' => 'images/products/ako-nabrat-svaly/book-insights.PNG',
                 ],
+            ]
+        );
+
+        $theBook = Product::firstWhere('title', 'Bohatý otec, chudobný otec');
+        $images = array_merge($images,
+            [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/ako-nabrat-svaly/full-book.PNG',
+                    'image_path' => 'images/products/bohaty-otec-chudobny-otec/front-cover.PNG',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/bohaty-otec-chudobny-otec/book-insights.PNG',
                 ],
             ]
         );
@@ -140,10 +163,6 @@ class ProductImageSeeder extends Seeder
                     'product_id' => $theBook->id,
                     'image_path' => 'images/products/cashflow-kvadrant/book-insights.PNG',
                 ],
-                [
-                    'product_id' => $theBook->id,
-                    'image_path' => 'images/products/cashflow-kvadrant/full-book.PNG',
-                ],
             ]
         );
 
@@ -162,14 +181,24 @@ class ProductImageSeeder extends Seeder
                     'product_id' => $theBook->id,
                     'image_path' => 'images/products/inteligentni-investor/book-insights.PNG',
                 ],
+            ]
+        );
+
+        $theBook = Product::firstWhere('title', 'Security Analysis');
+        $images = array_merge($images,
+            [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/inteligentni-investor/full-book.PNG',
+                    'image_path' => 'images/products/security-analysis/front-cover.png',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/security-analysis/book-insights.png',
                 ],
             ]
         );
 
-        $theBook = Product::firstWhere('title', 'Nejbohatnější muž v Babylóně');
+        $theBook = Product::firstWhere('title', 'Nejbohatší muž v Babylóně');
         $images = array_merge($images,
             [
                 [
@@ -184,14 +213,24 @@ class ProductImageSeeder extends Seeder
                     'product_id' => $theBook->id,
                     'image_path' => 'images/products/nejbohatsi-muz-v-babylone/book-insights.PNG',
                 ],
-                [
-                    'product_id' => $theBook->id,
-                    'image_path' => 'images/products/nejbohatsi-muz-v-babylone/full-book.PNG',
-                ],
             ]
         );
 
         // Adults
+        $theBook = Product::firstWhere('title', 'Game of Thrones - A Game of Thrones');
+        $images = array_merge($images,
+            [
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/game-of-thrones-1/front-cover.PNG',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/game-of-thrones-1/book-insights.PNG',
+                ],
+            ]
+        );
+
         $theBook = Product::firstWhere('title', 'Game of Thrones - A Clash of Kings');
         $images = array_merge($images,
             [
@@ -207,12 +246,23 @@ class ProductImageSeeder extends Seeder
                     'product_id' => $theBook->id,
                     'image_path' => 'images/products/game-of-thrones-2/book-insights.PNG',
                 ],
+            ]
+        );
+
+        $theBook = Product::firstWhere('title', 'Game of Thrones - A Storm of Swords (Part 1: Steel and Snow)');
+        $images = array_merge($images,
+            [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-2/full-book.PNG',
+                    'image_path' => 'images/products/game-of-thrones-3/front-cover.png',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/game-of-thrones-3/book-insights.png',
                 ],
             ]
         );
+
 
         foreach ($images as $image) {
             ProductImage::create([
