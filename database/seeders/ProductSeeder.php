@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Enums\Category;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Product;
@@ -16,6 +17,7 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
+        $author = Author::where('surname', 'Orwell')->first()->id;
         Product::create([
             'id' => Str::uuid(),
             'title' => '1984',
@@ -30,7 +32,24 @@ class ProductSeeder extends Seeder
             'publisher' => 'Secker & Warburg',
             'publication_date' => '1949-06-08',
             'isbn' => '978-0-451-52493-5',
-        ])->authors()->attach(Author::where('surname', 'Orwell')->first()->id);
+        ])->authors()->attach($author);
+
+        Product::create([
+            'id' => Str::uuid(),
+            'title' => 'Animal Farm',
+            'description' => '"Animal Farm" is a satirical allegory of the Russian Revolution and the rise of
+                totalitarianism, told through the story of a group of farm animals who overthrow their human
+                owner in hopes of creating a society where all animals are equal. However, as the pigs
+                take control, they become increasingly corrupt and oppressive, ultimately leading to a regime
+                that is indistinguishable from the one they replaced. The novel serves as a powerful critique
+                of power, propaganda, and the betrayal of revolutionary ideals.',
+            'price' => 15.99,
+            'category' => Category::SciFi->value,
+            'language' => 'English',
+            'publisher' => 'Secker & Warburg',
+            'publication_date' => '1945-08-17',
+            'isbn' => '978-0-452-28424-1',
+        ])->authors()->attach($author);
 
         // Fantasy books
         $author = Author::where('surname', 'Rowling')->first();
@@ -101,6 +120,7 @@ class ProductSeeder extends Seeder
             'isbn' => '978-80-971540-0-1',
         ])->authors()->attach(Author::where('surname', 'Prekop')->first()->id);
 
+        $author = Author::where('surname', 'Kiyosaki')->first()->id;
         Product::create([
             'id' => Str::uuid(),
             'title' => 'Cashflow kvadrant',
@@ -111,7 +131,19 @@ class ProductSeeder extends Seeder
             'publisher' => 'Pragma',
             'publication_date' => '1998-01-01',
             'isbn' => '978-80-87128-01-5',
-        ])->authors()->attach(Author::where('surname', 'Kiyosaki')->first()->id);
+        ])->authors()->attach($author);
+
+        Product::create([
+            'id' => Str::uuid(),
+            'title' => 'Bohatý otec, chudobný otec',
+            'description' => 'A personal finance book that contrasts the financial philosophies of the author\'s two "fathers".',
+            'price' => 19.99,
+            'category' => Category::Education->value,
+            'language' => 'Slovak',
+            'publisher' => 'Pragma',
+            'publication_date' => '1997-01-01',
+            'isbn' => '978-80-87128-04-6',
+        ])->authors()->attach($author);
 
         Product::create([
             'id' => Str::uuid(),
@@ -127,7 +159,19 @@ class ProductSeeder extends Seeder
 
         Product::create([
             'id' => Str::uuid(),
-            'title' => 'Nejbohatnější muž v Babylóně',
+            'title' => 'Security Analysis',
+            'description' => 'A comprehensive guide to analyzing stocks and bonds, focusing on value investing principles.',
+            'price' => 102.99,
+            'category' => Category::Education->value,
+            'language' => 'English',
+            'publisher' => 'McGraw-Hill',
+            'publication_date' => '1934-01-01',
+            'isbn' => '978-0-07-024496-2',
+        ])->authors()->attach(Author::where('surname', 'Graham')->first()->id);
+
+        Product::create([
+            'id' => Str::uuid(),
+            'title' => 'Nejbohatší muž v Babylóně',
             'description' => 'A book that offers timeless financial advice through parables set in ancient Babylon.',
             'price' => 12.99,
             'category' => Category::Education->value,
@@ -140,6 +184,18 @@ class ProductSeeder extends Seeder
         // Adult books
         Product::create([
             'id' => Str::uuid(),
+            'title' => 'Game of Thrones - A Game of Thrones',
+            'description' => 'The first book in the A Song of Ice and Fire series, introducing the epic tale of power, betrayal, and survival in the Seven Kingdoms.',
+            'price' => 24.99,
+            'category' => Category::Adults->value,
+            'language' => 'English',
+            'publisher' => 'Bantam Books',
+            'publication_date' => '1996-08-06',
+            'isbn' => '978-0-553-10354-0',
+        ])->authors()->attach(Author::where('surname', 'Martin')->first()->id);
+
+        Product::create([
+            'id' => Str::uuid(),
             'title' => 'Game of Thrones - A Clash of Kings',
             'description' => 'The second book in the A Song of Ice and Fire series, continuing the epic tale of power struggles and intrigue in the Seven Kingdoms.',
             'price' => 29.99,
@@ -148,6 +204,18 @@ class ProductSeeder extends Seeder
             'publisher' => 'Bantam Books',
             'publication_date' => '1998-11-16',
             'isbn' => '978-0-553-10803-3',
+        ])->authors()->attach(Author::where('surname', 'Martin')->first()->id);
+
+        Product::create([
+            'id' => Str::uuid(),
+            'title' => 'Game of Thrones - A Storm of Swords (Part 1: Steel and Snow)',
+            'description' => 'The third book in the A Song of Ice and Fire series, where the war for the Iron Throne escalates and alliances shift.',
+            'price' => 32.99,
+            'category' => Category::Adults->value,
+            'language' => 'English',
+            'publisher' => 'Bantam Books',
+            'publication_date' => '2000-03-21',
+            'isbn' => '978-0-553-10804-0',
         ])->authors()->attach(Author::where('surname', 'Martin')->first()->id);
     }
 }
