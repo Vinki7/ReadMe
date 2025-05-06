@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\AdminController;
 
 
 Route::view('dashboard', 'dashboard')
@@ -45,4 +46,8 @@ Route::prefix('cart')->name('cart.')->group(function () {
         ->name('destroy');
     Route::post('/add/{productId}', [CartController::class, 'addToCart'])
         ->name('add');
+});
+
+Route::prefix('admin')->middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
 });

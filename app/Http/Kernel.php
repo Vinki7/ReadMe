@@ -21,5 +21,11 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
 
         // Custom middleware
+        \App\Http\Middleware\AdminMiddleware::class,
+    ];
+
+    protected $routeMiddleware = [
+        // Default Laravel middleware
+        'admin' => \App\Http\Middleware\AdminMiddleware::class,
     ];
 }
