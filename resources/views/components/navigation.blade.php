@@ -1,3 +1,6 @@
+<?php
+    use App\Enums\Role;
+?>
 <nav class="navbar-collapse justify-content-end collapse" id="navbarNav" x-data="{ open: false }" @keydown.window.escape="open = false">
     <!-- Primary Navigation Menu -->
     <ul class="navbar-nav d-flex gap-5 mx-5">
@@ -11,5 +14,13 @@
                 {{ __('Products') }}
             </x-nav-link>
         </li>
+        @if (Auth::check() && Auth::user()->hasRole(Role::Admin))
+            <li class="nav-item">
+                <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')" wire:navigate>
+                    {{ __('Manage products') }}
+                </x-nav-link>
+            </li>
+
+        @endif
     </ul>
 </nav>
