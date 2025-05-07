@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\AdminController;
-use App\Http\Middleware\AdminMiddleware;
 
 
 Route::view('dashboard', 'dashboard')
@@ -49,6 +48,6 @@ Route::prefix('cart')->name('cart.')->group(function () {
         ->name('add');
 });
 
-Route::prefix('admin')->name('admin.')->middleware(['auth', AdminMiddleware::class])->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('listing');
 });
