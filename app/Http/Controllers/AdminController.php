@@ -15,9 +15,17 @@ class AdminController extends Controller
         $this->productService = $productService;
     }
     
-    public function index()
+    public function index(Request $request)
     {
-        $products = $this->productService->getAllProducts();
-        return view('admin.admin-listing', compact('products'));
+        $products = $this->productService->getAllFilteredAndSorted($request->all());
+
+        $categories = $this->productService->getAllCategories();
+        $authors = $this->productService->getAllAuthors();
+        $languages = $this->productService->getAllLanguages();
+
+        $minPrice = $this->productService->getMinPrice();
+        $maxPrice = $this->productService->getMaxPrice();
+
+        return view('admin.admin-listing', compact('products', 'categories', 'authors', 'languages', 'minPrice', 'maxPrice'));
     }
 }
