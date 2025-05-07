@@ -50,4 +50,5 @@ Route::prefix('cart')->name('cart.')->group(function () {
 
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('listing');
+    Route::resource('products', AdminController::class)->except(['create', 'store', 'show']);
 });

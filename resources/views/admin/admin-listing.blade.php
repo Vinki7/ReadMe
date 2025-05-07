@@ -58,7 +58,7 @@
 
         <div class="row row-cols-auto justify-content-center gap-4 pb-3 g-0">
             @forelse ($products as $product)
-                <x-product-listing-card
+                <x-admin-listing-card
                     :id="$product->id"
                     :frontCoverPath="$product->frontCover"
                     :title="$product->title"
