@@ -300,7 +300,7 @@ class CartService
 
         $existingProduct = $this->cartRepository->getProductById($userId, $productId);
 
-        if ($existingProduct) {
+        if ($existingProduct !== null) {
             $currentQuantity = $existingProduct->pivot->quantity ?? 0;
 
             $newQuantity = $currentQuantity + $quantity;
