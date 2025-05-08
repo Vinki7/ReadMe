@@ -13,15 +13,15 @@
                </div>
          </div>
     </div>
-    <div class="card-footer mt-auto d-flex justify-content-between">
-        <a href="{{ route('admin.products.edit', $productId) }}" class="btn btn-sm btn-outline-primary">
+    <div class="card-footer mt-auto d-flex justify-content-center gap-5">
+        <a href="{{ route('admin.products.edit', $productId) }}" class="btn btn-primary">
             Edit
         </a>
         <form method="POST" action="{{ route('admin.products.destroy', $productId) }}" onsubmit="return confirm('Are you sure you want to delete this product?');">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-sm btn-outline-danger">
-                <i class="bi bi-trash"></i> Delete
+            <button type="submit" class="btn btn-icon">
+                <img src="{{ asset('images/icons/remove.png') }}" alt="Remove item" title="Remove item">
             </button>
         </form>
     </div>
