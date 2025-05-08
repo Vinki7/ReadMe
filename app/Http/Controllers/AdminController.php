@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\ProductService;
+use App\Models\Product;
 
 class AdminController extends Controller
 {
@@ -27,5 +28,16 @@ class AdminController extends Controller
         $maxPrice = $this->productService->getMaxPrice();
 
         return view('admin.admin-listing', compact('products', 'categories', 'authors', 'languages', 'minPrice', 'maxPrice'));
+    }
+
+    public function edit(Product $product)
+    {
+        return view('admin.edit', compact('product'));
+    }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+        return redirect()->route('admin.listing')->with('success', 'Product deleted successfully.');
     }
 }

@@ -52,3 +52,11 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::get('/', [AdminController::class, 'index'])->name('listing');
     Route::resource('products', AdminController::class)->except(['create', 'store', 'show']);
 });
+
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('listing');
+    Route::get('/product/{product}/edit', [AdminController::class, 'edit'])->name('product.edit');
+    Route::put('/product/{product}', [AdminController::class, 'update'])->name('product.update');
+    Route::delete('/product/{product}', [AdminController::class, 'destroy'])->name('product.destroy');
+});
+
