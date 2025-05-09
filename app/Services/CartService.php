@@ -5,8 +5,6 @@ namespace App\Services;
 use App\Repositories\ProductRepository;
 use App\Repositories\CartRepository;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Cart;
-use Illuminate\Support\Str;
 
 /**
  * Class CartService
@@ -94,15 +92,8 @@ class CartService
 
             $cart = $this->cartRepository->getCart($userId);
 
-            if ($cart) {
-                return $cart->products->mapWithKeys(function ($product) {
-                    return [
-                        $product->id => ['quantity' => $product->pivot->quantity],
-                    ];
-                })->toArray();
-            }
+            return $this->mapCart($cart);
 
-            return [];
         }
 
         return session()->get($this->sessionKey(), []);
@@ -231,26 +222,6 @@ class CartService
         return;
     }
 
-    private function loadCartToSession(): void
-    {
-        if (!Auth::check()) {
-            throw new \Exception('User is not authenticated.');
-        }
-
-        try {
-            $userId = Auth::id();
-
-            $userCart = $this->cartRepository->getCart($userId);
-
-            foreach ($userCart->products() as $product) {
-                $this->addToSession($product->id, $product->pivot->quantity);
-            }
-        } catch (\Exception $e) {
-            logger()->error('Error loading cart to session: ' . $e->getMessage());
-            throw $e;
-        }
-    }
-
     /**
      * Clears the user's cart.
      *
@@ -332,5 +303,14 @@ class CartService
         }
 
         session()->put($this->sessionKey(), $cart);
+    }
+
+    private function mapCart($cart): array
+    {
+        return $cart->products->mapWithKeys(function ($product) {
+            return [
+                $product->id => ['quantity' => $product->pivot->quantity],
+            ];
+        })->toArray();
     }
 }
