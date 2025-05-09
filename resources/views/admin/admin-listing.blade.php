@@ -56,6 +56,17 @@
             </div>
         </form>
 
+        <div class="row row-cols-1 row-cols-md-2 align-items-center justify-content-end gap-3 gap-lg-0 gap mb-4 px-md-5">
+            <div class="col-7 col-sm-4 d-flex flex-wrap gap-2 justify-content-center">
+                <button class="btn btn-secondary">
+                    + Add product
+                </button>
+                <button class="btn btn-secondary">
+                    + Add author
+                </button>
+            </div>
+        </div>
+
         <div class="row row-cols-auto justify-content-center gap-4 pb-3 g-0">
             @forelse ($products as $product)
                 <x-admin-listing-card
