@@ -48,19 +48,19 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-1/front-cover.PNG',
+                    'image_path' => 'images/products/harry-potter-a-kamen-mudrcov/front-cover.PNG',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-1/back-cover.PNG',
+                    'image_path' => 'images/products/harry-potter-a-kamen-mudrcov/back-cover.PNG',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-1/book-insights.PNG',
+                    'image_path' => 'images/products/harry-potter-a-kamen-mudrcov/book-insights.PNG',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-1/full-book.PNG',
+                    'image_path' => 'images/products/harry-potter-a-kamen-mudrcov/full-book.PNG',
                 ],
             ]
         );
@@ -70,15 +70,15 @@ class ProductImageSeeder extends Seeder
             [
                 [
                 'product_id' => $theBook->id,
-                'image_path' => 'images/products/harry-potter-2/front-cover.PNG',
+                'image_path' => 'images/products/harry-potter-a-tajomna-komnata/front-cover.PNG',
                 ],
                 [
                 'product_id' => $theBook->id,
-                'image_path' => 'images/products/harry-potter-2/back-cover.PNG',
+                'image_path' => 'images/products/harry-potter-a-tajomna-komnata/back-cover.PNG',
                 ],
                 [
                 'product_id' => $theBook->id,
-                'image_path' => 'images/products/harry-potter-2/book-insights.PNG',
+                'image_path' => 'images/products/harry-potter-a-tajomna-komnata/book-insights.PNG',
                 ],
             ]
         );
@@ -88,15 +88,15 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-5/front-cover.PNG',
+                    'image_path' => 'images/products/harry-potter-a-fenixov-rad/front-cover.PNG',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-5/back-cover.PNG',
+                    'image_path' => 'images/products/harry-potter-a-fenixov-rad/back-cover.PNG',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-5/book-insights.PNG',
+                    'image_path' => 'images/products/harry-potter-a-fenixov-rad/book-insights.PNG',
                 ],
             ]
         );
@@ -226,11 +226,11 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-1/front-cover.PNG',
+                    'image_path' => 'images/products/game-of-thrones-a-game-of-thrones/front-cover.PNG',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-1/book-insights.PNG',
+                    'image_path' => 'images/products/game-of-thrones-a-game-of-thrones/book-insights.PNG',
                 ],
             ]
         );
@@ -240,15 +240,15 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-2/front-cover.PNG',
+                    'image_path' => 'images/products/game-of-thrones-a-clash-of-kings/front-cover.PNG',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-2/back-cover.PNG',
+                    'image_path' => 'images/products/game-of-thrones-a-clash-of-kings/back-cover.PNG',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-2/book-insights.PNG',
+                    'image_path' => 'images/products/game-of-thrones-a-clash-of-kings/book-insights.PNG',
                 ],
             ]
         );
@@ -258,11 +258,11 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-3/front-cover.png',
+                    'image_path' => 'images/products/game-of-thrones-a-storm-of-swords-part-1-steel-and-snow/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-3/book-insights.png',
+                    'image_path' => 'images/products/game-of-thrones-a-storm-of-swords-part-1-steel-and-snow/book-insights.png',
                 ],
             ]
         );
