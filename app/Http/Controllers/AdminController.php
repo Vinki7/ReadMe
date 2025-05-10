@@ -82,10 +82,10 @@ class AdminController extends Controller
 
         foreach ($request->file('images', []) as $key => $file) {
             $filename = match ($key) {
-                'front-cover' => 'front-cover.png',
-                'book-insights' => 'book-insights.png',
-                'full-book' => 'full-book.png',
-                'back-cover' => 'back-cover.png',
+                'front_cover' => 'front-cover.png',
+                'book_insights' => 'book-insights.png',
+                'full_book' => 'full-book.png',
+                'back_cover' => 'back-cover.png',
                 default => null
             };
 
@@ -112,5 +112,29 @@ class AdminController extends Controller
         }
 
         return redirect()->route('admin.listing')->with('success', 'Product updated.');
+    }
+
+    public function deleteImage(Product $product, string $type)
+    {
+        if (!in_array($type, ['back_cover', 'full_book'])) {
+            abort(403, 'Deletion not allowed for this image type.');
+        }
+
+        $image = $product->images->first(function ($img) use ($type) {
+            return $img->getType()->value === $type;
+        });
+
+        if (!$image) {
+            return back()->with('error', 'Image not found.');
+        }
+
+        $fullPath = public_path($image->image_path);
+        if (File::exists($fullPath)) {
+            File::delete($fullPath);
+        }
+
+        $image->delete();
+
+        return back()->with('success', ucfirst(str_replace('_', ' ', $type)) . ' image deleted successfully.');
     }
 }

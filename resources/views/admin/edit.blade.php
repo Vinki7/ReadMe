@@ -84,9 +84,9 @@
             $images = $product->images->keyBy(fn($img) => $img->getType()->value);
         @endphp
 
-        @foreach (['front-cover', 'book-insights', 'full-book', 'back-cover'] as $imageKey)
+        @foreach (['front_cover', 'book_insights', 'full_book', 'back_cover'] as $imageKey)
             <div class="mb-3">
-                <label class="form-label text-capitalize">{{ str_replace('-', ' ', $imageKey) }} (PNG)</label><br>
+                <label class="form-label text-capitalize">{{ str_replace('_', ' ', $imageKey) }} (PNG)</label><br>
                 @if ($images->has($imageKey))
                     <img src="{{ asset($images[$imageKey]->image_path) }}" alt="{{ $imageKey }}" class="mb-2" style="max-height:150px;"><br>
                 @endif
@@ -97,5 +97,30 @@
         <button type="submit" class="btn btn-primary">Save Changes</button>
         <a href="{{ route('admin.listing') }}" class="btn btn-outline-secondary">Cancel</a>
     </form>
+
+    <!-- need to be outside of form because nested form are not allowed -->
+    <hr>
+    <h4>Deletion of images</h4>
+
+    @php
+        $deletableImages = ['back_cover', 'full_book'];
+    @endphp
+
+    @foreach ($deletableImages as $imageKey)
+        <div class="mb-3">
+            @if ($images->has($imageKey))
+                <label class="form-label text-capitalize">{{ str_replace('_', ' ', $imageKey) }}</label><br>
+                <img src="{{ asset($images[$imageKey]->image_path) }}" alt="{{ $imageKey }}" class="mb-2" style="max-height:150px;"><br>
+                <form method="POST"
+                    action="{{ route('admin.product.image.delete', ['product' => $product->id, 'type' => $imageKey]) }}"
+                    onsubmit="return confirm('Are you sure you want to delete this image?');"
+                    class="mb-2">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-sm btn-danger">Delete Image</button>
+                </form>
+            @endif
+        </div>
+    @endforeach
 </main>
 @endsection
