@@ -24,6 +24,7 @@ class Product extends Model
         'publisher',
         'publication_date',
         'isbn',
+        'directory',
     ];
 
     protected $casts = [

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('publisher')->after('language')->nullable();
             $table->date('publication_date')->after('publisher')->nullable();
             $table->string('isbn')->after('publication_date')->nullable();
+            $table->string('directory')->nullable()->after('isbn');
         });
     }
 

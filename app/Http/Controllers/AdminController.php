@@ -38,7 +38,7 @@ class AdminController extends Controller
     public function edit(Product $product)
     {
         $allAuthors = Author::all();
-        $categories = Category::cases(); // PHP 8.1+
+        $categories = Category::cases();
         return view('admin.edit', compact('product', 'allAuthors', 'categories'));
     }
 
@@ -61,19 +61,23 @@ class AdminController extends Controller
             'authors' => 'required|array',
             'authors.*' => 'exists:authors,id',
 
-            // Image validations
             'images.front-cover' => 'nullable|image|mimes:png',
             'images.book-insights' => 'nullable|image|mimes:png',
             'images.full-book' => 'nullable|image|mimes:png',
             'images.back-cover' => 'nullable|image|mimes:png',
         ]);
 
-        // Update fields
+        // Set directory name if not already set
+        if (!$product->directory) {
+            $product->directory = Str::slug($product->title);
+        }
+
         $product->update($validated);
+        $product->save(); // save directory if it was set above
         $product->authors()->sync($validated['authors']);
 
-        // Update images
-        $folder = "images/products/{$product->title}";
+        // Build path to directory
+        $folder = "images/products/{$product->directory}";
         File::ensureDirectoryExists(public_path($folder));
 
         foreach ($request->file('images', []) as $key => $file) {
@@ -89,17 +93,21 @@ class AdminController extends Controller
                 $relativePath = "$folder/$filename";
                 $fullPath = public_path($relativePath);
 
-                // Overwrite if exists
+                // Move uploaded image (will overwrite if exists)
                 $file->move(public_path($folder), $filename);
 
-                // Update or create DB record
-                ProductImage::updateOrCreate(
-            ['product_id' => $product->id, 'image_path' => $relativePath],
-                [
-                            'id' => Str::uuid()->toString(),
-                            'image_path' => $relativePath
-                        ]
-                );
+                // If image already exists in DB, no need to insert again
+                $existing = ProductImage::where('product_id', $product->id)
+                                        ->where('image_path', $relativePath)
+                                        ->first();
+
+                if (!$existing) {
+                    ProductImage::create([
+                        'id' => Str::uuid()->toString(),
+                        'product_id' => $product->id,
+                        'image_path' => $relativePath,
+                    ]);
+                }
             }
         }
 

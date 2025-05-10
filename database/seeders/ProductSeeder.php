@@ -32,6 +32,7 @@ class ProductSeeder extends Seeder
             'publisher' => 'Secker & Warburg',
             'publication_date' => '1949-06-08',
             'isbn' => '978-0-451-52493-5',
+            'directory' => Str::slug('1984'),
         ])->authors()->attach($author);
 
         Product::create([
@@ -49,6 +50,7 @@ class ProductSeeder extends Seeder
             'publisher' => 'Secker & Warburg',
             'publication_date' => '1945-08-17',
             'isbn' => '978-0-452-28424-1',
+            'directory' => Str::slug('Animal Farm'),
         ])->authors()->attach($author);
 
         // Fantasy books
@@ -69,6 +71,7 @@ class ProductSeeder extends Seeder
             'publisher' => 'Ikar',
             'publication_date' => '2000-01-01',
             'isbn' => '978-80-8085-200-0',
+            'directory' => Str::slug('Harry Potter a Kameň mudrcov'),
         ])->authors()->attach($author->id);
 
         Product::create([
@@ -81,6 +84,7 @@ class ProductSeeder extends Seeder
             'publisher' => 'Ikar',
             'publication_date' => '2000-01-01',
             'isbn' => '978-80-8085-201-7',
+            'directory' => Str::slug('Harry Potter a Tajomná Komnata'),
         ])->authors()->attach($author->id);
 
         Product::create([
@@ -93,6 +97,7 @@ class ProductSeeder extends Seeder
             'publisher' => 'Ikar',
             'publication_date' => '2003-01-01',
             'isbn' => '978-80-8085-205-5',
+            'directory' => Str::slug('Harry Potter a Fénixov rád'),
         ])->authors()->attach($author->id);
 
         // Education books
@@ -106,6 +111,7 @@ class ProductSeeder extends Seeder
             'publisher' => 'Pragma',
             'publication_date' => '1937-01-01',
             'isbn' => '978-80-87128-00-8',
+            'directory' => Str::slug('Myšlením k bohatství'),
         ])->authors()->attach(Author::where('surname', 'Hill')->first()->id);
 
         Product::create([
@@ -118,6 +124,7 @@ class ProductSeeder extends Seeder
             'publisher' => 'Fitness Academy',
             'publication_date' => '2015-01-01',
             'isbn' => '978-80-971540-0-1',
+            'directory' => Str::slug('Ako nabrať svaly'),
         ])->authors()->attach(Author::where('surname', 'Prekop')->first()->id);
 
         $author = Author::where('surname', 'Kiyosaki')->first()->id;
@@ -131,6 +138,7 @@ class ProductSeeder extends Seeder
             'publisher' => 'Pragma',
             'publication_date' => '1998-01-01',
             'isbn' => '978-80-87128-01-5',
+            'directory' => Str::slug('Cashflow kvadrant'),
         ])->authors()->attach($author);
 
         Product::create([
@@ -143,6 +151,7 @@ class ProductSeeder extends Seeder
             'publisher' => 'Pragma',
             'publication_date' => '1997-01-01',
             'isbn' => '978-80-87128-04-6',
+            'directory' => Str::slug('Bohatý otec, chudobný otec'),
         ])->authors()->attach($author);
 
         Product::create([
@@ -155,6 +164,7 @@ class ProductSeeder extends Seeder
             'publisher' => 'Grada',
             'publication_date' => '1949-01-01',
             'isbn' => '978-80-87128-02-2',
+            'directory' => Str::slug('Inteligentní investor'),
         ])->authors()->attach(Author::where('surname', 'Graham')->first()->id);
 
         Product::create([
@@ -167,6 +177,7 @@ class ProductSeeder extends Seeder
             'publisher' => 'McGraw-Hill',
             'publication_date' => '1934-01-01',
             'isbn' => '978-0-07-024496-2',
+            'directory' => Str::slug('Security Analysis'),
         ])->authors()->attach(Author::where('surname', 'Graham')->first()->id);
 
         Product::create([
@@ -179,6 +190,7 @@ class ProductSeeder extends Seeder
             'publisher' => 'Pragma',
             'publication_date' => '1926-01-01',
             'isbn' => '978-80-87128-03-9',
+            'directory' => Str::slug('Nejbohatší muž v Babylóně'),
         ])->authors()->attach(Author::where('surname', 'Classon')->first()->id);
 
         // Adult books
@@ -192,6 +204,7 @@ class ProductSeeder extends Seeder
             'publisher' => 'Bantam Books',
             'publication_date' => '1996-08-06',
             'isbn' => '978-0-553-10354-0',
+            'directory' => Str::slug('Game of Thrones - A Game of Thrones'),
         ])->authors()->attach(Author::where('surname', 'Martin')->first()->id);
 
         Product::create([
@@ -204,6 +217,7 @@ class ProductSeeder extends Seeder
             'publisher' => 'Bantam Books',
             'publication_date' => '1998-11-16',
             'isbn' => '978-0-553-10803-3',
+            'directory' => Str::slug('Game of Thrones - A Clash of Kings'),
         ])->authors()->attach(Author::where('surname', 'Martin')->first()->id);
 
         Product::create([
@@ -216,6 +230,7 @@ class ProductSeeder extends Seeder
             'publisher' => 'Bantam Books',
             'publication_date' => '2000-03-21',
             'isbn' => '978-0-553-10804-0',
+            'directory' => Str::slug('Game of Thrones - A Storm of Swords (Part 1: Steel and Snow)'),
         ])->authors()->attach(Author::where('surname', 'Martin')->first()->id);
     }
 }
