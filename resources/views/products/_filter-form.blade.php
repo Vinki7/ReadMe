@@ -56,8 +56,17 @@
             Apply
         </button>
 
-        <a href="{{ route('products.index') }}" class="btn btn-outline-secondary">
+        <button type="button" class="btn btn-outline-secondary" onclick="resetFilters()">
             Reset Filters
-        </a>
+        </button>
+
+        <script>
+            function resetFilters() {
+                const form = document.getElementById('searchSortForm');
+                form.querySelectorAll('input[name="search"]').forEach(input => input.value = '');
+                form.querySelectorAll('input[name="sort"]').forEach(input => input.checked = false);
+                form.submit();
+            }
+        </script>
     </div>
 </form>

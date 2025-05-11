@@ -48,15 +48,19 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-1/front-cover.png',
+                    'image_path' => 'images/products/harry-potter-a-kamen-mudrcov/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-1/back-cover.png',
+                    'image_path' => 'images/products/harry-potter-a-kamen-mudrcov/back-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-1/book-insights.png',
+                    'image_path' => 'images/products/harry-potter-a-kamen-mudrcov/book-insights.png',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/harry-potter-a-kamen-mudrcov/full-book.png',
                 ],
             ]
         );
@@ -66,15 +70,15 @@ class ProductImageSeeder extends Seeder
             [
                 [
                 'product_id' => $theBook->id,
-                'image_path' => 'images/products/harry-potter-2/front-cover.png',
+                'image_path' => 'images/products/harry-potter-a-tajomna-komnata/front-cover.png',
                 ],
                 [
                 'product_id' => $theBook->id,
-                'image_path' => 'images/products/harry-potter-2/back-cover.png',
+                'image_path' => 'images/products/harry-potter-a-tajomna-komnata/back-cover.png',
                 ],
                 [
                 'product_id' => $theBook->id,
-                'image_path' => 'images/products/harry-potter-2/book-insights.png',
+                'image_path' => 'images/products/harry-potter-a-tajomna-komnata/book-insights.png',
                 ],
             ]
         );
@@ -84,15 +88,15 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-5/front-cover.png',
+                    'image_path' => 'images/products/harry-potter-a-fenixov-rad/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-5/back-cover.png',
+                    'image_path' => 'images/products/harry-potter-a-fenixov-rad/back-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-5/book-insights.png',
+                    'image_path' => 'images/products/harry-potter-a-fenixov-rad/book-insights.png',
                 ],
             ]
         );
@@ -222,11 +226,11 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-1/front-cover.png',
+                    'image_path' => 'images/products/game-of-thrones-a-game-of-thrones/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-1/book-insights.png',
+                    'image_path' => 'images/products/game-of-thrones-a-game-of-thrones/book-insights.png',
                 ],
             ]
         );
@@ -236,15 +240,15 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-2/front-cover.png',
+                    'image_path' => 'images/products/game-of-thrones-a-clash-of-kings/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-2/back-cover.png',
+                    'image_path' => 'images/products/game-of-thrones-a-clash-of-kings/back-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-2/book-insights.png',
+                    'image_path' => 'images/products/game-of-thrones-a-clash-of-kings/book-insights.png',
                 ],
             ]
         );
@@ -254,15 +258,56 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-3/front-cover.png',
+                    'image_path' => 'images/products/game-of-thrones-a-storm-of-swords-part-1-steel-and-snow/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-3/book-insights.png',
+                    'image_path' => 'images/products/game-of-thrones-a-storm-of-swords-part-1-steel-and-snow/book-insights.png',
                 ],
             ]
         );
 
+        $theBook = Product::firstWhere('title', 'Mercedes: Pod kapotou');
+        $images = array_merge($images,
+            [
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/mercedes-pod-kapotou/front-cover.png',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/mercedes-pod-kapotou/book-insights.png',
+                ],
+            ]
+        );
+
+        $theBook = Product::firstWhere('title', 'Škola biznisu');
+        $images = array_merge($images,
+            [
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/skola-biznisu/front-cover.png',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/skola-biznisu/book-insights.png',
+                ],
+            ]
+        );
+
+        $theBook = Product::firstWhere('title', 'Programování v C#');
+        $images = array_merge($images,
+            [
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/programovani-v-c/front-cover.png',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/programovani-v-c/book-insights.png',
+                ],
+            ]
+        );
 
         foreach ($images as $image) {
             ProductImage::create([
