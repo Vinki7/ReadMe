@@ -48,19 +48,19 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-a-kamen-mudrcov/front-cover.PNG',
+                    'image_path' => 'images/products/harry-potter-a-kamen-mudrcov/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-a-kamen-mudrcov/back-cover.PNG',
+                    'image_path' => 'images/products/harry-potter-a-kamen-mudrcov/back-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-a-kamen-mudrcov/book-insights.PNG',
+                    'image_path' => 'images/products/harry-potter-a-kamen-mudrcov/book-insights.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-a-kamen-mudrcov/full-book.PNG',
+                    'image_path' => 'images/products/harry-potter-a-kamen-mudrcov/full-book.png',
                 ],
             ]
         );
@@ -70,15 +70,15 @@ class ProductImageSeeder extends Seeder
             [
                 [
                 'product_id' => $theBook->id,
-                'image_path' => 'images/products/harry-potter-a-tajomna-komnata/front-cover.PNG',
+                'image_path' => 'images/products/harry-potter-a-tajomna-komnata/front-cover.png',
                 ],
                 [
                 'product_id' => $theBook->id,
-                'image_path' => 'images/products/harry-potter-a-tajomna-komnata/back-cover.PNG',
+                'image_path' => 'images/products/harry-potter-a-tajomna-komnata/back-cover.png',
                 ],
                 [
                 'product_id' => $theBook->id,
-                'image_path' => 'images/products/harry-potter-a-tajomna-komnata/book-insights.PNG',
+                'image_path' => 'images/products/harry-potter-a-tajomna-komnata/book-insights.png',
                 ],
             ]
         );
@@ -88,15 +88,15 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-a-fenixov-rad/front-cover.PNG',
+                    'image_path' => 'images/products/harry-potter-a-fenixov-rad/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-a-fenixov-rad/back-cover.PNG',
+                    'image_path' => 'images/products/harry-potter-a-fenixov-rad/back-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/harry-potter-a-fenixov-rad/book-insights.PNG',
+                    'image_path' => 'images/products/harry-potter-a-fenixov-rad/book-insights.png',
                 ],
             ]
         );
@@ -107,15 +107,15 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/myslenim-k-bohatstvi/front-cover.PNG',
+                    'image_path' => 'images/products/myslenim-k-bohatstvi/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/myslenim-k-bohatstvi/back-cover.PNG',
+                    'image_path' => 'images/products/myslenim-k-bohatstvi/back-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/myslenim-k-bohatstvi/book-insights.PNG',
+                    'image_path' => 'images/products/myslenim-k-bohatstvi/book-insights.png',
                 ],
             ]
         );
@@ -125,15 +125,15 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/ako-nabrat-svaly/front-cover.PNG',
+                    'image_path' => 'images/products/ako-nabrat-svaly/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/ako-nabrat-svaly/back-cover.PNG',
+                    'image_path' => 'images/products/ako-nabrat-svaly/back-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/ako-nabrat-svaly/book-insights.PNG',
+                    'image_path' => 'images/products/ako-nabrat-svaly/book-insights.png',
                 ],
             ]
         );
@@ -143,11 +143,11 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/bohaty-otec-chudobny-otec/front-cover.PNG',
+                    'image_path' => 'images/products/bohaty-otec-chudobny-otec/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/bohaty-otec-chudobny-otec/book-insights.PNG',
+                    'image_path' => 'images/products/bohaty-otec-chudobny-otec/book-insights.png',
                 ],
             ]
         );
@@ -157,15 +157,15 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/cashflow-kvadrant/front-cover.PNG',
+                    'image_path' => 'images/products/cashflow-kvadrant/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/cashflow-kvadrant/back-cover.PNG',
+                    'image_path' => 'images/products/cashflow-kvadrant/back-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/cashflow-kvadrant/book-insights.PNG',
+                    'image_path' => 'images/products/cashflow-kvadrant/book-insights.png',
                 ],
             ]
         );
@@ -175,15 +175,15 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/inteligentni-investor/front-cover.PNG',
+                    'image_path' => 'images/products/inteligentni-investor/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/inteligentni-investor/back-cover.PNG',
+                    'image_path' => 'images/products/inteligentni-investor/back-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/inteligentni-investor/book-insights.PNG',
+                    'image_path' => 'images/products/inteligentni-investor/book-insights.png',
                 ],
             ]
         );
@@ -207,15 +207,15 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/nejbohatsi-muz-v-babylone/front-cover.PNG',
+                    'image_path' => 'images/products/nejbohatsi-muz-v-babylone/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/nejbohatsi-muz-v-babylone/back-cover.PNG',
+                    'image_path' => 'images/products/nejbohatsi-muz-v-babylone/back-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/nejbohatsi-muz-v-babylone/book-insights.PNG',
+                    'image_path' => 'images/products/nejbohatsi-muz-v-babylone/book-insights.png',
                 ],
             ]
         );
@@ -226,11 +226,11 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-a-game-of-thrones/front-cover.PNG',
+                    'image_path' => 'images/products/game-of-thrones-a-game-of-thrones/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-a-game-of-thrones/book-insights.PNG',
+                    'image_path' => 'images/products/game-of-thrones-a-game-of-thrones/book-insights.png',
                 ],
             ]
         );
@@ -240,15 +240,15 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-a-clash-of-kings/front-cover.PNG',
+                    'image_path' => 'images/products/game-of-thrones-a-clash-of-kings/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-a-clash-of-kings/back-cover.PNG',
+                    'image_path' => 'images/products/game-of-thrones-a-clash-of-kings/back-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-a-clash-of-kings/book-insights.PNG',
+                    'image_path' => 'images/products/game-of-thrones-a-clash-of-kings/book-insights.png',
                 ],
             ]
         );

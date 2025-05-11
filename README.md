@@ -174,33 +174,44 @@ ReadMe/<br>
 
 **TODO:** continue with the wiki here
 
-## Project Installation  
+## Running the project
+0. Ensure you have:
+    - PHP 8.1+
+    - Composer (https://getcomposer.org)
+    - Optional but helpful: Laravel installer  
+
 1. Clone this repository:  
    ```sh
    git clone https://github.com/Vinki7/ReadMe.git
    cd ReadMe
+   ```
 
 2. Install dependencies:
     ```sh
     composer install
     npm install
+    ```
 
 3. Set up the environment:
     ```sh
-    cp .env.example .env -: Maybe not necessary **TODO:** figure out
+    cp .env.example .env
     php artisan key:generate
+    ```
 
 4. Set up the docker DB image
     ```sh
-    docker run --name ReadMeDB -e POSTGRES_PASSWORD=ReadMe@5678 -p 5678:5432 -d postgres
+    docker-compose up
     ```
+
 5. Migrate the database:
     ```sh
-    php artisan migrate --seed
+    php artisan migrate:fresh --seed
+    ```
 
 6. Run the app locally:
     ```sh
     php artisan serve --port=8080
+    ```
 
 7. Set up database if needed:
 - open .env file from the project folder
@@ -212,24 +223,27 @@ ReadMe/<br>
     DB_DATABASE=your_database
     DB_USERNAME=your_username
     DB_PASSWORD=your_password
+    ```
 - Ensure the credentials match your PostgreSQL setup:
     ```text
     DB_HOST=127.0.0.1 (Try using localhost if needed.)
     DB_PORT=5678 (Verify this is correct.)
     DB_DATABASE must match the database name you created.
     DB_USERNAME and DB_PASSWORD must be correct.
+    ```
 
 7. Start the development server:
     ```sh
     php artisan serve
     npm run dev
+    ```
 
 8. Open your browser and visit:
     http://localhost:8080
 
 
 ## Database structure
-![Entity Relation Diagram](./.doc/ReadMe_project%20-%20DB%20relations.png)
+![Entity Relation Diagram](./.doc/ReadMe_project.png)
 
 # Creating Components
 
@@ -237,10 +251,12 @@ Components can be created using CLI.
 - To create Controller:
     ```sh
     php artisan make:controller ControllerName
+    ```
 
 - To create View:
     ```sh
     php artisan make:view blockName.pageName
+    ```
 
 # Dev rules / practices
 
@@ -397,9 +413,7 @@ To work in .md seamlessly, the set of some fundamental rules is provided below:
 - Use backticks for inline code: `` `code` ``.
 - Use triple backticks for code blocks:
     ```markdown
-    ```
     code block
-    ```
     ```
 - Use `> ` for blockquotes.
 - Use `[text](url)` for links.
