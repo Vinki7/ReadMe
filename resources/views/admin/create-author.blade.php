@@ -9,22 +9,34 @@
         @csrf
         <div class="mb-3">
             <label class="form-label">First Name</label>
-            <input name="name" class="form-control" required>
+            <input name="name" id="name" class="form-control" required>
+            @error('name')
+                <div class="alert alert-danger mt-2">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="mb-3">
             <label class="form-label">Last Name</label>
-            <input name="surname" class="form-control" required>
+            <input name="surname" id="surname" class="form-control" required>
+            @error('surname')
+                <div class="alert alert-danger mt-2">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="mb-3">
             <label class="form-label">Birth date</label>
-            <input type="date" name="birth_date" class="form-control" required>
+            <input type="date" name="birth_date" id="birth_date" class="form-control" required>
+            @error('birth_date')
+                <div class="alert alert-danger mt-2">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="mb-3">
             <label class="form-label">Biography</label>
-            <textarea name="biography" class="form-control" required></textarea>
+            <textarea name="biography" id="biography" class="form-control" required></textarea>
+            @error('biography')
+                <div class="alert alert-danger mt-2">{{ $message }}</div>
+            @enderror
         </div>
 
         <button type="submit" class="btn btn-primary">Add Author</button>

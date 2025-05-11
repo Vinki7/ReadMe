@@ -5,18 +5,18 @@
     <!-- Primary Navigation Menu -->
     <ul class="navbar-nav d-flex gap-5 mx-5">
         <li class="nav-item">
-            <x-nav-link :href="route('home.index')" :active="request()->routeIs('home.index')" wire:navigate>
+            <x-nav-link :href="route('home.index')" :active="request()->routeIs('home.index')">
                 {{ __('Home') }}
             </x-nav-link>
         </li>
         <li class="nav-item">
-            <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')" wire:navigate>
+            <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
                 {{ __('Products') }}
             </x-nav-link>
         </li>
         @if (Auth::check() && Auth::user()->hasRole(Role::Admin))
             <li class="nav-item">
-                <x-nav-link :href="route('admin.listing')" :active="request()->routeIs('admin.listing')" wire:navigate>
+                <x-nav-link :href="route('admin.listing')" :active="request()->routeIs('admin.listing')">
                     {{ __('Manage products') }}
                 </x-nav-link>
             </li>

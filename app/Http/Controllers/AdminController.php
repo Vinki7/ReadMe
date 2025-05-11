@@ -52,7 +52,7 @@ class AdminController extends Controller
     public function update(Request $request, Product $product)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'required|string|max:100',
             'description' => 'required|string',
             'price' => 'required|numeric|min:0',
             'category' => ['required', Rule::in(array_column(Category::cases(), 'value'))],
@@ -148,10 +148,10 @@ class AdminController extends Controller
     public function storeAuthor(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'surname' => 'required|string|max:255',
-            'birth_date' => 'required|string|max:255',
-            'biography' => 'required|string|max:255', 
+            'name' => 'required|string|max:50',
+            'surname' => 'required|string|max:50',
+            'birth_date' => 'nullable|date',
+            'biography' => 'required|string', 
         ]);
 
         $validated['id'] = Str::uuid()->toString();
@@ -171,7 +171,7 @@ class AdminController extends Controller
     public function storeProduct(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'required|string|max:100',
             'description' => 'required|string',
             'price' => 'required|numeric|min:0',
             'category' => ['required', Rule::in(array_column(Category::cases(), 'value'))],
