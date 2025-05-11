@@ -17,7 +17,7 @@
         @if (Auth::check() && Auth::user()->hasRole(Role::Admin))
             <li class="nav-item">
                 <x-nav-link :href="route('admin.listing')" :active="request()->routeIs('admin.listing')">
-                    {{ __('Manage products') }}
+                    {{ __('Admin panel') }}
                 </x-nav-link>
             </li>
         @endif
