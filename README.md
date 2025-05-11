@@ -174,7 +174,7 @@ ReadMe/<br>
 
 **TODO:** continue with the wiki here
 
-## Project Installation
+## Running the project
 0. Ensure you have:
     - PHP 8.1+
     - Composer (https://getcomposer.org)
