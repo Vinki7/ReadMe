@@ -122,8 +122,6 @@ ReadMe/<br>
     - web.php - Handles web requests (e.g., /books, /cart).
     - api.php - Defines API routes for a RESTful service.
 
-**TODO:** continue with project specification here project here
-
 ## Work environment setup
 1. Download XAMPP from the following link:
 - project will use PHP v. 8.2.12
@@ -232,13 +230,25 @@ ReadMe/<br>
     DB_USERNAME and DB_PASSWORD must be correct.
     ```
 
-7. Start the development server:
+8. If you want to set up also email verification and password reset, configure also this in .env:
+    ```text
+    MAIL_MAILER=smtp
+    MAIL_HOST=127.0.0.1
+    MAIL_PORT=1025
+    MAIL_USERNAME=null
+    MAIL_PASSWORD=null
+    MAIL_ENCRYPTION=null
+    MAIL_FROM_ADDRESS="no-reply@readme.com"
+    MAIL_FROM_NAME="ReadMe"
+    ```
+
+9. Start the development server:
     ```sh
     php artisan serve
     npm run dev
     ```
 
-8. Open your browser and visit:
+10. Open your browser and visit:
     http://localhost:8080
 
 
