@@ -3,7 +3,7 @@
 
 ReadMe is a simple and responsive e-commerce platform for buying books online.  
 The platform allows users to browse books by category, search for specific titles, and purchase books securely.  
-Admins can manage books, categories, and orders through a dedicated admin panel. 
+Admins can manage books and authors through a dedicated admin panel.
 
 ### Features
 All known features are described below...
@@ -170,8 +170,6 @@ ReadMe/<br>
 - get Prettier - code formater
 - get Bootstrap 5 Quick Snippets
 
-**TODO:** continue with the wiki here
-
 ## Running the project
 0. Ensure you have:
     - PHP 8.1+
@@ -206,12 +204,7 @@ ReadMe/<br>
     php artisan migrate:fresh --seed
     ```
 
-6. Run the app locally:
-    ```sh
-    php artisan serve --port=8080
-    ```
-
-7. Set up database if needed:
+6. Set up database if needed:
 - open .env file from the project folder
 - find the database section:
     ```text 
@@ -230,7 +223,7 @@ ReadMe/<br>
     DB_USERNAME and DB_PASSWORD must be correct.
     ```
 
-8. If you want to set up also email verification and password reset, configure also this in .env:
+7. If you want to set up also email verification and password reset, configure also this in .env:
     ```text
     MAIL_MAILER=smtp
     MAIL_HOST=127.0.0.1
@@ -242,14 +235,14 @@ ReadMe/<br>
     MAIL_FROM_NAME="ReadMe"
     ```
 
-9. Start the development server:
+8. Start the development server:
     ```sh
     php artisan serve
     npm run dev
     ```
 
-10. Open your browser and visit:
-    http://localhost:8080
+9. Open your browser and visit:
+    http://localhost:8000
 
 
 ## Database structure
