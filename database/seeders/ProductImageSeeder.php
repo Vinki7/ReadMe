@@ -267,6 +267,19 @@ class ProductImageSeeder extends Seeder
             ]
         );
 
+        $theBook = Product::firstWhere('title', 'Mercedes: Pod kapotou');
+        $images = array_merge($images,
+            [
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/mercedes-pod-kapotou/front-cover.png',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/mercedes-pod-kapotou/book-insights.png',
+                ],
+            ]
+        );
 
         foreach ($images as $image) {
             ProductImage::create([

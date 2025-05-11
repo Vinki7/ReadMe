@@ -232,5 +232,18 @@ class ProductSeeder extends Seeder
             'isbn' => '978-0-553-10804-0',
             'directory' => Str::slug('Game of Thrones - A Storm of Swords (Part 1: Steel and Snow)'),
         ])->authors()->attach(Author::where('surname', 'Martin')->first()->id);
+
+        Product::create([
+            'id' => Str::uuid(),
+            'title' => 'Mercedes: Pod kapotou',
+            'description' => 'The third book in the A Song of Ice and Fire series, where the war for the Iron Throne escalates and alliances shift.',
+            'price' => 17.77,
+            'category' => Category::Biography->value,
+            'language' => 'Slovak',
+            'publisher' => 'Motýľ',
+            'publication_date' => '2025-05-19',
+            'isbn' => '978-8-081-64404-7',
+            'directory' => Str::slug('Mercedes: Pod kapotou'),
+        ])->authors()->attach(Author::where('surname', 'Martin')->first()->id);
     }
 }
