@@ -131,14 +131,13 @@ class CartRepository
      */
     public function getProductById($userId, $productId)
     {
-        // Logic to retrieve a specific product in the user's cart from the database
-        $product = Cart::where('user_id', $userId)
-            ->whereHas('products', function ($query) use ($productId) {
-                $query->where('id', $productId);
-            })
-            ->first();
+        $cart = $this->getCart($userId);
 
-        return $product;
+        if (!$cart) {
+            return null;
+        }
+
+        return $cart->products()->where('product_id', $productId)->withPivot('quantity')->first();
     }
 
     /**
@@ -146,13 +145,13 @@ class CartRepository
      *
      * @param int $userId The ID of the user whose cart is being updated.
      * @param int $productId The ID of the product whose quantity is being updated.
-     * @param int $quantity The new quantity of the product.
+     * @param int $newQuantity The new quantity of the product.
      *
      * @throws \Exception If the cart is not found or if the update operation fails.
      *
      * @return void
      */
-    public function updateProductQuantity($userId, $productId, $quantity)
+    public function updateProductQuantity($userId, $productId, $newQuantity)
     {
         // Logic to update the quantity of a specific product in the user's cart in the database
         $cart = $this->getCart($userId);
@@ -162,7 +161,7 @@ class CartRepository
         }
 
         try {
-            $cart->products()->updateExistingPivot($productId, ['quantity' => $quantity]);
+            $cart->products()->updateExistingPivot($productId, ['quantity' => $newQuantity]);
         }
         catch (\Exception $e) {
             throw new \Exception('Failed to update product quantity');

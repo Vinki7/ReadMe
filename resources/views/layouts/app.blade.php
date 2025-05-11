@@ -14,12 +14,14 @@
     <body class="d-flex flex-column min-vh-100">
         <x-header-component></x-header-component>
 
-        @if(session('error') || session('success') || session('info'))
-            <div class="alert alert-{{ session('error') ? 'danger' : (session('success') ? 'success' : 'info') }} alert-dismissible fade show flash-alert" role="alert">
-                {{ session('error') ?? session('success') ?? session('info') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
+        @foreach (['error', 'success', 'info'] as $type)
+            @if(session($type))
+                <div class="alert alert-{{ $type }} alert-dismissible fade show flash-alert" role="alert">
+                    {{ session($type) }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+        @endforeach
         <!-- Page Content -->
         @yield('content')
         @yield('modals')

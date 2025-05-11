@@ -52,7 +52,7 @@ class CartController extends Controller
 
         $listOfIds = $items ? array_keys($items) : [];
         // Fetch full product details
-        $products = $this->productService->getListOfProductsByIds($listOfIds); // this should be delegated to the ProductService
+        $products = $this->productService->getListOfProductsByIds($listOfIds);
 
         $finalPrice = $this->cartService->getFinalPrice();
 
