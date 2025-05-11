@@ -174,29 +174,38 @@ ReadMe/<br>
 
 **TODO:** continue with the wiki here
 
-## Project Installation  
+## Project Installation
+0. Ensure you have:
+    - PHP 8.1+
+    - Composer (https://getcomposer.org)
+    - Optional but helpful: Laravel installer  
+
 1. Clone this repository:  
    ```sh
    git clone https://github.com/Vinki7/ReadMe.git
    cd ReadMe
+   ```
 
 2. Install dependencies:
     ```sh
     composer install
     npm install
+    ```
 
 3. Set up the environment:
     ```sh
-    cp .env.example .env -: Maybe not necessary **TODO:** figure out
+    cp .env.example .env
     php artisan key:generate
+    ```
 
 4. Set up the docker DB image
     ```sh
     docker run --name ReadMeDB -e POSTGRES_PASSWORD=ReadMe@5678 -p 5678:5432 -d postgres
     ```
+
 5. Migrate the database:
     ```sh
-    php artisan migrate --seed
+    php artisan migrate:fresh --seed
 
 6. Run the app locally:
     ```sh
@@ -229,7 +238,7 @@ ReadMe/<br>
 
 
 ## Database structure
-![Entity Relation Diagram](./.doc/ReadMe_project%20-%20DB%20relations.png)
+![Entity Relation Diagram](./.doc/ReadMe_project.png)
 
 # Creating Components
 
