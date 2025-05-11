@@ -137,4 +137,26 @@ class AdminController extends Controller
 
         return back()->with('success', ucfirst(str_replace('_', ' ', $type)) . ' image deleted successfully.');
     }
+
+        public function createAuthor()
+    {
+        return view('admin.create-author');
+    }
+
+    public function storeAuthor(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'surname' => 'required|string|max:255',
+            'birth_date' => 'required|string|max:255',
+            'biography' => 'required|string|max:255', 
+        ]);
+
+        $validated['id'] = Str::uuid()->toString();
+
+        Author::create($validated);
+
+        return redirect()->route('admin.listing')->with('success', 'Author added.');
+    }
+
 }

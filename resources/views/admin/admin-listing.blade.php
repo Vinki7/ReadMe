@@ -58,12 +58,8 @@
 
         <div class="row row-cols-1 row-cols-md-2 align-items-center justify-content-end gap-3 gap-lg-0 gap mb-4 px-md-5">
             <div class="col-7 col-sm-4 d-flex flex-wrap gap-2 justify-content-center">
-                <button class="btn btn-secondary">
-                    + Add product
-                </button>
-                <button class="btn btn-secondary">
-                    + Add author
-                </button>
+                <a href="{{ route('admin.product.create') }}" class="btn btn-secondary">+ Add Product</a>
+                <a href="{{ route('admin.author.create') }}" class="btn btn-secondary">+ Add Author</a>
             </div>
         </div>
 

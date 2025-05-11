@@ -61,4 +61,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::delete('/product/{product}/images/{type}', [AdminController::class, 'deleteImage'])
         ->where('type', 'front_cover|back_cover|book_insights|full_book')
         ->name('product.image.delete');
+    Route::get('/product/create', [AdminController::class, 'createProduct'])->name('product.create');
+    Route::get('/author/create', [AdminController::class, 'createAuthor'])->name('author.create');
+    Route::post('/product', [AdminController::class, 'storeProduct'])->name('product.store');
+    Route::post('/author', [AdminController::class, 'storeAuthor'])->name('author.store');
 });
