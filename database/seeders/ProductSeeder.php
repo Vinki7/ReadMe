@@ -239,7 +239,7 @@ class ProductSeeder extends Seeder
             'description' => 'Packed with fascinating details, secrets of team strategy, and never-before-seen photos,
                 this book immerses readers in the heart of the world\'s fastest sport. It\'s a story of resilience, innovation,
                 and the hunger for victory that will captivate F1 fans and anyone inspired by peak team performance.',
-            'price' => 17.77,
+            'price' => 17.99,
             'category' => Category::Biography->value,
             'language' => 'Slovak',
             'publisher' => 'Motýľ',
@@ -251,10 +251,11 @@ class ProductSeeder extends Seeder
         Product::create([
             'id' => Str::uuid(),
             'title' => 'Škola biznisu',
-            'description' => 'Packed with fascinating details, secrets of team strategy, and never-before-seen photos,
-                this book immerses readers in the heart of the world\'s fastest sport. It\'s a story of resilience, innovation,
-                and the hunger for victory that will captivate F1 fans and anyone inspired by peak team performance.',
-            'price' => 6.00,
+            'description' => 'Unlike traditional business models, network marketing companies offer invaluable training and self-development programs.
+                As we approach the 2010s, it\'s clear that the Industrial Age has ended—the rules have changed forever. In the Information Age,
+                you must take control of your future, because now you\'re competing for jobs with people worldwide.
+                This book uncovers how network marketing equips you to thrive in the new economy.',
+            'price' => 6.99,
             'category' => Category::Education->value,
             'language' => 'Slovak',
             'publisher' => 'Motýľ',
@@ -262,5 +263,21 @@ class ProductSeeder extends Seeder
             'isbn' => '123-4-456-78951-8',
             'directory' => Str::slug('Škola biznisu'),
         ])->authors()->attach(Author::where('surname', 'Kiyosaki')->first()->id);
+
+        Product::create([
+            'id' => Str::uuid(),
+            'title' => 'Programování v C#',
+            'description' => 'This comprehensive textbook is perfect for beginners and experienced programmers alike,
+                offering a structured approach to mastering C#.
+                Written by an expert author and university instructor, it starts with fundamental concepts—computer architecture,
+                data representation, and object-oriented programming—before guiding you through hands-on examples to build confidence.',
+            'price' => 21.99,
+            'category' => Category::Education->value,
+            'language' => 'Czech',
+            'publisher' => 'Grada',
+            'publication_date' => '2020-01-01',
+            'isbn' => '978-8-027-11216-6',
+            'directory' => Str::slug('Programování v C#'),
+        ])->authors()->attach(Author::where('surname', 'Prekop')->first()->id);
     }
 }

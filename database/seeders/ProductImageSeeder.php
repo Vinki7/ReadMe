@@ -295,6 +295,20 @@ class ProductImageSeeder extends Seeder
             ]
         );
 
+        $theBook = Product::firstWhere('title', 'Programování v C#');
+        $images = array_merge($images,
+            [
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/programovani-v-c/front-cover.png',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/programovani-v-c/book-insights.png',
+                ],
+            ]
+        );
+
         foreach ($images as $image) {
             ProductImage::create([
                 'id' => Str::uuid(),
