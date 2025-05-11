@@ -281,6 +281,20 @@ class ProductImageSeeder extends Seeder
             ]
         );
 
+        $theBook = Product::firstWhere('title', 'Škola biznisu');
+        $images = array_merge($images,
+            [
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/skola-biznisu/front-cover.png',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/skola-biznisu/book-insights.png',
+                ],
+            ]
+        );
+
         foreach ($images as $image) {
             ProductImage::create([
                 'id' => Str::uuid(),

@@ -236,7 +236,9 @@ class ProductSeeder extends Seeder
         Product::create([
             'id' => Str::uuid(),
             'title' => 'Mercedes: Pod kapotou',
-            'description' => 'The third book in the A Song of Ice and Fire series, where the war for the Iron Throne escalates and alliances shift.',
+            'description' => 'Packed with fascinating details, secrets of team strategy, and never-before-seen photos,
+                this book immerses readers in the heart of the world\'s fastest sport. It\'s a story of resilience, innovation,
+                and the hunger for victory that will captivate F1 fans and anyone inspired by peak team performance.',
             'price' => 17.77,
             'category' => Category::Biography->value,
             'language' => 'Slovak',
@@ -245,5 +247,20 @@ class ProductSeeder extends Seeder
             'isbn' => '978-8-081-64404-7',
             'directory' => Str::slug('Mercedes: Pod kapotou'),
         ])->authors()->attach(Author::where('surname', 'Martin')->first()->id);
+
+        Product::create([
+            'id' => Str::uuid(),
+            'title' => 'Škola biznisu',
+            'description' => 'Packed with fascinating details, secrets of team strategy, and never-before-seen photos,
+                this book immerses readers in the heart of the world\'s fastest sport. It\'s a story of resilience, innovation,
+                and the hunger for victory that will captivate F1 fans and anyone inspired by peak team performance.',
+            'price' => 6.00,
+            'category' => Category::Education->value,
+            'language' => 'Slovak',
+            'publisher' => 'Motýľ',
+            'publication_date' => '2007-01-01',
+            'isbn' => '123-4-456-78951-8',
+            'directory' => Str::slug('Škola biznisu'),
+        ])->authors()->attach(Author::where('surname', 'Kiyosaki')->first()->id);
     }
 }
