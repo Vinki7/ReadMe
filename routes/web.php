@@ -48,6 +48,21 @@ Route::prefix('cart')->name('cart.')->group(function () {
         ->name('add');
 });
 
-Route::prefix('admin')->middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('listing');
+    Route::resource('products', AdminController::class)->except(['create', 'store', 'show']);
+});
+
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('listing');
+    Route::get('/product/{product}/edit', [AdminController::class, 'edit'])->name('product.edit');
+    Route::put('/product/{product}', [AdminController::class, 'update'])->name('product.update');
+    Route::delete('/product/{product}', [AdminController::class, 'destroy'])->name('product.destroy');
+    Route::delete('/product/{product}/images/{type}', [AdminController::class, 'deleteImage'])
+        ->where('type', 'front_cover|back_cover|book_insights|full_book')
+        ->name('product.image.delete');
+    Route::get('/product/create', [AdminController::class, 'createProduct'])->name('product.create');
+    Route::get('/author/create', [AdminController::class, 'createAuthor'])->name('author.create');
+    Route::post('/product', [AdminController::class, 'storeProduct'])->name('product.store');
+    Route::post('/author', [AdminController::class, 'storeAuthor'])->name('author.store');
 });

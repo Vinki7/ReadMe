@@ -104,13 +104,16 @@ class ProductImageSeeder extends Seeder
                 [
                     'product_id' => $theBook->id,
                     'image_path' => 'images/products/myslenim-k-bohatstvi/front-cover.png',
+                    'image_path' => 'images/products/myslenim-k-bohatstvi/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
                     'image_path' => 'images/products/myslenim-k-bohatstvi/back-cover.png',
+                    'image_path' => 'images/products/myslenim-k-bohatstvi/back-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
+                    'image_path' => 'images/products/myslenim-k-bohatstvi/book-insights.png',
                     'image_path' => 'images/products/myslenim-k-bohatstvi/book-insights.png',
                 ],
             ]
@@ -122,13 +125,16 @@ class ProductImageSeeder extends Seeder
                 [
                     'product_id' => $theBook->id,
                     'image_path' => 'images/products/ako-nabrat-svaly/front-cover.png',
+                    'image_path' => 'images/products/ako-nabrat-svaly/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
                     'image_path' => 'images/products/ako-nabrat-svaly/back-cover.png',
+                    'image_path' => 'images/products/ako-nabrat-svaly/back-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
+                    'image_path' => 'images/products/ako-nabrat-svaly/book-insights.png',
                     'image_path' => 'images/products/ako-nabrat-svaly/book-insights.png',
                 ],
             ]
@@ -140,9 +146,11 @@ class ProductImageSeeder extends Seeder
                 [
                     'product_id' => $theBook->id,
                     'image_path' => 'images/products/bohaty-otec-chudobny-otec/front-cover.png',
+                    'image_path' => 'images/products/bohaty-otec-chudobny-otec/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
+                    'image_path' => 'images/products/bohaty-otec-chudobny-otec/book-insights.png',
                     'image_path' => 'images/products/bohaty-otec-chudobny-otec/book-insights.png',
                 ],
             ]
@@ -154,13 +162,16 @@ class ProductImageSeeder extends Seeder
                 [
                     'product_id' => $theBook->id,
                     'image_path' => 'images/products/cashflow-kvadrant/front-cover.png',
+                    'image_path' => 'images/products/cashflow-kvadrant/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
                     'image_path' => 'images/products/cashflow-kvadrant/back-cover.png',
+                    'image_path' => 'images/products/cashflow-kvadrant/back-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
+                    'image_path' => 'images/products/cashflow-kvadrant/book-insights.png',
                     'image_path' => 'images/products/cashflow-kvadrant/book-insights.png',
                 ],
             ]
@@ -172,13 +183,16 @@ class ProductImageSeeder extends Seeder
                 [
                     'product_id' => $theBook->id,
                     'image_path' => 'images/products/inteligentni-investor/front-cover.png',
+                    'image_path' => 'images/products/inteligentni-investor/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
                     'image_path' => 'images/products/inteligentni-investor/back-cover.png',
+                    'image_path' => 'images/products/inteligentni-investor/back-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
+                    'image_path' => 'images/products/inteligentni-investor/book-insights.png',
                     'image_path' => 'images/products/inteligentni-investor/book-insights.png',
                 ],
             ]
@@ -204,13 +218,16 @@ class ProductImageSeeder extends Seeder
                 [
                     'product_id' => $theBook->id,
                     'image_path' => 'images/products/nejbohatsi-muz-v-babylone/front-cover.png',
+                    'image_path' => 'images/products/nejbohatsi-muz-v-babylone/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
                     'image_path' => 'images/products/nejbohatsi-muz-v-babylone/back-cover.png',
+                    'image_path' => 'images/products/nejbohatsi-muz-v-babylone/back-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
+                    'image_path' => 'images/products/nejbohatsi-muz-v-babylone/book-insights.png',
                     'image_path' => 'images/products/nejbohatsi-muz-v-babylone/book-insights.png',
                 ],
             ]
@@ -254,15 +271,56 @@ class ProductImageSeeder extends Seeder
             [
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-3/front-cover.png',
+                    'image_path' => 'images/products/game-of-thrones-a-storm-of-swords-part-1-steel-and-snow/front-cover.png',
                 ],
                 [
                     'product_id' => $theBook->id,
-                    'image_path' => 'images/products/game-of-thrones-3/book-insights.png',
+                    'image_path' => 'images/products/game-of-thrones-a-storm-of-swords-part-1-steel-and-snow/book-insights.png',
                 ],
             ]
         );
 
+        $theBook = Product::firstWhere('title', 'Mercedes: Pod kapotou');
+        $images = array_merge($images,
+            [
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/mercedes-pod-kapotou/front-cover.png',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/mercedes-pod-kapotou/book-insights.png',
+                ],
+            ]
+        );
+
+        $theBook = Product::firstWhere('title', 'Škola biznisu');
+        $images = array_merge($images,
+            [
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/skola-biznisu/front-cover.png',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/skola-biznisu/book-insights.png',
+                ],
+            ]
+        );
+
+        $theBook = Product::firstWhere('title', 'Programování v C#');
+        $images = array_merge($images,
+            [
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/programovani-v-c/front-cover.png',
+                ],
+                [
+                    'product_id' => $theBook->id,
+                    'image_path' => 'images/products/programovani-v-c/book-insights.png',
+                ],
+            ]
+        );
 
         foreach ($images as $image) {
             ProductImage::create([

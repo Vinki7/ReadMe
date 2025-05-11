@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Enums\Category;
+use Illuminate\Support\Facades\File;
 
 class Product extends Model
 {
@@ -23,6 +24,7 @@ class Product extends Model
         'publisher',
         'publication_date',
         'isbn',
+        'directory',
     ];
 
     protected $casts = [
@@ -68,5 +70,20 @@ class Product extends Model
     public function frontCover()
     {
         return $this->images()->where('image_path', 'like', '%front-cover%')->first();
+    }
+
+    // deletes the directory of the deleted product images
+    protected static function booted()
+    {
+        static::deleting(function ($product) {
+            $firstImage = $product->images()->first();
+
+            if ($firstImage) {
+                $path = public_path(dirname($firstImage->image_path));
+                if (File::exists($path)) {
+                    File::deleteDirectory($path);
+                }
+            }
+        });
     }
 }
