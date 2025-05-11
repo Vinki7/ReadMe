@@ -11,6 +11,7 @@ use App\Models\ProductImage;
 use App\Enums\Category;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
@@ -54,6 +55,7 @@ class AdminController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'price' => 'required|numeric|min:0',
+            'category'    => ['required', Rule::in(array_column(Category::cases(), 'value'))],
             'publisher' => 'nullable|string',
             'isbn' => 'nullable|string|max:255',
             'publication_date' => 'nullable|date',
