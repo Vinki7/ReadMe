@@ -82,8 +82,7 @@ class ProductRepository implements IRepository
             $query->where(function ($q) use ($search) {
                 $q->whereRaw('LOWER(title) LIKE ?', ["%{$search}%"])
                     ->orWhereHas('authors', fn ($q2) => 
-                        $q2->whereRaw('LOWER(name) LIKE ?', ["%{$search}%"])
-                            ->orWhereRaw('LOWER(surname) LIKE ?', ["%{$search}%"])
+                        $q2->whereRaw("LOWER(CONCAT(name, ' ', surname)) LIKE ?", ["%{$search}%"])
                     );
             });
         }
