@@ -55,7 +55,7 @@ class AdminController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'price' => 'required|numeric|min:0',
-            'category'    => ['required', Rule::in(array_column(Category::cases(), 'value'))],
+            'category' => ['required', Rule::in(array_column(Category::cases(), 'value'))],
             'publisher' => 'nullable|string',
             'isbn' => 'nullable|string|max:255',
             'publication_date' => 'nullable|date',
@@ -161,4 +161,67 @@ class AdminController extends Controller
         return redirect()->route('admin.listing')->with('success', 'Author added.');
     }
 
+    public function createProduct()
+    {   
+        $allAuthors = Author::all();
+        $categories = Category::cases();
+        return view('admin.create-product', compact('allAuthors', 'categories'));
+    }
+
+    public function storeProduct(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            'category' => ['required', Rule::in(array_column(Category::cases(), 'value'))],
+            'authors' => 'required|array',
+            'publisher' => 'nullable|string|max:255',
+            'isbn' => 'nullable|string|max:255',
+            'publication_date' => 'nullable|date',
+            'language' => 'nullable|string|max:255',
+            'images.*' => 'nullable|image|mimes:png',
+        ]);
+        
+        $validated['id'] = Str::uuid()->toString();
+
+        $product = Product::create($validated);
+        $product->authors()->sync($validated['authors']);
+
+       // Set directory from product title
+        $product->directory = Str::slug($product->title);
+        $product->save();
+
+        // Create directory path
+        $folder = "images/products/{$product->directory}";
+        File::ensureDirectoryExists(public_path($folder));
+
+        // Save images
+        foreach (['front_cover', 'book_insights', 'full_book', 'back_cover'] as $type) {
+            if ($request->hasFile("images.$type")) {
+                $filename = match ($type) {
+                    'front_cover' => 'front-cover.png',
+                    'book_insights' => 'book-insights.png',
+                    'full_book' => 'full-book.png',
+                    'back_cover' => 'back-cover.png',
+                    default => null
+                };
+
+                if ($filename) {
+                    $relativePath = "$folder/$filename";
+                    $fullPath = public_path($relativePath);
+
+                    $request->file("images.$type")->move(public_path($folder), $filename);
+
+                    ProductImage::create([
+                        'id' => Str::uuid()->toString(),
+                        'product_id' => $product->id,
+                        'image_path' => $relativePath,
+                    ]);
+                }
+            }
+        }
+        
+        return redirect()->route('admin.listing')->with('success', 'Product created successfully.');
+    }
 }
